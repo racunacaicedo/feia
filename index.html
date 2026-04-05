@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIA -  Fundación para la enseñanza de Inteligencia Artificial en América Latina</title>
+
+    <meta name="google-site-verification" content="HquHJbCnJSmtXU55nfz61J6Ijj-42Hfr6LkSfURAa7Q" />
+
+ <!-- Meta Descripción -->
+    <meta name="description" content="Fundación para la Enseñanza de la Inteligencia Artificial en América Latina. Promovemos el aprendizaje ético y la inclusión tecnológica mediante IA.">
+
+    <!-- Meta Keywords (opcional) -->
+    <meta name="keywords" content="inteligencia artificial, educación, América Latina, ética en IA, innovación tecnológica">
+
+    <!-- Meta Autor -->
+    <meta name="author" content="FEIA - Fundación para la Enseñanza de la Inteligencia Artificial en América Latina">
+
+    <!-- Meta Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags (para redes sociales) -->
+    <meta property="og:title" content="FEIA - Fundación para la Enseñanza de la Inteligencia Artificial en América Latina">
+    <meta property="og:description" content="Promovemos el aprendizaje ético y la inclusión tecnológica mediante inteligencia artificial en América Latina.">
+    <meta property="og:image" content="https://feiaal.org/imagenes/feiaal.png"> <!-- URL de una imagen destacada -->
+    <meta property="og:url" content="https://feiaal.org">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FEIA - Fundación para la Enseñanza de la Inteligencia Artificial en América Latina">
+    <meta name="twitter:description" content="Promovemos el aprendizaje ético y la inclusión tecnológica mediante inteligencia artificial en América Latina.">
+    <meta name="twitter:image" content="https://feiaal.org/imagenes/feiaal.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://feiaal.org">
+
+
+
+    <!-- Archivos CSS y JS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="js/translations.js"></script>
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+        <main>
+            <!-- Sección de bienvenida -->
+            <section id="videos-en-fila" class="hero">
+                <div class="video-row">
+                    <!-- Primer Video -->
+                    <div class="video-container">
+                        <video autoplay loop muted>
+                            <source src="videos/video1.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de videos.
+                        </video>
+                       <!--  <div class="cta-buttons">
+                            <a href="#servicios" class="btn">Explorar Cursos</a>
+                        </div>-->
+                    </div>
+                    <!-- Segundo Video -->
+                    <div class="video-container">
+                        <video autoplay loop muted>
+                            <source src="videos/video2.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de videos.
+                        </video>
+                       <!--  <div class="cta-buttons">
+                            <a href="#eventos" class="btn">Ver Eventos</a>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Sobre Nosotros -->
+            <section id="sobre-nosotros" class="section">
+                <div class="container">
+                    <h2 class="section-title">Quienes somos</h2>
+
+                    <!-- Misión -->
+                    <div class="about-item about-mission">
+                        <img src="imagenes/mision.jpg" alt="Misión" class="about-image">
+                        <h2>Mision</h2>
+                        <p class="about-text">Promover la enseñanza, el desarrollo y la aplicación ética de la inteligencia artificial en América
+                            Latina, impulsando la innovación educativa, la inclusión tecnológica y la investigación aplicada para reducir la brecha digital
+                            y contribuir al progreso sostenible en la región.</p>
+                    </div>
+                    <hr class="divider">
+
+                    <!-- Visión -->
+                    <div class="about-item about-vision">
+                        <p class="about-text">Ser el referente líder en América Latina en educación, investigación e implementación de inteligencia
+                            artificial, transformando vidas y comunidades mediante el conocimiento, la tecnología y la colaboración, y construyendo una sociedad
+                            más equitativa, conectada e innovadora.</p>
+                        <h2>Vision</h2>
+                        <img src="imagenes/vision.jpg" alt="Visión" class="about-image">
+                    </div>
+
+                    <!-- Línea divisoria -->
+                    <div class="elegant-divider"></div>
+                </div>
+            </section>
+
+
+
+            <!-- Sección Nuestros Valores -->
+            <!-- Sección Nuestros Valores -->
+
+            <section id="nuestros-valores" class="section">
+                <div class="container">
+                    <h2 class="section-title">Nuestros Valores</h2>
+
+                    <!-- Valores individuales -->
+                    <div class="values-item">
+                        <h3 class="values-subtitle">Innovación</h3>
+                        <p class="values-text">La innovación es el motor de nuestras acciones, destacando la inteligencia artificial como herramienta transformadora en todos
+                            los campos del conocimiento, desde la educación hasta la industria y las artes. Inspiramos la creatividad tecnológica y desarrollamos
+                            soluciones que promuevan el progreso y el desarrollo sostenible en la región.</p>
+                    </div>
+
+                    <div class="values-item">
+                        <h3 class="values-subtitle">Inclusión</h3>
+                        <p class="values-text">Trabajamos para cerrar la brecha digital y democratizar el acceso al conocimiento. La inteligencia artificial permite crear oportunidades
+                            para estudiantes, profesionales y comunidades vulnerables, asegurando que todos participen y prosperen en un mundo digital sin exclusiones.</p>
+                    </div>
+
+                    <div class="values-item">
+                        <h3 class="values-subtitle">Ética</h3>
+                        <p class="values-text">Promovemos un uso responsable de la inteligencia artificial, guiado por principios de equidad, transparencia y bienestar social. Garantizamos
+                            que su aplicación respete la dignidad humana, fomente el desarrollo equitativo y minimice riesgos, impactando positivamente en todos los sectores
+                            de la sociedad.</p>
+                    </div>
+
+                    <div class="values-item">
+                        <h3 class="values-subtitle">Colaboración</h3>
+                        <p class="values-text">Construimos alianzas estratégicas con instituciones educativas, organizaciones internacionales, empresas tecnológicas, gobiernos, y ONGs para
+                            maximizar el impacto de nuestras iniciativas. Creemos en el trabajo conjunto para resolver desafíos complejos y crear un ecosistema inclusivo
+                            que posicione a América Latina como líder en innovación tecnológica.</p>
+                    </div>
+                </div>
+                <!-- Línea divisoria -->
+                <div class="elegant-divider"></div>
+            </section>
+
+
+<!-- Servicios-->
+<section id="servicios-feiaal" class="servicios-section">
+    <div class="servicios-container">
+        <h2 class="servicios-heading">Nuestros Servicios</h2>
+        <p class="servicios-intro">
+            La fundación ofrece servicios especializados en educación, investigación y consultoría en inteligencia artificial,
+            fomentando el aprendizaje y el uso ético de esta tecnología en América Latina.
+        </p>
+
+        <div class="servicios-grid">
+            <div class="servicio-card servicio-card1">
+                <a href="https://feiaal.org/biblioteca.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-landmark"></i>
+                        <h3>Biblioteca de herramientas de Inteligencia artificial</h3>
+                        <p>
+                            Hemos recopilado y organizado las principales herramientas de inteligencia artificial
+                            disponibles, acompañadas de su guía, y las hemos puesto al alcance de los usuarios del
+                            sitio. Nuestro propósito es promover el acceso a la tecnología, promoviendo una inclusión
+                            tecnológica equitativa.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card2">
+                <a href="https://feiaal.org/tienda.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>Libros</h3>
+                        <p>
+                            Ofrecemos una variedad de libros desarrollados por miembros de la fundación como por
+                            autores particulares adaptados a distintos niveles de conocimiento, abarcando y áreas
+                            del saber. Quienes integran la inteligencia artificial como una herramienta clave para
+                            potenciar el aprendizaje y su aplicación práctica en múltiples disciplinas.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card3">
+                <a href="https://feiaal.org/tienda.html#cursos-en-venta">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-book-reader"></i>
+                        <h3>Programas de capacitación</h3>
+                        <p>
+                            Ofrecemos programas de formación creados por miembros de la fundación y autores independientes,
+                            basados en inteligencia artificial y diseñados para estudiantes, docentes, profesionales y organizaciones.
+                            Nuestros cursos están estructurados para brindar un aprendizaje ajustado a distintos niveles, fomentando
+                            el desarrollo de habilidades clave en diversas áreas del conocimiento.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card4">
+                <a href="https://feiaal.org/oportunidades.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-person-chalkboard"></i>
+                        <h3>Becas y conocimiento</h3>
+                        <p>
+                            Ponemos a tu disposición una sección con enlaces a entidades que otorgan becas a quienes las soliciten,
+                            permitiéndote estudiar cursos y carreras completas. También puedes acceder a canales de influencers
+                            reconocidos y a las páginas de las universidades más prestigiosas del mundo.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card5">
+                <a href="https://feiaal.org/tienda.html#productos-electronicos">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h3>Guía de compras tecnológicas</h3>
+                        <p>
+                            Te ofrecemos asesoría gratuita para la compra directa de equipos tecnológicos con proveedores
+                            internacionales, incluyendo computadoras, pantallas y más.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card6">
+                <a href="https://feiaal.org/blog.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-blog"></i>
+                        <h3>Blog</h3>
+                        <p>
+                            En el blog de FEIAAL encontrarás una selección de artículos tecnológicos de actualidad,
+                            escritos por especialistas en diversas áreas del conocimiento y su relación con la
+                            inteligencia artificial. Además, te ofrecemos una recopilación de blogs y sitios web de
+                            las principales empresas tecnológicas e instituciones a nivel mundial.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card7">
+                <a href="https://feiaal.org/tienda.html#servicios">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h3>Servicios</h3>
+                        <p>
+                            Te brindamos asesoría en el desarrollo de proyectos, aplicaciones, sitios web, libros y cualquier
+                            otra creación que pueda optimizarse con herramientas de inteligencia artificial. Nuestro equipo de
+                            expertos te acompaña en cada etapa, desde la planificación hasta la implementación, garantizando
+                            soluciones innovadoras, eficientes y adaptadas a tus necesidades.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card8">
+                <a href="https://feiaal.org/eventos.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-calendar-alt"></i>
+                        <h3>Eventos y Conferencias Internacionales</h3>
+                        <p>
+                            Organizamos conjuntamente con nuestros socios estratégicos y organizaciones afines, foros,
+                            simposios y congresos sobre inteligencia artificial e innovación tecnológica, reuniendo a
+                            expertos, académicos y líderes de diversos sectores para compartir conocimientos y tendencias
+                            globales.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card9">
+                <a href="https://feiaal.org/socios.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Socios estratégicos</h3>
+                        <p>
+                            Tanto FEIA como sus socios ofrecemos asesoría técnica para atender tus requerimientos tecnológicos,
+                            de capacitación y otros susceptibles de automatización con inteligencia artificial, impulsando la
+                            innovación y el desarrollo.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Posts ocultos inicialmente con la clase .hidden -->
+            <div class="servicio-card servicio-card10 hidden">
+                <a href="https://feiaal.org/socios.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-handshake"></i>
+                        <h3>Alianzas estratégicas</h3>
+                        <p>
+                            Tanto FEIA como sus socios ofrecemos asesoría técnica para atender tus requerimientos tecnológicos,
+                            de capacitación y otros susceptibles de automatización con inteligencia artificial, impulsando la
+                            innovación y el desarrollo.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card11 hidden">
+                <a href="https://feiaal.org/proyectos.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <h3>Desarrollo de proyectos</h3>
+                        <p>
+                            Colaboramos con universidades, gobierno nacional, autoridades provinciales y locales, ONGs y
+                            empresas para desarrollar proyectos de investigación que aprovechen la
+                            inteligencia artificial para enfrentar desafíos locales y regionales.
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="servicio-card servicio-card12 hidden">
+                <a href="https://feiaal.org/eventos.html">
+                    <div class="servicio-content">
+                        <i class="fa-solid fa-cogs"></i>
+                        <h3>Consultoría técnica</h3>
+                        <p>
+                            Te brindamos asesoría en el desarrollo de proyectos, aplicaciones, sitios web, libros y cualquier
+                            otra creación que pueda optimizarse con herramientas de inteligencia artificial. Nuestro equipo de
+                            expertos te acompaña en cada etapa, desde la planificación hasta la implementación, garantizando
+                            soluciones innovadoras, eficientes y adaptadas a tus necesidades.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contenedor de los botones -->
+        <div class="servicios-botones" style="text-align: center; margin-top: 2rem;">
+            <!-- Botón "Ver más" -->
+            <a href="#contacto" class="servicios-vermas">Ver más</a>
+
+            <!-- Botón de descarga del PDF con solo ícono -->
+            <a href="documentos/servicios.pdf" class="servicios-btnver">
+                <i class="fas fa-eye"></i>
+            </a>
+
+            <!-- Botón "Ver menos" (oculto al inicio) -->
+            <a href="#contacto" class="servicios-vermenos hidden">Ver menos</a>
+        </div>
+
+        <!-- Línea divisoria -->
+        <div class="elegant-divider"></div>
+    </div>
+</section>
+
+<section id="noticias" class="news-ticker">
+    <div class="news-container">
+        <div class="news-content" id="news-content">
+            <!-- Las noticias se cargarán dinámicamente aquí -->
+        </div>
+    </div>
+</section>
+
+
+    <!-- Eventos -->
+    <!-- Sección Eventos -->
+    <section id="eventos" class="events-section">
+        <div class="events-container">
+            <h2  class="servicios-heading">Eventos Destacados</h2>
+            <p class="events-text">Explora nuestros eventos y cursos destacados, diseñados para transformar tu aprendizaje en el mundo
+                académico y de la inteligencia artificial. Desde talleres prácticos hasta foros con expertos, cada experiencia te acerca
+                al futuro. Haz clic en cualquiera para descubrir más y ser parte del cambio.</p>
+            <div class="events-grid">
+                <!-- Tarjeta de Evento -->
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento1.jpg" alt="Evento 1" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Curso de tesis y articulos cientificos con IA</h3>
+                        <p class="event-description">Escribe tu tesis o publica artículos científicos en revistas de alto impacto .</p>
+                        <a href="https://www.creinti.com/carta_curso_tesis_general.html" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+                <!-- Tarjeta de Evento -->
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento2.png" alt="Evento 2" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">CES</br> Consumer Electronics Show</h3>
+                        <p class="event-description">🇺🇸 Las Vegas, EE.UU, 📅 Enero | 🌟 Mayor feria de tecnología de consumo y electrónica.</p>
+                        <a href="https://www.ces.tech/" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento3.png" alt="Evento 6" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">MWC</br> Mobile World Congress</h3>
+                        <p class="event-description"> 🇪🇸 Barcelona, España, 📅 Febrero | 📱 Líder en innovación móvil, telecomunicaciones y 5G</p>
+                        <a href="https://www.mwcbarcelona.com" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento4.png" alt="Evento 4" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Google I/0</h3>
+                        <p class="event-description">🇺🇸 Mountain View, EE.UU, 📅 Mayo | 🖥️ Novedades en software, IA y productos de Google.</p>
+                        <a href="https://io.google/2025/" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento5.png" alt="Evento 5" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Viva technology</h3>
+                        <p class="event-description">París, Francia, 📅 junio  | 🖥️  Innovación, startups, inteligencia artificial, movilidad, sostenibilidad, Web3, ciberseguridad y más. </p>
+                        <a href="https://vivatechnology.com/" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+
+
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento6.png" alt="Evento 6" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Gartner IT Symposium/Xpo</br> Worldwide Developers Conference</h3>
+                        <p class="event-description">🇺🌍 Varios países, 📅 Octubre | 📈 Tendencias en TI, transformación digital y estrategias empresariales.</p>
+                        <a href="https://www.gartner.com/en/conferences/emea/symposium-spain" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento7.png" alt="Evento 5" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Web summit</h3>
+                        <p class="event-description">🇵🇹 Lisboa, Portugal, 📅 Noviembre | 🚀 Startups, inversión y tecnología de vanguardia.</p>
+                        <a href="https://websummit.com/" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+
+                <!-- Repetir con otras tarjetas -->
+                <div class="event-card">
+                    <img src="imagenes/eventos/evento8.png" alt="Evento 3" class="event-image">
+                    <div class="event-info">
+                        <h3 class="event-title">Congreso America Digital</h3>
+                        <p class="event-description">🇨🇱 🇲🇽 Chile & México,📅 Abril | Transformación digital, telecomunicaciones, IA, fintech, ciberseguridad y más.  </p>
+                        <a href="https://congreso.america-digital.com/" class="event-link">Ver Más</a>
+                    </div>
+                </div>
+
+            </div>
+                    <!-- Línea divisoria -->
+                    <div class="elegant-divider"></div>        </div>
+    </section>
+
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-container">
+            <h2  class="servicios-heading">Contacto</h2>
+            <p class="contact-text">¡Estamos aquí para ti! En la Fundación para la Enseñanza de la Inteligencia Artificial en América Latina,
+                creemos en la colaboración para transformar vidas. Si tienes preguntas, ideas o necesitas orientación sobre cómo aprovechar
+                la inteligencia artificial de manera ética y efectiva, no dudes en escribirnos. Llena el formulario y uno de nuestros expertos
+                se pondrá en contacto contigo muy pronto. También puedes escribirnos directamente vía WhatsApp haciendo clic en el botón de la
+                aplicación.</p>
+            <form id="contact-form" class="contact-form">
+                <div class="contact-grid">
+                    <div class="contact-field">
+                        <label for="name" class="contact-label">Nombre:</label>
+                        <input type="text" id="name" name="name" class="contact-input" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label for="email" class="contact-label">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" class="contact-input" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label for="phone" class="contact-label">Número de Celular:</label>
+                        <input type="tel" id="phone" name="phone" class="contact-input" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label for="country" class="contact-label">País:</label>
+                        <select id="country" name="country" class="contact-select" required>
+                            <option value="" disabled selected>Selecciona tu país</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="bolivia">Bolivia</option>
+                            <option value="chile">Chile</option>
+                            <option value="colombia">Colombia</option>
+                            <option value="ecuador">Ecuador</option>
+                            <option value="paraguay">Paraguay</option>
+                            <option value="peru">Perú</option>
+                            <option value="uruguay">Uruguay</option>
+                            <option value="venezuela">Venezuela</option>
+                            <option value="eeuu">EEUU</option>
+                            <option value="CANADA">Canada</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="contact-field contact-full-width">
+                        <label for="message" class="contact-label">Mensaje:</label>
+                        <textarea id="message" name="message" class="contact-textarea" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="contact-button">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+
+<section id="socios" class="socios-section">
+    <h2 style="text-align: center; color: #fff; margin-bottom: 1rem;">Nuestros Socios</h2>
+    <div class="socios-container">
+        <div class="socios-track">
+            <a href="https://www.creinti.com">
+                <img src="imagenes/socios/socio1.jpg" alt="Socio 1" class="socio-logo">
+            </a>
+            <img src="imagenes/socios/socio2.png" alt="Socio 2" class="socio-logo">
+            <img src="imagenes/socios/socio3.jpg" alt="Socio 3" class="socio-logo">
+            <a href="https://ityainventiva.com/">
+                <img src="imagenes/socios/socio4.jpeg" alt="Socio 1" class="socio-logo">
+            </a>
+            <a href="https://utm.edu.ec/">
+                <img src="imagenes/socios/socio5.jpg" alt="Socio 5" class="socio-logo">
+            </a>
+            <img src="imagenes/socios/socio1.jpg" alt="Socio 6" class="socio-logo">
+            <img src="imagenes/socios/socio2.png" alt="Socio 7" class="socio-logo">
+            <img src="imagenes/socios/socio3.jpg" alt="Socio 8" class="socio-logo">
+            <img src="imagenes/socios/socio4.jpeg" alt="Socio 9" class="socio-logo">
+            <img src="imagenes/socios/socio5.jpg" alt="Socio 10" class="socio-logo">
+        </div>
+    </div>
+</section>
+
+
+
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+        <!-- Google Translate Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const languageOptions = document.getElementById('language-options');
+                const contentElements = {
+                    title: document.title,
+                    header: document.querySelector('.main-header'),
+                    subheader: document.querySelector('.subheader'),
+                    menu: document.querySelectorAll('nav ul li a'),
+                    aboutUsTitle: document.querySelector('#sobre-nosotros .section-title'),
+                    missionTitle: document.querySelector('.about-mission h2'),
+                    missionText: document.querySelector('.about-mission p'),
+                    visionTitle: document.querySelector('.about-vision h2'),
+                    visionText: document.querySelector('.about-vision p'),
+                    valuesTitle: document.querySelector('#nuestros-valores .section-title'),
+                    valuesItems: document.querySelectorAll('.values-item p'),
+                    contactTitle: document.querySelector('#contacto .section-title'),
+                    contactText: document.querySelector('#contacto .contact-text'),
+                    sendButton: document.querySelector('#contact-form button'),
+                    moreButton: document.querySelector('.vermas'),
+                    lessButton: document.querySelector('.vermenos')
+                };
+
+                // Función para cambiar el idioma
+                function changeLanguage(lang) {
+                    const texts = translations[lang];
+                    if (!texts) return;
+
+                    // Actualizar contenido
+                    document.title = texts.title;
+                    contentElements.header.textContent = texts.header;
+                    contentElements.subheader.textContent = texts.subheader;
+
+                    contentElements.menu.forEach((el, index) => {
+                        el.textContent = texts.menu[index];
+                    });
+
+                    contentElements.aboutUsTitle.textContent = texts.aboutUsTitle;
+                    contentElements.missionTitle.textContent = texts.missionTitle;
+                    contentElements.missionText.textContent = texts.missionText;
+                    contentElements.visionTitle.textContent = texts.visionTitle;
+                    contentElements.visionText.textContent = texts.visionText;
+
+                    contentElements.valuesTitle.textContent = texts.valuesTitle;
+                    const valuesKeys = Object.keys(texts.values);
+                    contentElements.valuesItems.forEach((item, index) => {
+                        item.textContent = texts.values[valuesKeys[index]];
+                    });
+
+                    contentElements.contactTitle.textContent = texts.contactTitle;
+                    contentElements.contactText.textContent = texts.contactText;
+                    contentElements.sendButton.textContent = texts.sendButton;
+                    contentElements.moreButton.textContent = texts.moreButton;
+                    contentElements.lessButton.textContent = texts.lessButton;
+                }
+
+                // Manejar selección de idioma
+                languageOptions.querySelectorAll('li').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const selectedLang = item.getAttribute('data-lang');
+                        changeLanguage(selectedLang);
+                        alert(`Idioma cambiado a: ${item.textContent}`);
+                    });
+                });
+            });
+        </script>
+
+
+        <!-- Script para controlar "Ver más" y "Ver menos" -->
+        <script>
+          // Botón "Ver más"
+          const verMasBtn = document.querySelector('.vermas');
+          // Botón "Ver menos"
+          const verMenosBtn = document.querySelector('.vermenos');
+          // Posts ocultos (7, 8, 9)
+          const hiddenPosts = document.querySelectorAll('.post7.hidden, .post8.hidden, .post9.hidden');
+
+          // Evento: clic en "Ver más"
+          verMasBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Quitar .hidden a los posts (se muestran)
+            hiddenPosts.forEach(post => post.classList.remove('hidden'));
+            // Ocultar "Ver más", mostrar "Ver menos"
+            verMasBtn.style.display = 'none';   // Se oculta totalmente
+            verMenosBtn.classList.remove('hidden'); // Se muestra "Ver menos"
+          });
+
+          // Evento: clic en "Ver menos"
+          verMenosBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Volver a poner .hidden a los posts (se ocultan)
+            hiddenPosts.forEach(post => post.classList.add('hidden'));
+            // Mostrar "Ver más", ocultar "Ver menos"
+            verMasBtn.style.display = 'inline-block';
+            verMenosBtn.classList.add('hidden');
+          });
+        </script>
+
+         <script>
+            async function fetchGoogleNews() {
+                try {
+                    const rssFeed = 'https://news.google.com/rss/search?q=inteligencia+artificial+economía&hl=en-US&gl=US&ceid=US:en';
+                    const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeed)}`;
+
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    if (!data.items) throw new Error("No se encontraron noticias.");
+
+                    const newsContent = document.getElementById('news-content');
+                    newsContent.innerHTML = '';
+
+                    data.items.slice(0, 5).forEach(article => {
+                        const newsItem = document.createElement('div');
+                        newsItem.classList.add('news-item');
+                        newsItem.innerHTML = `<a href="${article.link}" >${article.title}</a>`;
+                        newsContent.appendChild(newsItem);
+                    });
+
+                } catch (error) {
+                    console.error("Error obteniendo noticias:", error);
+                    document.getElementById('news-content').innerHTML = '<p style="color: red;">No se pudieron cargar las noticias.</p>';
+                }
+            }
+
+            fetchGoogleNews();
+            setInterval(fetchGoogleNews, 60000); // Actualizar cada 60 segundos
+        </script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "FEIA - Fundación para la Enseñanza de la Inteligencia Artificial en América Latina",
+            "url": "https://feiaal.org",
+            "logo": "https://feiaal.org/imagenes/feiaal.png",
+            "sameAs": [
+                "https://www.facebook.com/feiaal",
+                "https://www.instagram.com/feiaal",
+                "https://www.linkedin.com/company/feiaal"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dirección de la fundación",
+                "addressLocality": "Ciudad",
+                "addressCountry": "País"
+            }
+        }
+        </script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=10424665978"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PS34S9QRVV');
+        </script>
+    </body>
+</html>

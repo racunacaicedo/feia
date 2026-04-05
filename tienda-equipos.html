@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+
+        <section id="tienda">
+            <!-- Reemplazar el div de categorías con este código -->
+            <div class="categorias menu-categorias-carousel">
+              <div class="menu-carousel">
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-libros.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <span>Libros</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-cursos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <span>Cursos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-servicios.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <span>Servicios</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-aplicaciones.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <span>Apps</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-equipos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-laptop"></i>
+                  </div>
+                  <span>Dispositivos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/eventos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <span>Eventos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-store"></i>
+                  </div>
+                  <span>Tienda</span>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section id="tienda">
+        <section id="libros">
+            <h3 style="color: #ff9100;">Productos de Amazon</h3>
+            <p class="directory-description">
+                En esta sección encontrarás una selección de productos electrónicos de Amazon, muchos de los cuales
+                pueden enviarse a América Latina. Ten en cuenta que esta recomendación no implica ningún costo adicional
+                para ti al momento de realizar tu compra.
+                </p>
+            <div class="fila-cursos">
+                <div class="curso">
+                    <a href="https://amzn.to/46qnZBh">
+                        <img src="imagenes/tienda/pe_laptop5.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$299,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/46qnZBh';">
+                        Computadora portátil, Windows 11 Pro Laptop, 13.5" 2K (2256 x 1504) Pantalla IPS, Intel Core i7-1065G7
+                        de cuatro núcleos (hasta 3.9 GHz), 8 GB LPDDR4 RAM 256GB SSD, WiFi 6, tipo C, huella
+                    </button>
+                </div>
+
+                <div class="curso">
+                    <a href="https://amzn.to/46kZsgT">
+                        <img src="imagenes/tienda/pe_laptop6.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$397,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/46kZsgT';">
+                        Portátil para juegos FHD IPS de 15.6 pulgadas, Core i5-12450H (8C/12T, hasta 4.40GHz), 16GB DDR4 1TB PCIe SSD,
+                        computadora portátil empresarial 2024, teclado retroiluminado, huella digital, WiFi 6, BT
+                    </button>
+                </div>
+
+                <div class="curso">
+                    <a href="https://amzn.to/3LlQacc">
+                        <img src="imagenes/tienda/pe_laptop7.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$749,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/4npi2up';">
+                        ASUS Vivobook 14 Flip Laptop Copilot+ PC, 14” OLED WUXGA 60Hz Touch Display, Intel® Core™ Ultra 5 226V,
+                        Intel® Arc™ Graphics, 16GB Memory, 512GB Storage, Windows 11, Matte Gray, TP3407SA-ES54T
+                    </button>
+                </div>
+
+                <div class="curso">
+                    <a href="https://amzn.to/4onNSI2">
+                        <img src="imagenes/tienda/pe_laptop8.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$1397,91</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/3Gq5jqH';">
+                        SAMSUNG 14” Galaxy Book3 Pro Laptop PC Computer, 13th Gen Intel Core i7-1360P Processor / 16GB / 512GB,
+                        3K AMOLED Screen, 120hz, Fingerprint Reader, FHD Webcam, 2023 Model, NP940XFG-KC2US, Graphite
+                    </button>
+                </div>
+                <div class="curso">
+                    <a href="https://amzn.to/44s1ycd">
+                        <img src="imagenes/tienda/pe_laptop10.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$1149,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/44s1ycd';">
+                        Acer Nitro V Laptop para juegos | Procesador Intel Core i9-13900H | GPU NVIDIA GeForce RTX 5060 para portátil |
+                        Pantalla FHD IPS de 15.6 pulgadas de 144 Hz | DDR5 de 16 GB | SSD de 1TB Gen 4 | WiFi 7, Windows 11
+                    </button>
+                </div>
+
+                <!-- Segunda fila laptop -->
+					<!-- Computadora 6 -->
+
+                    <div class="curso">
+                    <a href="https://amzn.to/44oVjWI">
+                        <img src="imagenes/tienda/pe_laptop9.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$1.496,60</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/44oVjWI';">
+                        ASUS Portátil para juegos ROG Strix G16, pantalla FHD 16:10 de 16 pulgadas, 165 Hz, NVIDIA® GeForce RTX™
+                        4060, Intel Core i7-13650HX, DDR5 de 16 GB, SSD PCIe Gen4 de 1 TB, Wi-Fi 6.
+                    </button>
+                </div>
+
+				<!-- Computadora 7 -->
+                <div class="curso">
+                    <a href="https://amzn.to/43JOTlq">
+                        <img src="imagenes/tienda/pe_laptop2.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$949,00</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/3ZYJkhn';">
+                        HP ProBook 460 G11 16" Notebook - WUXGA - Intel Core Ultra 7 155U - vPro Technology - 32 GB - 1 TB SSD -
+                        English Keyboard - Pike Silver Aluminum
+                    </button>
+                </div>
+
+                <!-- Computadora 8 -->
+                <div class="curso">
+                    <a href="https://amzn.to/47s3Fj6">
+                        <img src="imagenes/tienda/pe_laptop1.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$2.299,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/4lt0V9i';">
+                        Portátil para juegos ASUS ROG Strix G16 (2024), 16” 16:10 QHD 240Hz, GeForce RTX 4070, Intel® Core™
+                        i9-14900HX, 32GB DDR5, 1TB PCIe SSD, Wi-Fi 6E, Windows 11 Pro, G614JIR-XS96
+                    </button>
+                </div>
+
+                <!-- Computadora 9 -->
+                <div class="curso">
+                    <a href="https://amzn.to/4944wYC">
+                        <img src="imagenes/tienda/pe_laptop11.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$1.899,00</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/3ThPcP1';">
+                        ASUS ROG Strix G16 (2025) Gaming Laptop, 16” ROG Nebula Display 16:10 2.5K 240Hz/3ms, NVIDIA® GeForce
+                        RTX™ 5060 Laptop GPU, Intel® Core™ Ultra 9 Processor 275HX, 32GB DDR5, 1TB PCIe SSD, Wi-Fi 7
+                    </button>
+                </div>
+
+                <!-- Computadora 10 -->
+                <div class="curso">
+                    <a href="https://amzn.to/43NuV9l">
+                        <img src="imagenes/tienda/pe_laptop4.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$1.590,19</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/3I7gqW8';">
+                        MSI Crosshair A16 HX 16" QHD+ 240Hz Gaming Laptop: AMD Ryzen 9-8940HX, NVIDIA Geforce RTX 5060, 16GB DDR5,
+                        1TB NVMe SSD, Type C, Wi-Fi 6E, Win 11 Home: Cosmo Gray D8WFKG-090US
+                    </button>
+                </div>
+
+            </div>
+
+            <h3 style="color: #ff9100;">Pantallas</h3>
+            <div class="fila-cursos">
+
+                <!-- Pantalla 1 -->
+                <div class="curso">
+                    <a href="https://amzn.to/49lUmmn">
+                        <img src="imagenes/tienda/pe_pantallas1.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$279,97</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/3TY0pnT';">
+                        Extensor de pantalla para portátil, monitor portátil mejorado de 15,6", extensor de pantalla triple FHD 1080p
+                        para portátiles, monitor doble desmontable para portátiles de 13" a 17", Plug & Play
+                    </button>
+                </div>
+
+                <!-- Pantalla 2 -->
+                <div class="curso">
+                    <a href="https://amzn.to/47YybRK">
+                        <img src="imagenes/tienda/pe_pantallas2.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$109,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/46pKQwJ';">
+                        Acer Nitro KG241Y Sbiip 23.8” Full HD (1920 x 1080) VA Gaming Monitor | AMD FreeSync Premium Technology |
+                        165Hz Refresh Rate | 1ms (VRB) | ZeroFrame Design | 1 x Display Port 1.2 & 2 x HDMI 2.0,Black
+                    </button>
+                </div>
+
+                <!-- Pantalla 3 -->
+                <div class="curso">
+                    <a href="hhttps://amzn.to/4hGY4sB">
+                        <img src="imagenes/tienda/pe_pantallas3.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$296,99</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/4eulAaJ';">
+                        LG 32GS60QC-B Ultragear 32-inch Curved Gaming Monitor QHD (2560x1440) 180Hz 1ms 1000R AMD FreeSync HDR10
+                        HDMIx2 DisplayPort Borderless Design Black Stabilizer DAS Crosshair FPS
+                    </button>
+                </div>
+
+                <!-- Pantalla 4 -->
+                <div class="curso">
+                    <a href="https://amzn.to/44jpVc0">
+                        <img src="imagenes/tienda/pe_pantallas4.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$348,19</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/44jpVc0';">
+                        SAMSUNG 34' Odyssey G5 Ultra-Wide Gaming Monitor with 1000R Curved Screen, 165Hz, 1ms, FreeSync Premium,
+                        Large Display, Eye Comfort, Multiple Ports, WQHD, LC34G55TWWNXZA, Black
+                    </button>
+                </div>
+
+                <!-- Pantalla 5 -->
+                <div class="curso">
+                    <a href="https://amzn.to/4esu4z3">
+                        <img src="imagenes/tienda/pe_pantallas5.jpg" alt="Machine Learning Avanzado" width="200" height="150">
+                    </a>
+                    <p class="curso-descripcion">$538,81</p>
+                    <button class="curso-btn" data-curso="ia-basica" onclick="window.location.href='https://amzn.to/4esu4z3';">
+                        Samsung 34” ViewFinity S65UC, Ultra-WQHD, 100Hz, AMD FreeSync™ HDR10, KVM Switch Built in Speakers with USB-C
+                        Curved Monitor, LS34C654UANXGO, 2025
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+                        const header = document.querySelector("header");
+        
+                        if (header) {
+                            // Eliminar cualquier clase que pueda hacer el header fijo
+                            header.classList.remove("fixed", "sticky");
+        
+                            // Establecer la posición como relativa para asegurarse de que no sea fija
+                            header.style.position = "relative";
+                            header.style.top = "auto";
+                        }
+                    }
+                });
+            </script>
+            <script>
+        // Script para destacado secuencial de iconos en el carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+          // Referencias a elementos
+          const menuItems = document.querySelectorAll('.menu-item');
+        
+          // Verificar que existan elementos
+          if (!menuItems.length) {
+            console.error('No se encontraron elementos del carrusel');
+            return;
+          }
+        
+          // Variables para el efecto de destacado
+          let currentIndex = 0;
+          const highlightDuration = 2000; // Duración en ms que cada elemento permanece destacado
+          const transitionDuration = 500; // Duración de la transición entre elementos
+          let highlightInterval;
+        
+          // Función para destacar un elemento
+          function highlightItem(index) {
+            // Primero, quitar el destacado de todos los elementos
+            menuItems.forEach(item => {
+              // Eliminar la clase de destacado
+              item.classList.remove('highlight');
+        
+              // Obtener los elementos de icono y texto
+              const iconEl = item.querySelector('.menu-icon');
+              const textEl = item.querySelector('span');
+        
+              // Restaurar estilos originales
+              if (iconEl) {
+                iconEl.style.backgroundColor = '';
+                iconEl.style.color = '';
+                iconEl.style.boxShadow = '';
+              }
+        
+              if (textEl) {
+                textEl.style.color = '';
+                textEl.style.fontWeight = '';
+              }
+            });
+        
+            // Destacar el elemento actual
+            const currentItem = menuItems[index];
+        
+            if (currentItem) {
+              // Añadir clase de destacado
+              currentItem.classList.add('highlight');
+        
+              // Aplicar estilos directamente para asegurar la sincronización
+              const iconEl = currentItem.querySelector('.menu-icon');
+              const textEl = currentItem.querySelector('span');
+        
+              if (iconEl) {
+                iconEl.style.backgroundColor = '#ff9100';
+                iconEl.style.color = 'white';
+                iconEl.style.boxShadow = '0 0 15px rgba(255, 145, 0, 0.6)';
+                iconEl.style.transform = 'translateY(-5px)';
+              }
+        
+              if (textEl) {
+                textEl.style.color = '#ff9100';
+                textEl.style.fontWeight = 'bold';
+              }
+            }
+          }
+        
+          // Función para iniciar el ciclo de destacado
+          function startHighlightCycle() {
+            // Limpiar intervalo existente
+            if (highlightInterval) {
+              clearInterval(highlightInterval);
+            }
+        
+            // Destacar el primer elemento
+            highlightItem(currentIndex);
+        
+            // Establecer intervalo para el ciclo de destacado
+            highlightInterval = setInterval(() => {
+              // Avanzar al siguiente elemento
+              currentIndex = (currentIndex + 1) % menuItems.length;
+        
+              // Destacar el siguiente elemento
+              highlightItem(currentIndex);
+            }, highlightDuration);
+          }
+        
+          // Detener el ciclo de destacado cuando se interactúa con los elementos
+          menuItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', () => {
+              // Detener el ciclo automático
+              clearInterval(highlightInterval);
+        
+              // Destacar solo el elemento actual
+              highlightItem(index);
+            });
+        
+            item.addEventListener('mouseleave', () => {
+              // Guardar el índice actual antes de reiniciar
+              currentIndex = index;
+        
+              // Reiniciar el ciclo automático
+              startHighlightCycle();
+            });
+          });
+        
+          // Iniciar el ciclo de destacado
+          startHighlightCycle();
+        
+          // Detener y reanudar el ciclo cuando la página no es visible
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              // Detener cuando la página no es visible
+              clearInterval(highlightInterval);
+            } else {
+              // Reanudar cuando la página es visible de nuevo
+              startHighlightCycle();
+            }
+          });
+        });
+            </script>
+        <script>
+        // Script para añadir elementos interactivos a la sección de libros
+        document.addEventListener('DOMContentLoaded', function() {
+          // Referencia a los elementos de la sección de libros
+          const librosSection = document.getElementById('libros');
+          const libros = document.querySelectorAll('.curso');
+        
+          if (!librosSection || !libros.length) return;
+        
+          // Añadir botón de compra a cada libro
+          libros.forEach((libro) => {
+            // Crear botón de compra
+            const comprarBtn = document.createElement('button');
+            comprarBtn.className = 'comprar-btn';
+            comprarBtn.textContent = '¡Comprar Ahora!';
+        
+            // Obtener el enlace original del libro
+            const originalLink = libro.querySelector('a')?.getAttribute('href') || '';
+        
+            // Asignar el mismo enlace al botón de compra
+            comprarBtn.addEventListener('click', function() {
+              window.location.href = originalLink;
+            });
+        
+            // Añadir el botón al contenedor del libro
+            libro.appendChild(comprarBtn);
+        
+            // Efecto de rotación 3D al mover el mouse sobre el libro
+            libro.addEventListener('mousemove', function(e) {
+              // Calcular posición relativa del mouse dentro del elemento
+              const rect = this.getBoundingClientRect();
+              const x = e.clientX - rect.left; // posición X dentro del elemento
+              const y = e.clientY - rect.top;  // posición Y dentro del elemento
+        
+              // Calcular rotación basada en la posición del mouse
+              // La rotación máxima es de 10 grados en cada dirección
+              const rotateY = ((x / rect.width) - 0.5) * 10;  // -5 a 5 grados
+              const rotateX = ((y / rect.height) - 0.5) * -10; // 5 a -5 grados (inverso para que sea natural)
+        
+              // Aplicar la transformación
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) translateY(-10px)`;
+            });
+        
+            // Restaurar posición original al salir del elemento
+            libro.addEventListener('mouseleave', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) translateY(0)';
+            });
+          });
+        
+          // Efecto de "foco de atención" que se mueve entre los libros
+          let spotlightIndex = 0;
+          const spotlightDuration = 5000; // 5 segundos por libro
+        
+          function moveSpotlight() {
+            // Quitar el foco anterior
+            libros.forEach(libro => {
+              libro.classList.remove('spotlight');
+            });
+        
+            // Aplicar foco al libro actual
+            if (libros[spotlightIndex]) {
+              libros[spotlightIndex].classList.add('spotlight');
+            }
+        
+            // Avanzar al siguiente libro
+            spotlightIndex = (spotlightIndex + 1) % libros.length;
+          }
+        
+          // Iniciar el movimiento del foco
+          setInterval(moveSpotlight, spotlightDuration);
+        
+          // Añadir CSS dinámico para el efecto de spotlight
+          const styleSheet = document.createElement('style');
+          styleSheet.innerHTML = `
+            .curso.spotlight {
+              animation: spotlight 2s infinite;
+              z-index: 5;
+            }
+        
+            @keyframes spotlight {
+              0%, 100% { box-shadow: 0 5px 15px rgba(255, 145, 0, 0.3); }
+              50% { box-shadow: 0 5px 30px rgba(255, 145, 0, 0.8); transform: translateY(-10px); }
+            }
+          `;
+          document.head.appendChild(styleSheet);
+        });
+        </script>
+
+</body>
+</html>

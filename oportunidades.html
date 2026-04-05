@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Becas</h2>
+                <p class="directory-description">
+                    Descubre instituciones destacadas que ofrecen becas para apoyar tu formación académica y crecimiento
+                    profesional en diversas áreas del conocimiento.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.1.fulbright.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Fundación Fulbright</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://fulbrightprogram.org" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.2.carolina.jpg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Fundación Carolina</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.fundacioncarolina.es" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.3.erasmis.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Programa Erasmus</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://erasmus-plus.ec.europa.eu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.4.oea.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Organización de Estados Americanos (OEA)</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="http://www.oas.org/es/becas/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.5.unesco.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">UNESCO</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.unesco.org/es/fellowships" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.6.banco.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Banco Mundial</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.worldbank.org/en/programs/scholarships/jj-wbgsp" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Segunda fila -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.7.senescyt.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Senescyt</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://siau.senescyt.gob.ec/convocatorias/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.8.chevening.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Programa Chevening</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.chevening.org/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.9.usa.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Education USA</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://educationusa.state.gov/#" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.10.cambridge.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Gates Cambridge</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.gatescambridge.org/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.11.stanford.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Stanford</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://es.collegedunia.com/usa/university/2074-stanford-university-stanford/scholarship?utm_source=chatgpt.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.12.scholarships.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">International <br/>scholarships</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.internationalscholarships.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <!-- Tercera fila -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/1.13.auip.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Auip</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.auip.org/es/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Personas que inspiran en redes sociales</h2>
+                <p class="directory-description">
+                    Explora perfiles de personas influyentes en redes sociales que motivan e inspiran con historias,
+                    consejos y experiencias auténticas.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.1.dante.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Dante Gebel</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@reflexiones.dante3" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.2.sandro.jpeg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Sandro Melendez</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@sandro_melendez" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.3.roberto.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Roberto Acuña</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@robertoacunacaicedo" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.4.alvaro.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Alvaro Edteam</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@edteam" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.5.diego.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Diego Vetencourt</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.instagram.com/diego.vetencourt?igsh=MTg0emNjZTkwb2lpOQ%3D%3D" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.6.platzi.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Platzi</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@aprendeconplatzi" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.7.bernado.jpg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Bernardo Fagot</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@bernardofagot" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.8.kenyi.jpg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Yokoi Kenji Diaz</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@yokoikenjidiaz" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.9.charlie.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Charli Sebastian</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@charl1sebastian" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.10.gustavo.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Gustavo Entrala</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.youtube.com/@gustavo-entrala" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.11.%20DotCSVLabs.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Dot CSV Lab </h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.youtube.com/@DotCSVLab/shorts" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.12.margarita.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Margarita Pasos</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tiktok.com/@margaritapasos" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Tercera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/2.13.FabricioChavarria.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Fabricio Echeverria</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.youtube.com/@fechever75" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Universidades del Mundo</h2>
+                <p class="directory-description">
+                    Según el World University Rankings 2025 de Times Higher Education, las 12 universidades más
+                    prestigiosas del mundo son:
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.1.oxford.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Universidad de Oxford</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.ox.ac.uk/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.2.stanford.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Universidad de Stanford</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.stanford.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.3.mit.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Instituto Tecnológico de Massachusetts (MIT)</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.mit.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.4.harvard.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Universidad de Harvard</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.harvard.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.5.cambridge.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Universidad de Cambridge</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.cam.ac.uk/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.6.princeton.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Universidad de Princeton</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.princeton.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                                        <!-- Segunda fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.7.caltech.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Instituto Tecnológico de California (Caltech)</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.caltech.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.8.imperial.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Imperial College London</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.imperial.ac.uk/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.9.berkeley.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Universidad de California, Berkeley</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.berkeley.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.10.yale.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Universidad de Yale</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.yale.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.11.ethz.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">ETH Zúrich</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://ethz.ch/en.html" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/3.12.tsinghua.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Universidad de Tsinghua</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.tsinghua.edu.cn/en/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Oportunidades de negocios</h2>
+                <p class="directory-description">
+                    Sitios especializados en importación y exportación a nivel mundial, donde puedes encontrar oportunidades de
+                    negocio, alianzas comerciales y nuevas opciones de mercado..
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/4.1.bvny.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Bolsa<br>valores<br>New York</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.nyse.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/4.2.made_in_china.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Made in china</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://es.made-in-china.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Estadísticas</h2>
+                <p class="directory-description">
+                    Sitios especializados en importación y exportación a nivel mundial, donde puedes encontrar oportunidades de
+                    negocio, alianzas comerciales y nuevas opciones de mercado..
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/6.1.we_are_social.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">We are <br> social</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://wearesocial.com/es/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/6.2.datosabiertoec.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Datos <br>abiertos <br>Ecuador</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://datosabiertos.presidencia.gob.ec/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/oportunidades/6.3.mineducacionec.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Ministerio <br>Educación <br>Ecuador</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://educacion.gob.ec/datos-abiertos/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container" title="Convertir texto, enlaces o productos en videos con avatares realistas.">>
+                <h2 class="directory-title">Aprendizaje</h2>
+                <p class="directory-description">
+                    Esta sección aborda el aprendizaje de herramientas informáticas y generales como base para mejorar
+                    productividad, eficiencia y autonomía, fortaleciendo competencias prácticas para enfrentar con éxito
+                    los desafíos académicos y profesionales actuales.
+
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Aplicación que enseña idiomas mediante lecciones cortas interactivas gamificadas personalizadas.">
+                        <img src="imagenes/oportunidades/5.1.little_language.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Little<br/>Language</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://labs.google/lll/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma educativa que enseña inteligencia artificial y modelos avanzados.">
+                        <img src="imagenes/oportunidades/5.2.antropicAcademia.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Academia <br/> Anthropic</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://anthropic.skilljar.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="sistema que añade memoria persistente a sesiones de IA, especialmente con asistentes como Claude Code.">
+                        <img src="imagenes/oportunidades/5.3.claude-mem.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Claude <br/> casos</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://claude-mem.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="ejemplos aplicados de cómo emplear esta IA en tareas reales para mejorar productividad, automatizar flujos de trabajo y resolver problemas concretos.">
+                        <img src="imagenes/oportunidades/5.3.claude-mem.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Claude <br/> mem</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://claude.com/resources/use-cases" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Repositorio con colección curada de habilidades y proyectos para Claude, mostrando ejemplos útiles y recursos para ampliar funcionalidades de esta IA.">
+                        <img src="imagenes/oportunidades/5.3.claude-mem.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Claude <br/> skill</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://github.com/travisvn/awesome-claude-skills" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Herramienta de Google que transforma materiales de estudio en experiencias personalizadas, interactivas y más fáciles de aprender.">
+                        <img src="imagenes/oportunidades/5.4.learnyourway.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">learnyourway</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://learnyourway.withgoogle.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma líder para explorar, compartir, probar y descargar modelos, datos y aplicaciones de inteligencia artificial.">
+                        <img src="imagenes/oportunidades/5.5.huggingface.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Huggingface</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://huggingface.co/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+            const header = document.querySelector("header");
+
+            if (header) {
+                // Eliminar cualquier clase que pueda hacer el header fijo
+                header.classList.remove("fixed", "sticky");
+
+                // Establecer la posición como relativa para asegurarse de que no sea fija
+                header.style.position = "relative";
+                header.style.top = "auto";
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

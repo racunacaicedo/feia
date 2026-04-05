@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+
+<section id="proyectos-lista" class="contenedor-principal">
+    <h2 class="titulo-seccion">Nuestros Proyectos</h2>
+    <p class="descripcion-seccion">Descubre los proyectos que estamos desarrollando para promover la enseñanza de la Inteligencia Artificial en América Latina.</p>
+
+    <div class="grid-proyectos">
+        <!-- Proyecto 1 -->
+        <div class="tarjeta-proyecto">
+            <div class="contenido-proyecto">
+                <h3 class="titulo-proyecto">Estudio para la Inclusión de inteligencia artificial en instituciones educativas de la provincia de Manabí.</h3>
+                <p class="descripcion-proyecto">Este proyecto tiene como objetivo principal integrar herramientas de IA en los procesos curriculares de las instituciones
+                    educativas de la provincia de Manabí, buscando mejorar la calidad de la enseñanza, reducir las brechas tecnológicas y fortalecer las competencias docentes.
+                    Este proyecto, relevante en una provincia con una población diversa, propone un diagnóstico participativo de la infraestructura tecnológica y una evaluación
+                    de la capacitación docente, seguido del diseño de módulos curriculares que integren la IA. Además, se implementará un programa de capacitación para docentes
+                    y se realizará una evaluación del impacto del proyecto. Se espera que esta iniciativa fortalezca las competencias tecnológicas de docentes y estudiantes,
+                    desarrolle recursos educativos adecuados y contribuya a la formulación de políticas públicas educativas, beneficiando a toda la comunidad educativa, incluyendo
+                    a las poblaciones más vulnerables de Manabí, y promoviendo una educación equitativa alineada con los Objetivos de Desarrollo Sostenible y el Plan Nacional de
+                    Desarrollo 2024-2025.</p>
+                <div class="contenedor-carrusel">
+                    <img class="imagen-proyecto" src="proyectos/1/1.imagen1.jpg" alt="Proyecto 1">
+                </div>                <p class="texto-adicional">Este proyecto busca **mejorar la calidad educativa** mediante la integración de **inteligencia artificial (IA)**, optimizando la enseñanza,
+                    personalizando el aprendizaje y reduciendo brechas tecnológicas para una educación más equitativa e innovadora.</p>
+                <div class="acciones-proyecto">
+                    <a href="proyecto1.html" class="btn-ver-mas">Ir al proyecto</a>
+                    <a href="proyectos/1/1.proyecto.pdf" class="btn-ver" >
+                        <i class="fas fa-eye"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="tarjeta-proyecto">
+            <div class="contenido-proyecto">
+                <h3 class="titulo-proyecto">Sistema de Bibliotecas Autogestionadas (SBA).</h3>
+                <p class="descripcion-proyecto">El proyecto es una iniciativa innovadora para fomentar el hábito de la lectura en estudiantes de escuelas y colegios mediante la implementación de
+                    bibliotecas autogestionadas, compuestas por una estantería y dos juegos de mesas, abastecidas con libros donados por estudiantes, profesores y la comunidad. Sin necesidad de un
+                    encargado fijo, los propios estudiantes gestionarán, cuidarán y enriquecerán la biblioteca a través del intercambio y préstamo de libros, permitiéndoles llevarlos a casa y
+                    canjearlos por otros. Este modelo promoverá una cultura de aprendizaje autónomo y colaboración, fortaleciendo el pensamiento crítico y la adquisición de conocimientos que les
+                    serán útiles a lo largo de su vida. Además, al desarrollar habilidades de comprensión lectora, estarán mejor preparados para aprovechar el potencial de la inteligencia artificial,
+                    comprendiendo que la calidad de la información que proporcionemos a la IA determinará la calidad de los resultados que obtendremos.</p>
+                <div class="contenedor-carrusel">
+                    <img class="imagen-proyecto" src="proyectos/2/2.imagen1.jpg" alt="Proyecto 1">
+                </div>                <p class="texto-adicional">Este proyecto busca fomentar la lectura y el aprendizaje autónomo mediante bibliotecas autogestionadas, donde los estudiantes pueden
+                intercambiar y gestionar libros libremente, promoviendo una educación más equitativa, colaborativa e innovadora.</p>
+                <div class="acciones-proyecto">
+                    <a href="proyecto2.html" class="btn-ver-mas">Ir al proyecto</a>
+                    <a href="proyectos/2/2.proyecto.pdf" class="btn-ver" >
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+            const header = document.querySelector("header");
+
+            if (header) {
+                // Eliminar cualquier clase que pueda hacer el header fijo
+                header.classList.remove("fixed", "sticky");
+
+                // Establecer la posición como relativa para asegurarse de que no sea fija
+                header.style.position = "relative";
+                header.style.top = "auto";
+            }
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lista de imágenes para cada carrusel (debe coincidir con el orden en HTML)
+        const imagenesProyectos = [
+            ["proyectos/1/1.imagen1.jpg", "proyectos/1/1.imagen2.jpg", "proyectos/1/1.imagen3.jpg", "proyectos/1/1.imagen4.jpg"],
+            ["proyectos/2/2.imagen1.jpg", "proyectos/2/2.imagen2.jpg", "proyectos/2/2.imagen3.jpg", "proyectos/2/2.imagen4.jpg"]
+        ];
+
+        // Selecciona todos los contenedores de carrusel
+        const contenedores = document.querySelectorAll(".contenedor-carrusel");
+
+        contenedores.forEach((contenedor, index) => {
+            const imagen = contenedor.querySelector(".imagen-proyecto");
+            let indice = 0;
+
+            // Verificar si hay imágenes definidas para este carrusel
+            if (imagenesProyectos[index] && imagenesProyectos[index].length > 1) {
+                setInterval(() => {
+                    indice = (indice + 1) % imagenesProyectos[index].length;
+                    imagen.src = imagenesProyectos[index][indice];
+                }, 3000);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación para la enseñanza de la inteligencia artificial en América latina</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary-color: #8e2de2;
+  --secondary-color: #4a00e0;
+  --dark-color: #2c2c2c;
+  --light-color: #f5f5f5;
+  --accent-color: #ff7e5f;
+  --wine-dark: #ff9100;
+  --wine-medium: #5b0e2d;
+  --wine-light: #7d1935;
+  --wine-bright: #900c3e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.features {
+  padding: 2rem 0; /* Reducido de 6rem a 2rem */
+  background: linear-gradient(135deg, #4a0014, #8b0e3a, #c2185b, #e91e63);
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(91, 14, 45, 0.1), transparent);
+  top: -150px;
+  left: -150px;
+  border-radius: 50%;
+}
+
+.features::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(91, 14, 45, 0.08), transparent);
+  bottom: -100px;
+  right: -100px;
+  border-radius: 50%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 0;
+  text-align: center;
+  transition: all 0.4s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: linear-gradient(135deg, var(--wine-light), transparent);
+  opacity: 0.1;
+  transition: all 0.4s;
+  z-index: -1;
+}
+
+.feature-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(91, 14, 45, 0.15);
+}
+
+.feature-card:hover::before {
+  height: 100%;
+}
+
+.feature-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 2.5rem;
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-link::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 15px 15px;
+  border-color: transparent transparent var(--wine-light) transparent;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.feature-card:hover .feature-link::after {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--wine-dark);
+  background: linear-gradient(135deg, var(--wine-dark), var(--wine-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.feature-icon::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(91, 14, 45, 0.1), transparent);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.feature-card:hover h3 {
+  color: var(--wine-dark);
+}
+
+.feature-card:nth-child(1):hover { border-top: 3px solid #e74c3c; }
+.feature-card:nth-child(2):hover { border-top: 3px solid #3498db; }
+.feature-card:nth-child(3):hover { border-top: 3px solid #2ecc71; }
+.feature-card:nth-child(4):hover { border-top: 3px solid #f39c12; }
+.feature-card:nth-child(5):hover { border-top: 3px solid #9b59b6; }
+.feature-card:nth-child(6):hover { border-top: 3px solid #1abc9c; }
+.feature-card:nth-child(7):hover { border-top: 3px solid #e67e22; }
+.feature-card:nth-child(8):hover { border-top: 3px solid #34495e; }
+.feature-card:nth-child(9):hover { border-top: 3px solid #16a085; }
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+@keyframes card-shine {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.feature-card:hover::after {
+  opacity: 1;
+  animation: card-shine 1.5s forwards;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <a href="https://feiaal.org/biblioteca.html" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Biblioteca de Aplicaciones IA</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/oportunidades.html" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>Programas de Becas</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/proyectos.html" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Proyectos Innovadores</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/socios.html" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Socios</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/blog.html" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-newspaper"></i>
+            </div>
+            <h3>Blog Especializado</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/tienda.html#cursos-en-venta" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Cursos</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/tienda.html#libros" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Libros</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/tienda.html#servicios" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3>Servicios</h3>
+          </a>
+        </div>
+
+        <div class="feature-card">
+          <a href="https://feiaal.org/tienda.html#productos-electronicos" class="feature-link">
+            <div class="feature-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <h3>Equipos electrónicos</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

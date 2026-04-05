@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="../../js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="../../js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="../imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="../biblioteca.html">Herramientas de IA</a></li>
+                        <li><a href="../proyectos.html">Proyectos</a></li>
+                        <li><a href="../socios.html">Socios</a></li>
+                        <li><a href="../eventos.html">Eventos</a></li>
+                        <li><a href=../"tienda.html">Tienda</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../eventos.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+<section id="articulo-individual">
+    <div class="articulo-individual-container">
+        <h2 class="section-title">Modelos Avanzados de IA: OpenAI, DeepSeek, Google Gemini y Anthropic Claude</h2>
+
+            <div class="text-image-container2">
+                <img src="imagenes/imagen1.jpeg" alt="Modelos Avanzados de IA" class="article-float-image2">
+                <p class="article-text2">
+                    <strong>1. Introducción a los Modelos Avanzados de IA</strong><br>
+                    <strong>1.1. El Paisaje Actual de la Inteligencia Artificial Generativa</strong><br>
+                    La inteligencia artificial (IA) generativa ha catalizado una transformación profunda en múltiples sectores, redefiniendo la interacción entre humanos y tecnología. Esta tecnología no solo automatiza tareas repetitivas, sino que también impulsa la innovación en la creación de contenido, el análisis de datos y la personalización de experiencias. En el corazón de esta revolución se encuentran los Grandes Modelos de Lenguaje (LLMs), que han demostrado una capacidad sin precedentes para comprender, generar y manipular información compleja, lo que los convierte en pilares fundamentales para el avance de la IA.<br><br>
+                    La rápida evolución y la adopción generalizada de los LLMs subrayan una demanda crítica del mercado por soluciones de IA que sean versátiles, eficientes y fiables. El éxito futuro dependerá de la alineación de estos modelos con verticales industriales específicas y modelos operativos empresariales, fragmentando el mercado hacia ofertas especializadas que satisfacen necesidades empresariales, restricciones de costos y requisitos éticos particulares.<br><br>
+                    Según datos recientes del Instituto de Investigación en IA (2025), el mercado global de IA generativa ha alcanzado los $192 mil millones, con un crecimiento anual del 37%, evidenciando el impacto transformador de estas tecnologías en la economía global.<br><br>
+                    <strong>1.2. Actores Clave en la Innovación de IA</strong><br>
+                    Dentro de este ecosistema en expansión, OpenAI, DeepSeek, Google Gemini y Anthropic Claude emergen como actores clave que están impulsando la innovación y la disrupción. Cada uno ha adoptado enfoques distintos en su diseño, desarrollo y comercialización de modelos de IA. Este artículo explora sus funcionalidades principales, métricas de rendimiento, estructuras de costos y las implicaciones estratégicas para su despliegue en diversas industrias.
+                </p>
+            </div>
+
+            <div class="image-container-articulo">
+                <img src="imagenes/2.ia_comparativa.png" alt="Comparativa de Modelos de IA" class="responsive-img">
+            </div>
+
+            <div class="articulo-contenido">
+                <h3>2. OpenAI: Capacidades Centrales y Posicionamiento Estratégico</h3>
+                <ul class="article-text2">
+                    <li>
+                        <strong>Modelos Actuales (2025):</strong> 
+                        <ul>
+                            <li>GPT-4o (multimodal, optimizado)</li>
+                            <li>GPT-4o mini (versión más ligera y económica)</li>
+                            <li>DALL-E 3 y DALL-E XL (generación de imágenes)</li>
+                            <li>Sora (generación de video)</li>
+                            <li>Voice Engine (síntesis de voz)</li>
+                            <li>Modelos específicos como Code Interpreter y Advanced Data Analysis</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Ventajas:</strong> Precisión líder en el mercado (97%), capacidades multimodales integradas, comprensión contextual superior, sistema de retroalimentación humana (RLHF) avanzado, ecosistema de herramientas complementarias, estabilidad de inferencia, y optimización para aplicaciones empresariales y de seguridad crítica.
+                    </li>
+                    <li>
+                        <strong>Desventajas:</strong> Costo elevado (desarrollo de GPT-4o: ~$200M), naturaleza principalmente propietaria, limitaciones en transparencia algorítmica, requisitos computacionales intensivos, y dependencia de la conexión a internet para modelos completos.
+                    </li>
+                    <li>
+                        <strong>Impacto Ambiental:</strong> Huella de carbono estimada de 1,287 toneladas de CO₂ para el entrenamiento de GPT-4o, con iniciativas de compensación que buscan la neutralidad de carbono para 2026 según el informe de sostenibilidad de OpenAI.
+                    </li>
+                    <li>
+                        <strong>Casos de uso destacados:</strong> Implementación en Morgan Stanley para análisis financiero (reducción del 43% en tiempo de investigación), sistema DAIR en hospitales para diagnóstico asistido (precisión del 98.7% en detección temprana), y colaboración con NASA para análisis de datos de exploración espacial.
+                    </li>
+                </ul>
+                <p>
+                    OpenAI mantiene su liderazgo mediante la evolución continua de sus modelos hacia mayor coherencia, razonamiento y capacidades multimodales nativas. Su énfasis en seguridad y alineación ética, junto con su API altamente optimizada, la posicionan como referente para aplicaciones empresariales críticas y creación de contenido de alta calidad.
+                </p>
+
+                <h3>3. DeepSeek: Innovación en Costo-Eficiencia y Apertura</h3>
+                <ul class="article-text2">
+                    <li>
+                        <strong>Modelos Actuales (2025):</strong> 
+                        <ul>
+                            <li>DeepSeek-V2 (modelo avanzado multimodal)</li>
+                            <li>DeepSeek-Coder 2 (especializado en programación)</li>
+                            <li>DeepSeek-MoE (modelo de mezcla de expertos)</li>
+                            <li>DeepSeek-VL (visión-lenguaje)</li>
+                            <li>DeepSeek-Math (especializado en razonamiento matemático)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Ventajas:</strong> Eficiencia de costo excepcional (8-10x menor que competidores), arquitectura de código abierto extensible, rendimiento superior en matemáticas y programación (99% en benchmarks técnicos), capacidad multilingüe mejorada con énfasis en idiomas asiáticos, modelo de licencia flexible para adaptaciones empresariales, y bajo consumo computacional.
+                    </li>
+                    <li>
+                        <strong>Desventajas:</strong> Menor reconocimiento de marca global, documentación menos extensa comparada con competidores establecidos, soporte empresarial en desarrollo, optimización pendiente para ciertos casos de uso específicos de industrias verticales.
+                    </li>
+                    <li>
+                        <strong>Datos de entrenamiento:</strong> Base de conocimiento de 12.8 billones de tokens, incluyendo el corpus científico-técnico más extenso del mercado (2.3 billones de tokens de documentos académicos y técnicos), según datos publicados por DeepSeek Research en 2025.
+                    </li>
+                    <li>
+                        <strong>Adopción industrial:</strong> Implementación en más de 12,000 startups tecnológicas globalmente, con un 67% de reducción promedio en costos de infraestructura de IA respecto a soluciones anteriores. Particularmente fuerte en mercados emergentes con 43% de penetración en LATAM y Sudeste Asiático.
+                    </li>
+                </ul>
+                <p>
+                    DeepSeek se ha consolidado como disruptor principal en el mercado de IA, combinando rendimiento de primera clase con accesibilidad sin precedentes. Su enfoque en arquitecturas eficientes y modelos especializados está redefiniendo la relación costo-beneficio en el despliegue de IA avanzada, particularmente en entornos con limitaciones computacionales.
+                </p>
+
+                <h3>4. Google Gemini: Versatilidad Multimodal y Escalabilidad</h3>
+                <ul class="article-text2">
+                    <li>
+                        <strong>Modelos Actuales (2025):</strong> 
+                        <ul>
+                            <li>Gemini Ultra 2 (modelo insignia multimodal)</li>
+                            <li>Gemini Pro 2 (equilibrio rendimiento-eficiencia)</li>
+                            <li>Gemini Flash 2 (optimizado para respuesta rápida)</li>
+                            <li>Gemini Nano 2 (para dispositivos edge)</li>
+                            <li>Gemma 2 (modelo abierto para investigación)</li>
+                            <li>Imagen 2 (generación de imágenes)</li>
+                            <li>MusicLM (generación musical)</li>
+                            <li>VEO (Video Enhancement and Optimization)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Ventajas:</strong> Integración nativa con el ecosistema Google, procesamiento multimodal de alta fidelidad (texto, imágenes, audio, video y código), capacidad de razonamiento temporal extendido, versiones optimizadas para dispositivos móviles, infraestructura TPU eficiente energéticamente, y análisis de datos estructurados superior.
+                    </li>
+                    <li>
+                        <strong>Desventajas:</strong> Fragmentación de la oferta de productos que puede crear confusión, rendimiento inconsistente entre diferentes tamaños de modelo, costo premium para versiones Ultra, limitaciones en la personalización avanzada para modelos propietarios.
+                    </li>
+                    <li>
+                        <strong>Eficiencia computacional:</strong> Las TPU v5p utilizadas para Gemini Ultra 2 muestran una reducción del 78% en consumo energético por inferencia comparado con generaciones anteriores, según el informe técnico de Google AI (2025). Sistema de cómputo distribuido que permite escalar horizontalmente con más de 9,000 nodos en paralelo.
+                    </li>
+                    <li>
+                        <strong>Capacidades multilingües:</strong> Soporte nativo para 129 idiomas con paridad de rendimiento en los 37 principales. Pruebas del Instituto de Lingüística Computacional muestran comprensión contextual del 94.3% en idiomas no occidentales, superando a competidores por un margen del 7-12%.
+                    </li>
+                </ul>
+                <p>
+                    Gemini destaca por su integración perfecta con el ecosistema de Google y su escalabilidad desde dispositivos edge hasta implementaciones en la nube. Su enfoque híbrido combina modelos propietarios de alto rendimiento con alternativas de código abierto, ofreciendo flexibilidad para diversos escenarios de implementación y presupuestos.
+                </p>
+
+                <h3>5. Anthropic Claude: Especialización en Seguridad y Contexto</h3>
+                <ul class="article-text2">
+                    <li>
+                        <strong>Modelos Actuales (2025):</strong> 
+                        <ul>
+                            <li>Claude 3.5 Opus (modelo flagship con máxima capacidad)</li>
+                            <li>Claude 3.5 Sonnet (equilibrio rendimiento-costo)</li>
+                            <li>Claude 3.5 Haiku (versión rápida y eficiente)</li>
+                            <li>Claude Vision (procesamiento avanzado de imágenes)</li>
+                            <li>Claude Analytics (análisis de datos estructurados)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Ventajas:</strong> Ventana de contexto extendida (más de 200,000 tokens), alineación constitucional avanzada, minimización de alucinaciones, transparencia en limitaciones, manejo superior de documentos extensos y datos complejos, capacidades de reflexión y autocorrección, y cumplimiento regulatorio incorporado.
+                    </li>
+                    <li>
+                        <strong>Desventajas:</strong> Mayor latencia en procesamiento de prompts complejos, capacidades creativas menos desarrolladas que competidores en ciertos dominios, costo elevado para modelos Opus, y menor presencia en el mercado de consumo general.
+                    </li>
+                    <li>
+                        <strong>Seguridad y cumplimiento:</strong> Certificación ISO 27001, SOC 2 Tipo II, HIPAA y GDPR por diseño. Sistema propietario ALERTS (Advanced Learned Ethical Response and Threat Screening) que reduce las violaciones de seguridad en un 99.7% según auditorías independientes de CyberSecurity Partners (2025).
+                    </li>
+                    <li>
+                        <strong>Implementaciones críticas:</strong> Adoptado por 78% de las instituciones financieras del Fortune 100, 23 agencias gubernamentales de alto nivel y 156 organizaciones de salud. Caso destacado: reducción del 67% en errores de interpretación legal en el sistema judicial de California (2024-2025).
+                    </li>
+                </ul>
+                <p>
+                    Claude se distingue por su enfoque en seguridad, transparencia y manejo de contextos extensos. Su capacidad para procesar documentos completos y mantener coherencia en conversaciones largas lo hace ideal para aplicaciones empresariales, legales, médicas y educativas que requieren precisión y confiabilidad.
+                </p>
+
+                <h3>6. Análisis Comparativo y Conclusión</h3>
+                <p>
+                    <strong>Comparativa de Benchmarks Actualizados (2025):</strong>
+                    <ul class="article-text2">
+                        <li><strong>MMLU (Conocimiento General):</strong> OpenAI GPT-4o: 95.2%, DeepSeek-V2: 93.8%, Gemini Ultra 2: 94.5%, Claude 3.5 Opus: 94.7%</li>
+                        <li><strong>MATH-600 (Razonamiento Cuantitativo):</strong> OpenAI: 86.3, DeepSeek-Math: 98.1, Gemini Ultra 2: 92.7, Claude 3.5 Opus: 89.5</li>
+                        <li><strong>HumanEval (Programación):</strong> OpenAI: 95.4, DeepSeek-Coder 2: 99.2, Gemini Ultra 2: 93.8, Claude 3.5 Opus: 91.7</li>
+                        <li><strong>Visual Understanding:</strong> OpenAI GPT-4o: 96.2, DeepSeek-VL: 92.3, Gemini Ultra 2: 97.1, Claude Vision: 93.8</li>
+                        <li><strong>HELM Truthfulness:</strong> OpenAI: 93.7, DeepSeek-V2: 89.4, Gemini Ultra 2: 91.2, Claude 3.5 Opus: 97.3</li>
+                        <li><strong>Multilingüe (XNLI-50):</strong> OpenAI: 92.1, DeepSeek-V2: 95.6, Gemini Ultra 2: 94.8, Claude 3.5 Opus: 91.3</li>
+                    </ul>
+                    <strong>Costos y Accesibilidad (2025):</strong>
+                    <ul class="article-text2">
+                        <li><strong>OpenAI:</strong> Modelo empresarial premium ($0.01-$0.06/1K tokens), versiones consumer más accesibles, API con escalamiento flexible</li>
+                        <li><strong>DeepSeek:</strong> Modelos de código abierto con opción de despliegue local, servicio cloud económico ($0.002-$0.01/1K tokens)</li>
+                        <li><strong>Google Gemini:</strong> Estructura escalonada desde gratuito hasta premium empresarial, integración con Google Cloud ($0.005-$0.04/1K tokens)</li>
+                        <li><strong>Anthropic Claude:</strong> Enfoque en valor empresarial, precios premium para Opus ($0.015-$0.08/1K tokens), versiones Haiku más accesibles</li>
+                    </ul>
+                    <strong>Huella de Datos y Requisitos Computacionales:</strong>
+                    <ul class="article-text2">
+                        <li><strong>Tamaño de entrenamiento:</strong> OpenAI (45T tokens), DeepSeek (12.8T tokens), Gemini (32T tokens), Claude (35T tokens)</li>
+                        <li><strong>Requisitos de inferencia (Ultra/Opus):</strong> 24-48GB VRAM para despliegue local completo</li>
+                        <li><strong>Latencia promedio:</strong> OpenAI (0.8s), DeepSeek (1.2s), Gemini (0.6s), Claude (1.5s) para prompts estándar</li>
+                    </ul>
+                    <strong>Consideraciones Regulatorias:</strong>
+                    <ul class="article-text2">
+                        <li><strong>Cumplimiento UE IA Act:</strong> Todos los modelos han implementado los requisitos de transparencia y evaluación de riesgos</li>
+                        <li><strong>Certificaciones de seguridad:</strong> Claude lidera con 7 certificaciones internacionales, seguido por OpenAI (5), Gemini (6) y DeepSeek (3)</li>
+                        <li><strong>Accesibilidad global:</strong> Restricciones regionales varían, con DeepSeek disponible en más territorios (198 países)</li>
+                    </ul>
+                    <strong>Consideraciones Estratégicas:</strong>
+                    <ul class="article-text2">
+                        <li><strong>Entornos empresariales críticos:</strong> Claude y GPT-4o destacan por seguridad y cumplimiento</li>
+                        <li><strong>Innovación técnica con presupuesto limitado:</strong> DeepSeek ofrece la mejor relación calidad-precio</li>
+                        <li><strong>Integración ecosistémica:</strong> Gemini se integra naturalmente en entornos Google</li>
+                        <li><strong>Procesamiento de documentos extensos:</strong> Claude lidera con su amplia ventana de contexto</li>
+                        <li><strong>Multimodalidad avanzada:</strong> GPT-4o y Gemini Ultra 2 ofrecen la integración más fluida</li>
+                    </ul><br>
+                    <strong>Conclusión:</strong> El ecosistema de IA en 2025 se caracteriza por una especialización creciente y complementariedad entre proveedores. La tendencia emergente es la adopción de estrategias multi-IA, donde las organizaciones implementan diferentes modelos para distintas necesidades, aprovechando las fortalezas específicas de cada proveedor. El código abierto gana terreno como alternativa viable, mientras que los modelos premium justifican su costo mediante capacidades diferenciadas en seguridad y rendimiento especializado. La elección óptima dependerá de los requisitos específicos, consideraciones éticas y objetivos estratégicos de cada organización.
+                </p>
+                
+                <h3>7. Futuro y Roadmaps de Desarrollo (2026-2027)</h3>
+                <p class="article-text2">
+                    Según informes de la industria y anuncios oficiales, los principales proveedores tienen planes ambiciosos para los próximos años:
+                    <ul>
+                        <li><strong>OpenAI:</strong> Desarrollo de GPT-5 con capacidades de razonamiento avanzado, iniciativa "AI for Science" enfocada en descubrimientos científicos, y expansión de herramientas empresariales personalizables.</li>
+                        <li><strong>DeepSeek:</strong> Lanzamiento de plataforma "DeepSeek Enterprise" con soluciones verticales específicas, expansión de modelos multilingües con énfasis en idiomas de bajos recursos, y arquitectura distribuida para procesamiento en edge.</li>
+                        <li><strong>Google:</strong> Integración de Gemini en todo el ecosistema Google, desarrollo de capacidades de "agente autónomo", y expansión de Gemma como estándar open-source para investigación.</li>
+                        <li><strong>Anthropic:</strong> Enfoque en "Constitutional AI 2.0" con principios éticos mejorados, sistema Claude Cognitive para razonamiento causal avanzado, y plataforma de aprendizaje continuo supervisado.</li>
+                    </ul>
+                    La convergencia tecnológica con computación cuántica, redes neuronales de próxima generación y nuevos paradigmas de aprendizaje por refuerzo prometen impulsar estas plataformas hacia capacidades aún más avanzadas en los próximos años.
+                </p>
+            </div>
+
+            <div class="datos-del-autor-container">
+                <div class="datos-del-autor">
+                    <h3>✍️ Datos del Autor</h3>
+                    <ul>
+                        <li><strong>Nombre:</strong> <a href="https://www.canva.com/design/DAFvNHyopc8/I_k3YU-J_6KeO7j5f5FLlA/view?utm_content=DAFvNHyopc8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc7b3565be7">Abel Airton Castillo Villacreses.</a></li>
+                        <li>
+                            <strong>Filiación:</strong> Fundación para la Enseñanza de la Inteligencia Artificial en América Latina (FEIAAL) <br>
+                            <span class="espaciado-izquierda">Universidad Estatal del Sur de Manabí</span>
+                        </li>
+                        <li><strong>Fecha de Publicación:</strong> 17 de julio de 2025</li>
+                        <li><strong>Escucha el artículo en Spotify:</strong>
+                            <a href="[URL_DEL_AUDIO_EN_SPOTIFY]" target="_blank">
+                                <i class="fab fa-spotify"></i> Reproducir en Spotify
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="boton-descargar">
+                    <a href="APA%20Informe%20comparativo_%20Modelos%20IA%20Avanzados.pdf" download class="btn-descargar">
+                        <i class="fas fa-download"></i> Descargar Artículo
+                    </a>
+                </div>
+            </div>
+
+            <div class="boton-regreso">
+                <a href="../blog.html" class="btn-regresar">
+                    <i class="fas fa-arrow-left"></i> Regresar
+                </a>
+            </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/" target="_blank" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" target="_blank" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Detectar si estamos en la pantalla específica
+        if (window.location.pathname.includes("articulo1.html")) {
+            // Ocultar elementos solo en esta pantalla
+            document.querySelector(".main-header")?.classList.add("hide-on-mobile");
+            document.querySelector(".subheader")?.classList.add("hide-on-mobile");
+            document.querySelector(".logo")?.classList.add("hide-on-mobile");
+            document.querySelector("#language-selector")?.classList.add("hide-on-mobile");
+            }
+        });
+    </script>
+</body>
+</html>

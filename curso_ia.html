@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: Inteligencia Artificial para Docentes</title>
+    <style>
+        /* Reset general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #0d0221;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #7209b7, #f72585);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5), 0 0 30px rgba(255,105,180,0.8);
+        }
+
+        header p {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        header .btn-inscribete {
+            margin-top: 30px;
+            background: linear-gradient(to right, #00f5a0, #00d9f5);
+            color: #000;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,255,230,0.4);
+            transition: all 0.3s ease;
+        }
+
+        header .btn-inscribete:hover {
+            background: linear-gradient(to right, #00f5a0, #00fbff);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,255,230,0.6);
+        }
+
+        section {
+            padding: 60px 20px;
+            background-color: #190436;
+        }
+
+        section:nth-child(even) {
+            background-color: #120328;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 30px;
+            border-left: 5px solid #f72585;
+            padding-left: 15px;
+        }
+
+        /* Grid de herramientas */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            padding-top: 20px;
+        }
+
+        .tool-card {
+            background-color: #ffffff;
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease forwards;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 193, 7, 0.3);
+            border-color: #ff6d00;
+        }
+
+        /* Nueva animación para destacar tarjetas secuencialmente */
+        @keyframes highlightCard {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                border-color: #ffc107;
+                z-index: 1;
+            }
+            50% {
+                transform: translateY(-15px) scale(1.1);
+                box-shadow: 0 20px 40px rgba(247, 37, 133, 0.6);
+                border-color: #f72585;
+                border-width: 3px;
+                z-index: 10;
+            }
+        }
+
+        /* Aplicamos la animación a cada tarjeta con diferentes retrasos */
+        .tool-card:nth-child(1) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 1s;
+        }
+
+        .tool-card:nth-child(2) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 2s;
+        }
+
+        .tool-card:nth-child(3) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 3s;
+        }
+
+        .tool-card:nth-child(4) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 4s;
+        }
+
+        .tool-card:nth-child(5) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 5s;
+        }
+
+        .tool-card:nth-child(6) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 6s;
+        }
+
+        .tool-card:nth-child(7) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 7s;
+        }
+
+        .tool-card:nth-child(8) {
+            animation: fadeInUp 1s ease forwards, highlightCard 7s ease infinite 8s;
+        }
+
+        /* Añadimos un efecto de brillo para la tarjeta destacada */
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f72585, #4cc9f0);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .tool-card:hover::after {
+            opacity: 1;
+        }
+
+        .tool-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ffc107;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+
+        /* La imagen también se destaca cuando la tarjeta está activa */
+        .tool-card:hover img,
+        .tool-card.active img {
+            border-color: #f72585;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(247, 37, 133, 0.6);
+        }
+
+        .tool-card h3 {
+            margin-top: 10px;
+            font-size: 1.3em;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover h3 {
+            color: #f72585;
+            transform: scale(1.05);
+        }
+
+        .tool-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #ff9800;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .tool-card a:hover {
+            color: #e65100;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            section {
+                padding: 40px 15px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 15px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+
+            header .btn-inscribete {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .tool-card {
+                padding: 20px;
+                aspect-ratio: auto;
+                min-height: 180px;
+            }
+
+            .tool-card img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .tool-card h3 {
+                font-size: 1.2em;
+            }
+
+            section {
+                padding: 30px 15px;
+            }
+
+            .cta {
+                padding: 50px 15px;
+            }
+
+            .cta h2 {
+                font-size: 1.7em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .tool-card {
+                padding: 15px;
+                min-height: 150px;
+            }
+
+            .tool-card img {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+            }
+
+            .tool-card h3 {
+                font-size: 1em;
+                margin-top: 5px;
+            }
+
+            /* Ajustamos la animación para pantallas pequeñas */
+            @keyframes highlightCard {
+                0%, 100% {
+                    transform: translateY(0) scale(1);
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                }
+                50% {
+                    transform: translateY(-8px) scale(1.05);
+                    box-shadow: 0 10px 20px rgba(247, 37, 133, 0.5);
+                }
+            }
+
+            section {
+                padding: 25px 10px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .cta {
+                padding: 40px 15px;
+            }
+
+            .cta h2 {
+                font-size: 1.4em;
+            }
+
+            .cta button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #f72585, #4cc9f0);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 20px;
+        }
+
+        .cta button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            background: #f72585;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cta button:hover {
+            background: #4cc9f0;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #0a0017;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #00f5a0;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #4cc9f0;
+        }
+
+/*******************************/
+/*            Tablas           */
+/*******************************/
+
+        /* Tabla de temario con cambio secuencial del color de texto */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+            box-shadow: 0 5px 25px rgba(0, 245, 160, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 245, 160, 0.3);
+            position: relative;
+        }
+
+        th {
+            background: linear-gradient(135deg, #7209b7, #f72585);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-size: 1.1em;
+            position: relative;
+            z-index: 2;
+        }
+
+        td {
+            padding: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e2e2;
+            transition: color 0.5s ease;
+        }
+
+        /* Animación sutil que solo cambia el color del texto a naranja */
+        @keyframes textColorChange {
+            0%, 80%, 100% {
+                color: #e2e2e2;
+            }
+            10%, 70% {
+                color: #ff7a00;
+            }
+        }
+
+        /* Aplicar la animación solo al texto */
+        tr:nth-child(2) td { animation: textColorChange 24s infinite 0s; }
+        tr:nth-child(3) td { animation: textColorChange 24s infinite 4s; }
+        tr:nth-child(4) td { animation: textColorChange 24s infinite 8s; }
+        tr:nth-child(5) td { animation: textColorChange 24s infinite 12s; }
+        tr:nth-child(6) td { animation: textColorChange 24s infinite 16s; }
+        tr:nth-child(7) td { animation: textColorChange 24s infinite 20s; }
+
+        /* Mantener los estilos especiales para las columnas específicas */
+        tr:nth-child(n+2) td:first-child {
+            font-weight: bold;
+            color: #00f5a0;
+            animation: none; /* Desactivar la animación para esta columna */
+        }
+
+        tr:nth-child(n+2) td:nth-child(2) {
+            font-weight: 600;
+            color: #4cc9f0;
+            animation: none; /* Desactivar la animación para esta columna */
+        }
+
+        /* Efectos de hover sutiles */
+        tr:nth-child(n+2):hover {
+            background-color: rgba(0, 245, 160, 0.15);
+        }
+
+        tr:nth-child(n+2):hover td {
+            color: #ffffff;
+        }
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+  }
+
+  thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.95em;
+  }
+
+  th {
+    background: #7209b7;
+    position: static;
+    z-index: 1;
+  }
+
+  tr:nth-child(n+2):hover {
+    background-color: rgba(0, 245, 160, 0.05);
+  }
+}
+
+/*******************************/
+/*            Compra           */
+/*******************************/
+
+                /* Sección de precio */
+        #inscripcion {
+            background: linear-gradient(to bottom, rgba(114, 9, 183, 0.3), rgba(76, 201, 240, 0.3));
+            border-radius: 20px;
+            margin: 60px auto;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3), 0 0 100px rgba(0, 255, 230, 0.2) inset;
+            border: 2px solid rgba(0, 245, 160, 0.3);
+            position: relative;
+        }
+
+        .price-tag {
+            color: #00f5a0;
+            font-size: 4.5em;
+            font-weight: 800;
+            text-align: center;
+            margin: 40px 0;
+            text-shadow: 0 0 20px rgba(0, 245, 160, 0.6);
+            position: relative;
+            display: inline-block;
+            animation: glowPrice 2s infinite alternate;
+        }
+
+        @keyframes glowPrice {
+            0% { text-shadow: 0 0 20px rgba(0, 245, 160, 0.6); }
+            100% { text-shadow: 0 0 40px rgba(0, 245, 160, 1); }
+        }
+
+        .price-tag::before {
+            content: "¡SÚPER OFERTA!";
+            position: absolute;
+            top: -25px;
+            right: -60px;
+            background: linear-gradient(to right, #ff7a00, #ff0080);
+            color: white;
+            font-size: 0.25em;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transform: rotate(15deg);
+            animation: shakePrice 3s infinite;
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        @keyframes shakePrice {
+            0%, 100% { transform: rotate(15deg); }
+            25% { transform: rotate(20deg); }
+            50% { transform: rotate(15deg); }
+            75% { transform: rotate(25deg); }
+        }
+
+        .limited-spots {
+            background: linear-gradient(to right, rgba(255, 0, 128, 0.15), rgba(255, 122, 0, 0.15));
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            border: 3px dashed rgba(255, 0, 128, 0.5);
+            font-weight: bold;
+            color: #ffffff;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 128, 0.2) inset;
+            animation: pulseSpots 3s infinite alternate;
+        }
+
+        @keyframes pulseSpots {
+            0% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 0, 128, 0.2) inset; }
+            100% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 0, 128, 0.3) inset; }
+        }
+
+        .limited-spots::before {
+            content: "🔥";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            animation: flameBounce 1s infinite alternate;
+        }
+
+        .limited-spots::after {
+            content: "🔥";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            animation: flameBounce 1.2s infinite alternate;
+        }
+
+        @keyframes flameBounce {
+            0% { transform: translateY(-50%) scale(1); }
+            100% { transform: translateY(-50%) scale(1.3); }
+        }
+
+        .buy-button {
+            display: block;
+            width: 85%;
+            max-width: 500px;
+            margin: 40px auto;
+            background: linear-gradient(to right, #ffde59, #ff914d);
+            color: #000;
+            border: none;
+            padding: 25px 40px;
+            font-size: 1.5em;
+            font-weight: 800;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(255, 145, 77, 0.5), 0 0 30px rgba(255, 145, 77, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); box-shadow: 0 15px 30px rgba(255, 145, 77, 0.5), 0 0 30px rgba(255, 145, 77, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 20px 40px rgba(255, 145, 77, 0.7), 0 0 40px rgba(255, 145, 77, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 15px 30px rgba(255, 145, 77, 0.5), 0 0 30px rgba(255, 145, 77, 0.5); }
+        }
+
+        .buy-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.3);
+            transform: rotate(45deg);
+            z-index: 1;
+            animation: buyButtonShine 3s infinite;
+        }
+
+        @keyframes buyButtonShine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        .buy-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 145, 77, 0.8), 0 0 50px rgba(255, 145, 77, 0.8);
+            background: linear-gradient(to right, #ffd100, #ff7a00);
+        }
+
+/*******************************/
+/*            cobro            */
+/*******************************/
+
+  .paso {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.2);
+    color: white;
+    font-size: 1.1em;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .paso:nth-child(1) { animation-delay: 0.2s; }
+  .paso:nth-child(2) { animation-delay: 0.5s; }
+  .paso:nth-child(3) { animation-delay: 0.8s; }
+  .paso:nth-child(4) { animation-delay: 1.1s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .paso a {
+    color: #ffae42;
+    font-weight: bold;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .paso::before {
+    content: attr(data-step);
+    font-size: 2em;
+    color: #ffae42;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="content">
+        <h1>¡Revoluciona tu Docencia con Inteligencia Artificial!</h1>
+        <p>Del 6 al 22 de mayo del 2025 | Clases en vivo martes y jueves (19:30 - 21:30)</p>
+        <button class="buy-button" onclick="document.getElementById('compra-ya').scrollIntoView({ behavior: 'smooth' })">¡RESERVA TU CUPO AHORA!</button>
+    </div>
+</header>
+
+<main class="container">
+    <section>
+        <h2 style="text-align: center; color: orange;">Transforma tu Carrera Docente</h2>
+        <p class="texto-increible">
+          Este programa intensivamente práctico está diseñado para revolucionar tu labor docente diaria a través de la inteligencia artificial.
+          Dominarás las herramientas más avanzadas de IA, crearás prompts perfectos y desarrollarás materiales educativos que asombrarán a tus estudiantes y colegas.
+        </p>
+    </section>
+    <section>
+        <h2 style="text-align: center; color: orange;">Herramientas de IA que Dominarás</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <img src="/imagenes/ia/2.claude.png" alt="Claude">
+                <h3>Claude</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/3.gemini.jpeg" alt="Gemini">
+                <h3>Gemini</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/4.deepseek.jpeg" alt="Deepseek">
+                <h3>Deepseek</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/5.qwen.jpeg" alt="Qwen">
+                <h3>Qwen</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/59.studio.jpeg" alt="AI Studio">
+                <h3>AI Studio</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/31.mapify.jpeg" alt="Mapify">
+                <h3>Mapify</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/105.gamma.png" alt="Gamma">
+                <h3>Gamma</h3>
+            </div>
+            <div class="tool-card">
+                <img src="/imagenes/ia/7.leonardo.jpeg" alt="Leonardo AI">
+                <h3>Leonardo AI</h3>
+            </div>
+        </div>
+    </section>
+
+        <section>
+        <h2 style="text-align: center; color: orange;">Itinerario de Aprendizaje</h2>
+        <table>
+            <tr><th>Día</th><th>Tema Principal</th><th>Descripción</th></tr>
+            <tr><td>Día 1</td><td>Herramientas de IA y Prompts</td><td>Exploración de herramientas de IA por categorías y uso estratégico de prompts.</td></tr>
+            <tr><td>Día 2</td><td>Búsqueda de información y fuentes confiables</td><td>Técnicas para buscar info académica y entrenamiento de chatbots especializados.</td></tr>
+            <tr><td>Día 3</td><td>Desarrollo de Sílabo</td><td>Construcción de sílabos dinámicos y estructurados mediante IA.</td></tr>
+            <tr><td>Día 4</td><td>Creación de Clases Dinámicas</td><td>Incorporación de IA en la planificación docente y desarrollo de clases interactivas.</td></tr>
+            <tr><td>Día 5</td><td>Herramientas Visuales Especializadas</td><td>Uso de mapas mentales, imágenes y videos generados por IA.</td></tr>
+            <tr><td>Día 6</td><td>Documentos Académicos con IA</td><td>Redacción optimizada de documentos académicos usando IA.</td></tr>
+        </table>
+    </section>
+
+        <section>
+        <h2 style="text-align: center; color: orange;">Metodología Exclusiva</h2>
+        <p>
+            El curso se desarrollará del 6 al 22 de mayo de 2025, con sesiones en vivo los martes y jueves de 19:30 a 21:30 (hora local).
+            Todas las clases serán grabadas y complementadas con material exclusivo de apoyo para que puedas repasar a tu ritmo.
+            Además, recibirás atención personalizada y retroalimentación sobre tus proyectos.
+        </p>
+    </section>
+
+    <section id="inscripcion">
+        <h2 style="text-align: center; color: orange;">¡Beneficios Exclusivos!</h2>
+        <ul>
+            <li>Certificado oficial por 40 horas emitido por FEIAAL con validez internacional.</li>
+            <li>Acceso a clases grabadas y material exclusivo.</li>
+            <li>Aprendizaje práctico aplicable inmediatamente a tu vida profesional.</li>
+        </ul>
+
+        <div style="text-align: center;">
+            <div class="price-tag">$60,00</div>
+            <div class="limited-spots">
+                ¡LOS PRIMEROS 50 CUPOS TENDRAN UN 33,33% DE DESCUENTO!<br>
+                Ya se han reservado 31 plazas - ¡Quedan solo 19!
+            </div>
+            <button class="buy-button" onclick="document.getElementById('compra-ya').scrollIntoView({ behavior: 'smooth' })">
+                ¡RESERVA TU CUPO AHORA!
+            </button>
+        </div>
+    </section>
+
+        <section id="compra-ya" class="compra-ya">
+            <p style="text-align: center; display: flex; flex-direction: column; justify-content: center; height: auto; font-size: 40px; color: orange;">¡Compra Ya!</p>
+        </section>
+
+       <section class="seccion-blanco">
+            <div class="paso" data-step="1.">
+              1. Una vez realizado el pago del curso, regístrate, rellena los campos con tus datos y sube un captura del pago.
+              <br><br>
+              <a href="https://forms.gle/eFtjABLP8YWbPBb39" target="_blank">https://forms.gle/eFtjABLP8YWbPBb39</a>
+            </div>
+
+        </section>
+
+        <section class="seccion-blanco">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <!-- Primera columna: PayPal -->
+                    <td style="width: 50%; vertical-align: center; padding: 10px; text-align: center;">
+                      <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                        <a
+                          href="https://paypal.me/robertoacunacaicedo?country.x=EC&locale.x=es_XC"
+                          target="_blank"
+                          style="
+                            background-color: #ffffff;
+                            color: #000610;
+                            padding: 10px 20px;
+                            text-decoration: none;
+                            border-radius: 4px;
+                            font-weight: bold;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;"
+                        >
+                          <img
+                            src="https://robertoacunacaicedo.com/imgs/libro/paypal.png"
+                            alt="PayPal"
+                            style="height: 24px; margin-right: 8px;"
+                            onerror="this.onerror=null;"
+                          >
+                          Paypal
+                        </a>
+                      </div>
+                    </td>
+
+                                        <!-- Segunda columna: Banco Pichincha -->
+                    <td style="width: 50%; vertical-align: top; padding: 10px;">
+                      <a
+                        href="https://www.pichincha.com"
+                        target="_blank"
+                        style="display: block; text-decoration: none; color: inherit; width: 100%; height: 100%;"
+                      >
+                        <p style="text-align: center; font-size: 20px; margin: 0; color: orange;">
+                          <img
+                            src="https://robertoacunacaicedo.com/imgs/libro/pichincha.png"
+                            alt="Banco Pichincha"
+                            style="height: 40px; margin-bottom: 10px;"
+                          ><br>
+                          Banco Pichincha<br>
+                          Cuenta de ahorro transaccional<br>
+                          Número: 4193495000<br>
+                          A nombre de: Roberto Acuña
+                        </p>
+                      </a>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <div class="nombre">
+            <h2></h2>
+            <!-- Espacio -->
+        </div>
+
+        <section class="seccion-blanco">
+            <div class="paso" data-step="2.">
+              2. Una vez realizado el pago del curso, regístrate, rellena los campos con tus datos y sube un captura del pago.
+              <br><br>
+              <a href="https://forms.gle/tuj6UuxpwTM6YeUv8" target="_blank">https://forms.gle/eFtjABLP8YWbPBb39</a>
+            </div>
+
+            <div class="paso" data-step="3.">
+              3. Te enviaremos información de acceso al curso a tu correo electrónico registrado. Si tienes dudas puedes escribirnos por medio del link de WhatsApp, a la derecha.
+            </div>
+
+            <div class="paso" data-step="4.">
+              4. Al concluir tu formación, recibirás un certificado otorgado por la Fundación para la Enseñanza de la Inteligencia Artificial, válido por 40 horas.
+            </div>
+        </section>
+
+        <section class="seccion-blanco" style="text-align: center;">
+            <img src="https://robertoacunacaicedo.com/imgs/libro/certificado.png" alt="Descripción de la imagen" style="width: 80%; max-width: 800px; height: 80%;">
+        </section>
+
+    <!-- Fin de seccion de cobros de hotmart -->
+
+        <div class="nombre">
+            <h2></h2>
+            <!-- Espacio -->
+        </div>
+
+        <section class="seccion-blanco" style="text-align: center;">
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank"
+               style="display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; font-size: 18px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.25); transition: background-color 0.3s ease;">
+               Únete a nuestro grupo de WhatsApp
+            </a>
+
+            </br></br>
+            <p style="text-align: center; display: flex; flex-direction: column; justify-content: center; height: auto; font-size: 40px; ">Puedes unirte desde tu telefono a traves del codigo QR</p>
+            </br>
+        </section>
+
+        <section class="seccion-blanco" style="text-align: center;">
+            <img src="https://robertoacunacaicedo.com/imgs/libro/whatsapp_group_qr.png" alt="Descripción de la imagen" style="width: 80%; max-width: 300px; height: 80%;">
+        </section>
+
+</main>
+
+<section class="cta">
+    <div class="content">
+        <h2>¡Transforma tu Docencia y Destaca con Inteligencia Artificial!</h2>
+        <button onclick="scrollToSection('inscripcion')">¡INSCRÍBETE HOY!</button>
+    </div>
+</section>
+
+<footer>
+    <div class="content">
+        © 2025 CreinTi & FEIAAL. Todos los derechos reservados.<br/>
+        <a href="https://www.creinti.com" target="_blank">www.creinti.com</a> |
+        <a href="https://www.feiaal.org" target="_blank">www.feiaal.org</a>
+    </div>
+</footer>
+
+<script>
+    function scrollToSection(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
+        }
+    }
+</script>
+
+</body>
+</html>

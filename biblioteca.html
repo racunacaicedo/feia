@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+    <!-- Scripts que deben ir en la sección <head> del documento -->
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PS34S9QRVV'); // Reemplaza G-XXXXXXXXXX con tu ID real de GA4
+  </script>
+
+  <!-- Script para tracking de enlaces externos -->
+  <script>
+    function trackClick(event, url) {
+      // Prevenir la navegación inmediata
+      if (event) {
+        event.preventDefault();
+      }
+
+      // Registrar el evento en Google Analytics
+      gtag('event', 'click', {
+        'event_category': 'Outbound Link',
+        'event_label': url,
+        'transport_type': 'beacon',
+        'event_callback': function() {
+          // Navegar a la URL después de que se registre el evento
+          window.location.href = url;
+        }
+      });
+
+      // Asegurar que la redirección ocurre incluso si GA falla
+      setTimeout(function() {
+        window.location.href = url;
+      }, 200);
+    }
+  </script>
+
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA de propósito general</h2>
+                <p class="directory-description">
+                    Son modelos avanzados de lenguaje natural capaces de generar y resumir textos, responder preguntas complejas,
+                    traducir idiomas, escribir código, analizar datos y ofrecer asistencia en tareas creativas y técnicas.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Generación de texto conversacional y asistencia en redacción, traducción y síntesis de información.">
+                        <img src="imagenes/ia/1.chatgpt.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">ChatGPT</h3>
+                        <a href="https://youtu.be/NgydVCJbpqU?si=OeSsb0F_eCHOAMjd" class="directory-link">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"
+                            style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://chatgpt.com/" class="directory-link" onclick="trackClick(event, 'https://chatgpt.com/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Creación de contenido y refinamiento de ideas, análisis creativo y recomendaciones contextuales.">
+                        <img src="imagenes/ia/2.claude.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Claude</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://claude.ai" class="directory-link" onclick="trackClick(event, 'https://claude.ai'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Respuestas contextuales y soporte en investigación, exploración de datos y aprendizaje continuo.">
+                        <img src="imagenes/ia/3.gemini.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Gemini</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://gemini.google.com" class="directory-link" onclick="trackClick(event, 'https://gemini.google.com'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Búsqueda semántica avanzada de información, filtrado de relevancia y descubrimiento de insights.">
+                        <img src="imagenes/ia/4.deepseek.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Deepseek</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://chat.deepseek.com/" class="directory-link" onclick="trackClick(event, 'https://chat.deepseek.com/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Asistente multilingüe para tareas de lenguaje, comprensión profunda y generación precisa de textos.">
+                        <img src="imagenes/ia/5.qwen.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Qwen</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://chat.qwenlm.ai/" class="directory-link" onclick="trackClick(event, 'https://chat.qwenlm.ai/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Chat inteligente integrado en plataformas de mensajería, automatización de respuestas y análisis de conversaciones.">
+                        <img src="imagenes/ia/6.grok.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Grok</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://x.com/i/grok?focus=1" class="directory-link" onclick="trackClick(event, 'https://x.com/i/grok?focus=1'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card" title="Entorno para desarrollar y desplegar aplicaciones de IA, experimentación y gestión colaborativa de modelos.">
+                        <img src="imagenes/ia/59.studio.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Ai Studio</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://aistudio.google.com/prompts/new_chat" class="directory-link" onclick="trackClick(event, 'https://aistudio.google.com/prompts/new_chat'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Resúmenes rápidos y respuestas basadas en la web, comparación de fuentes y contexto amplio.">
+                        <img src="imagenes/ia/79.perplexity.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Perplexity</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.perplexity.ai/" class="directory-link" onclick="trackClick(event, 'https://www.perplexity.ai/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Optimización de flujos de trabajo y productividad, automatización de procesos y planificación eficiente.">
+                        <img src="imagenes/ia/86..lmarena.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">lmarena</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://lmarena.ai/" class="directory-link" onclick="trackClick(event, 'https://lmarena.ai/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Gestión de proyectos y organización de tareas con IA, seguimiento de hitos dinámico y recordatorios.">
+                        <img src="imagenes/ia/88.kimi.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Kimi</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://kimi.moonshot.cn/" class="directory-link" onclick="trackClick(event, 'https://kimi.moonshot.cn/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Modelo de lenguaje ligero para generación de texto, inferencia rápida y uso eficiente de recursos.">
+                        <img src="imagenes/ia/100.mistral.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Mistral</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://chat.mistral.ai/" class="directory-link" onclick="trackClick(event, 'https://chat.mistral.ai/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                    <div class="directory-card" title="Acceso centralizado a múltiples modelos de IA, conmutación de estilos y análisis comparativo de resultados.">
+                        <img src="imagenes/ia/101.poe.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Poe</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://poe.com/" class="directory-link" onclick="trackClick(event, 'https://poe.com/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA especializadas en generación de imágenes</h2>
+                <p class="directory-description">
+                    Generan ilustraciones, arte digital, fotografías realistas y diseños personalizados en segundos, permitiendo
+                    a artistas, diseñadores y creadores de contenido explorar nuevas formas creativas sin requerir habilidades
+                    avanzadas en diseño gráfico.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Generación de ilustraciones digitales detalladas, personalización de escenarios imaginativos para proyectos creativos y educativos.">
+                        <img src="imagenes/ia/7.leonardo.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Leonardo.ai</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.leonardo.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Creación de gráficos y banners con plantillas IA, optimizados para redes sociales y marketing.">
+                        <img src="imagenes/ia/8.designer.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Designer</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://designer.microsoft.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Búsqueda y personalización de vectores y recursos, gran biblioteca para diseño rápido.">
+                        <img src="imagenes/ia/9.freepik.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Freepik</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.freepik.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Exploración y descarga de imágenes por prompts, ideal para inspiración creativa constante.">
+                        <img src="imagenes/ia/10.lexica.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Lexica</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://lexica.art/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Modelo open-source para síntesis text-to-image de alta calidad, adaptable a distintos estilos artísticos.">
+                        <img src="imagenes/ia/123.stabledifucion.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Stable <br/>diffusion</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://stablediffusionweb.com/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Edición creativa y generación de efectos visuales, integrada con Adobe Creative Cloud.">
+                        <img src="imagenes/ia/12.adobe.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Adobe</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.adobe.com/products/firefly.html#" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card" title="Mejora automática y transferencia de estilo en fotografías, preservando detalles de alta fidelidad.">
+                        <img src="imagenes/ia/13.imagefx.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">ImageFX</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://labs.google/fx/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Generación rápida de bocetos tipo doodle a partir de texto, divertido para prototipos conceptuales.">
+                        <img src="imagenes/ia/14.craiyon.jpeg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Craiyon</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.craiyon.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Creación de artes abstractos y geométricos con IA, enfocado en estética experimental.">
+                        <img src="imagenes/ia/15.vispunk.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Vispunk</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://vispunk.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Eliminación de fondo y extracción de objetos en imágenes, compatible con múltiples formatos populares.">
+                        <img src="imagenes/ia/16.clipdrop.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Clipdrop</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://clipdrop.co/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Plataforma DreamStudio para síntesis de imágenes a demanda, con ajustes finos de parámetros IA.">
+                        <img src="imagenes/ia/11.stalility.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">stability.ai</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://stability.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Comunidad colaborativa de prompts e imágenes generadas, fomenta compartir y mejorar ideas visuales.">
+                        <img src="imagenes/ia/82.krea.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Krea</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.krea.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <!-- Tercera fila (visible) -->
+                    <div class="directory-card" title="Generación de diagramas e infografías con IA, ideal para visualizar conceptos complejos y datos académicos">
+                        <img src="imagenes/ia/110.ideogram.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Ideogram</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://ideogram.ai/t/explore" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Edita, mejora y retoca imágenes para redes sociales, aplicando filtros y correcciones avanzadas.">
+                        <img src="imagenes/ia/87.piclumen.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">PicLumen</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.piclumen.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Edita, mejora y retoca imágenes para redes sociales, aplicando filtros y correcciones avanzadas.">
+                        <img src="imagenes/ia/128.higgsfield.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Higgsfield</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://higgsfield.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Edita, mejora y retoca imágenes para redes sociales, aplicando filtros y correcciones avanzadas.">
+                        <img src="imagenes/ia/136.flux.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Flux</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://flux1.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Edita, mejora y retoca imágenes para redes sociales, aplicando filtros y correcciones avanzadas.">
+                        <img src="imagenes/ia/143.recreaft.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Recraft</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.recraft.ai/invite/XLICDbQqOK" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Edita imágenes con IA aplicando instrucciones, estilos, relieves y efectos.">
+                        <img src="imagenes/ia/144.playground.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Playground</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://playground.bfl.ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                      <!-- Cuarta fila (visible) -->
+                    <div class="directory-card" title="Genera imágenes realistas con inteligencia artificial, rápido, accesible y creativo.">
+                        <img src="imagenes/ia/146.nanobanana.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Nano<br/>Banana</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://nanobanana.io/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA especializadas en generación de Videos</h2>
+                <p class="directory-description">
+                    Utilizan IA para automatizar la edición, generar videos a partir de texto y mejorar efectos visuales sin
+
+                    necesidad de conocimientos avanzados en producción.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/23.synthesia.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Synthesia</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.synthesia.io/?via=roberto-acuna/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/19.sora.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Sora</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://sora.com/library" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/20.klingai.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Kling AI</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://klingai.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/21.rendernet.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Rendernet</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.rendernet.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/22.heygen.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Heygen</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.heygen.com/home" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/24.runway.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Runway</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.runwayml.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                                        <!-- Segunda fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/25.genmo.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Genmo</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.genmo.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/26.hunyuan.jpeg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Hunyuan</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://hunyuanvideoai.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/27.d-id.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">D-iD</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://studio.d-id.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/28.lumiere.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Lumiere</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://lumiere-video.github.io/#section_text_to_video" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/29.kaiber.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Kaiber</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.kaiber.ai/superstudio" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/30.jitter.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Jitter</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://jitter.video/?noredir=1" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Tercera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/92.pika.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Pika</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://pika.art/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/102.ray2.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Ray2</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://lumalabs.ai/ray" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/103.Midjourney.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Midjourney</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.midjourney.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/120.hailuo.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Hailuoai</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://hailuoai.video" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/121.pixverse.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Pixverse</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.pixverse.ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Transforma tus ideas en vídeos bonitos y de alta calidad.">
+                        <img src="imagenes/ia/152.weiver.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Waver1.0</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://waver1.org/" class="directory-link" ">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Transforma tus ideas en vídeos bonitos y de alta calidad.">
+                        <img src="imagenes/ia/154.ovi.jpg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Ovi</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://ovi.video/" class="directory-link" ">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Transforma tus ideas en vídeos bonitos y de alta calidad.">
+                        <img src="imagenes/ia/155.syntx.jpg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Syntx</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://syntx.ai/welcome/CbH7z3l6" class="directory-link" ">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Estudio creativo de IA.">
+                        <img src="imagenes/ia/156.flow.jpg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Flow</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://labs.google/flow/about" class="directory-link" ">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA especializadas en publicaciones en redes sociales</h2>
+                <p class="directory-description">
+                    Utilizan IA para automatizar la edición, generar videos a partir de texto y mejorar efectos visuales sin
+
+                    necesidad de conocimientos avanzados en producción.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Automatiza creación y programación de publicaciones sociales, sugiriendo hashtags y formatos óptimos.">
+                        <img src="imagenes/ia/33.predis.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Predis</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://predis.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Genera copy persuasivo y captions optimizados, adaptados a tu tono de marca.">
+                        <img src="imagenes/ia/34.jasper.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Jasper</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.jasper.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Crea textos breves, anuncios y descripciones eficaces, con variaciones de estilo instantáneas.">
+                        <img src="imagenes/ia/35.copiai.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Copy.ai</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.copy.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Produce artículos, anuncios y guiones de vídeo, incorporando llamadas a la acción efectivas.">
+                        <img src="imagenes/ia/36.writesonic.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Writesonic</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://writesonic.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Gestiona cuentas y programa contenido en redes, analizando engagement y seguidores.">
+                        <img src="imagenes/ia/37.Circleboom.jpeg" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Circleboom</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://circleboom.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Diseña gráficos y copy integrados para social media, con plantillas personalizables y edición colaborativa.">
+                        <img src="imagenes/ia/38.Simplified.jpeg" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Simplified</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://simplified.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                                        <!-- Segunda fila (visible) -->
+                    <div class="directory-card" title="Crea presentaciones narrativas con IA y multimedia, enriquecidas con transiciones automáticas.">
+                        <img src="imagenes/ia/45.tome.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Tome</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://tome.app/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Optimiza estrategia de contenido con análisis de datos, recomendaciones de publicación y tendencias.">
+                        <img src="imagenes/ia/51.Cohesive.jpeg" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Cohesive</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://getcohesiveai.com " class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Genera vídeos cortos y clips promocionales automáticamente, agregando música y subtítulos sincronizados.">
+                        <img src="imagenes/ia/52.productioncrate.png" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">ProductionCreate</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.productioncrate.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Convierte guiones y textos en vídeos de formato corto, con animaciones y efectos predefinidos.">
+                        <img src="imagenes/ia/89.makerrel.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Makereels</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://makereels.ai/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Ofrece analíticas de rendimiento y optimización de texto, sugiriendo mejoras basadas en datos.">
+                        <img src="imagenes/ia/91.writelytic.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">writelytic</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://writelytic.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Tercera fila (visible) -->
+
+                    <div class="directory-card" title="Plataforma de creación de contenido impulsada por inteligencia artificial, desarrollada por CapCut.">
+                        <img src="imagenes/ia/119.pippit.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Pippit</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://pippit.capcut.com/home" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Convierte enlaces o medios en videos virales automáticamente usando IA para editar, guionar y narrar.">
+                        <img src="imagenes/ia/130.topview.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">TopView</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.topview.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma de creación multimodal que genera videos realistas de personajes expresivos (hablan, cantan, animan)">
+                        <img src="imagenes/ia/132.hedra.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Hedra</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.hedra.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma que genera videos profesionales con IA: avatares realistas, voces y plantillas.">
+                        <img src="imagenes/ia/134.vidnoz.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Vidnoz</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://es.vidnoz.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma que genera videos profesionales con IA: avatares realistas, voces y plantillas.">
+                        <img src="imagenes/ia/135.sedancel.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Sedancel</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://seedanceai.org/i/RobertoAcuna" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Crea videos, logos, presentaciones y sitios web fácilmente.">
+                        <img src="imagenes/ia/141.randerforest.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Randerforest</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.renderforest.com/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Convertir texto, enlaces o productos en videos con avatares realistas.">
+                        <img src="imagenes/ia/145.JOGG.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">JOGG</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.jogg.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de generación de música</h2>
+                <p class="directory-description">
+                    Permiten a músicos, creadores de contenido y desarrolladores generar melodías, ritmos y arreglos sin
+                    necesidad de conocimientos avanzados en composición.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/54.suno.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Suno</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://suno.com/home" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/55.topmedi.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">TopmediAi</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.topmediai.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/63.vocalremover.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Vocalremover</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://vocalremover.org/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/64.kits.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">kits.ai</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.kits.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/106.aiva.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">AIVA</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.aiva.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de transcripción de texto a voz</h2>
+                <p class="directory-description">
+                    Convierten texto escrito en audio hablado mediante inteligencia artificial y síntesis de voz
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/56.SpeechNotes.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">SpeechNotes</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://speechnotes.co/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/57.elevenlabs.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Elevenlabs</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://elevenlabs.io" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/58.sider.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Sider</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://sider.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/65.voicemaker.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Voicemaker</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://voicemaker.in/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/66.ttsmaker.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Ttsmaker</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://ttsmaker.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/67.ttsmp3.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Ttsmp3</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://ttsmp3.com/ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/68.wondercraft.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Wondercraft</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.wondercraft.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/69.murf.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Murf</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://murf.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/70.podcast.adobe.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Podcast.adobe</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://podcast.adobe.com/#" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/71.cockatoo.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Cockatoo</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.cockatoo.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/72.mubert.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Mubert</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://mubert.com/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/104.speechma.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Speechma</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://speechma.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA especializadas en generación de mapas mentales</h2>
+                <p class="directory-description">
+                    Permiten organizar ideas visualmente, generando esquemas dinámicos y estructurados de forma automática.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/31.mapify.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Mapify</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://mapify.so/?ref=robertoacuna-xuevcw" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/32.gitmind.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Gitmind</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://gitmind.com/invite?k=JTdCJTIydXNlcl9pZCUyMiUzQTYwMzkxNjk4JTJDJTIybmlja25hbWUlMjIlM0ElMjJSb2JlcnRvJTIwQWN1JUMzJUIxYSUyMiU3RA%3D%3D" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA especializadas en programación</h2>
+                <p class="directory-description">
+                    Optimizan la escritura de código, documentación y blogs técnicos, ofreciendo corrección, autocompletado
+                    y generación de contenido para desarrolladores.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/39.blackbox.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Blackbox</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.blackbox.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/40.phind.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Phind</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.phind.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/41.imagica.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name">Imagica</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.imagica.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/42.apphive.jpeg" alt="sitio 3" class="directory-image">
+                        <h3 class="directory-name">Apphive</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://editor.apphive.io" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/43.helper.png" alt="sition 4" class="directory-image">
+                        <h3 class="directory-name">Helper</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.programming-helper.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/44.magic.png" alt="sitio 6" class="directory-image">
+                        <h3 class="directory-name">Magic</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://magic.dev/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/83.replit.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Replit</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://replit.com/ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/148.verdent.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Verdent</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.verdent.ai/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Ejemplos de landing pages creados por empresas">
+                        <img src="imagenes/ia/150.saas.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">saaslandingpage</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://saaslandingpage.com/" class="directory-link" onclick="trackClick(event, 'https://saaslandingpage.com/'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas No-Code para crear aplicaciones con IA</h2>
+                <p class="directory-description">
+                    Crea aplicaciones inteligentes sin programar. Utiliza una interfaz intuitiva para diseñar y lanzar soluciones
+                    que automatizan procesos de forma rápida y eficiente. Ideal para usuarios que buscan desarrollar productos digitales fácilmente.
+                </p>
+
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/111.imagica.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Imagica<br></h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.imagica.ai/studio" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Desarrolla aplicaciones completas con IA, sin código, directamente desde tu navegador.">
+                        <img src="imagenes/ia/118.firebase.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Firebase<br>Studio</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://firebase.studio/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Convierte descripciones o imágenes en interfaces web y móviles funcionales..">
+                        <img src="imagenes/ia/139.stitch.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Stitch</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://stitch.withgoogle.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Agentes de IA Autónomos (Agentic IA)</h2>
+                <p class="directory-description">
+                    Herramientas capaces de ejecutar tareas complejas de principio a fin de forma autónoma, navegando por
+                    internet, utilizando aplicaciones de terceros y tomando decisiones para completar objetivos específicos
+                    sin intervención humana constante..
+                </p>
+
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Plataforma de agentes autónomos que ejecutan tareas complejas, automatizan flujos de trabajo y operan aplicaciones digitalmente.">
+                        <img src="imagenes/ia/153.kortix.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Kortix<br></h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.kortix.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma open source de inteligencia artificial que automatiza tareas reales desde aplicaciones de mensajería populares.">
+                        <img src="imagenes/ia/157.openclaw.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">OpenClaws</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://openclaws.io/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de automatización de flujos de trabajo</h2>
+                <p class="directory-description">
+                    Plataformas que permiten conectar aplicaciones y automatizar procesos sin intervención manual, optimizando
+                    tareas repetitivas mediante flujos visuales o programación.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/47.n8n.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">n8n</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://n8n.io" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/48.zapier.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Zapier</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://zapier.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/49.make.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Make</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.make.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/50.nifi.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Nifi</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://nifi.apache.org/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/80.chatsimple.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Chatsimple</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.chatsimple.ai/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de SEO</h2>
+                <p class="directory-description">
+                    Analizar y optimizar sitios web para mejorar su posicionamiento en buscadores, permiten investigar
+                    palabras clave, auditar páginas, analizar backlinks y monitorear el rendimiento
+                </p>
+
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/60.seo.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Seo</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://seo.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card">
+                        <img src="imagenes/ia/61.answerthepublic.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Answerthepublic</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://answerthepublic.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/62.alsoasked.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Alsoasked</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://alsoasked.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Herramienta de análisis de visibilidad de marca en respuestas de IA">
+                        <img src="imagenes/ia/149.otterly.png" alt="sitio 2" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Otterly</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://otterly.ai/" class="directory-link" onclick="trackClick(event, 'https://claude.ai'); return false;">
+                            Visitar Sitio
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA para creación de documentos académicos </h2>
+                <p class="directory-description">
+                    Redacción, corrección y estructuración de textos, mejorando la eficiencia y calidad de los trabajo académicos
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Corrección y mejora del estilo académico con IA">
+                        <img src="imagenes/ia/73.paperpal.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Paperpal</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://paperpal.com/?linkId=lp_726731&sourceId=roberto-acuna-caicedo&tenantId=paperpal" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Generación automática de textos académicos">
+                        <img src="imagenes/ia/77.aithor.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Aithor</h3>
+                         <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://aithor.com/es-es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Análisis colaborativo de literatura científica">
+                        <img src="imagenes/ia/81.storm.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Co-STORM</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://storm.genie.stanford.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Redacción y formateo de artículos listos para publicación">
+                        <img src="imagenes/ia/108.typeset.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Typeset</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://typeset.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Resumen inteligente de artículos científicos">
+                        <img src="imagenes/ia/76.scholarcy.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Scholarcy</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.scholarcy.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Recomendador de artículos científicos personalizado">
+                        <img src="imagenes/ia/74.rdiscovery.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">RDiscovery</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://discovery.researcher.life/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Segunda fila (visible) -->
+
+                    <div class="directory-card" title="Motor de búsqueda académica que analiza y resume investigaciones científicas con inteligencia artificial.">
+                        <img src="imagenes/ia/129.semantic.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Semantic<br/>Scholar</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.semanticscholar.org" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Motor de búsqueda con IA para responder preguntas basadas en evidencia científica">
+                        <img src="imagenes/ia/112.consensu.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Consensus</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://consensus.app/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Es una plataforma de descubrimiento e inteligencia para investigación científica.">
+                        <img src="imagenes/ia/124.dimensions.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Dimensions</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.dimensions.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Catálogo abierto y conectado de obras científicas, autores, instituciones.">
+                        <img src="imagenes/ia/125.openalex.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">OpenAlex</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://openalex.org" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Plataforma de IA que analiza citas científicas clasificándolas por contexto.">
+                        <img src="imagenes/ia/127.scite.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Scite</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://scite.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Lectura inteligente de papers y resúmenes simplificados">
+                        <img src="imagenes/ia/109.scispace.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Scispace</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://scispace.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Tercera fila (visible) -->
+
+                    <div class="directory-card" title="Resume y responde preguntas sobre documentos con inteligencia artificial.">
+                        <img src="imagenes/ia/126.humata.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Humata</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.humata.ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Responde preguntas específicas extrayendo información precisa de documentos o textos.">
+                        <img src="imagenes/ia/147.answerthis.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Answerthis</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.answerthis.io/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de apoyo a la generación de documentos académicos</h2>
+                <p class="directory-description">
+                    Redacción, corrección y estructuración de textos, mejorando la eficiencia y calidad de los trabajo académicos
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Base UB gratuita que evalúa revistas científicas: ISSN, país, ámbito, métricas, acceso abierto, ICDS, visibilidad.">
+                        <img src="imagenes/ia/113.miar.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Miar</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://miar.ub.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Portal público con indicadores de revistas y países, agrupables por área temática, basado en datos de Scopus">
+                        <img src="imagenes/ia/114.sjr.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">SJR</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.scimagojr.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Herramienta que recomienda revistas científicas óptimas analizando títulos, resúmenes, palabras y métricas.">
+                        <img src="imagenes/ia/115.journalfinder.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">journalfinder</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://journalfinder.elsevier.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Políticas de precios y tarifas de las revistas académicas de Elsevier">
+                        <img src="imagenes/ia/116.pricelist.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Elsevier</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.elsevier.com/about/policies-and-standards/pricing/journals" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Plataforma para compartir y acceder a artículos académicos y de investigación.">
+                        <img src="imagenes/ia/117.academiaedu.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">AcademiaEdu</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.academia.edu/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Detección de textos generados por IA">
+                        <img src="imagenes/ia/107.gptzero.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">GPTZero</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://app.gptzero.me/referral?code=b2dd17f7-d6ca-420c-a630-81de1760ab35" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <!-- Segunda fila (visible) -->
+                    <div class="directory-card" title="Asistente de lectura, análisis y escritura de documentos">
+                        <img src="imagenes/ia/85.notebooklm.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">NotebookLM</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://notebooklm.google/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Gestión de revisiones sistemáticas">
+                        <img src="imagenes/ia/84.parsifal.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Parsifal</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://parsif.al/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+                    <div class="directory-card" title="Convierte texto IA en contenido humano indetectable y natural.">
+                        <img src="imagenes/ia/78.rewritify.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Rewritify</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://rewritify.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Analiza textos generados por IA y los reescribe para que suenen humanos y eviten detectores">
+                        <img src="imagenes/ia/133.humbot.jpeg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Humbot</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://humbot.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Enfoque incluye la generación o estructuración de texto para trabajos o diapositivas">
+                        <img src="imagenes/ia/140.chatz.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Chat.z</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://chat.z.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="Revistas científicas sin costos">
+                        <img src="imagenes/ia/152.revistasdiamante.jpg" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Revistas</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.uv.es/uvweb/servicio-bibliotecas-documentacion/es/investigacion/publicacion/revistas-diamante-1286386862482.html?utm_source=chatgpt.com" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas para realización de proyectos</h2>
+                <p class="directory-description">
+                    Herramientas para la realización de proyectos.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card" title="Pizarra digital colaborativa para lluvia de ideas, planificación y diseño de proyectos.">
+                        <img src="imagenes/ia/142.miro.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Miro</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://miro.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de apoyo a proyectos</h2>
+                <p class="directory-description">
+                    Herramientas de apoyo para la realización de proyectos.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/122.funds.jpg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">fundsforNGOs</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.fundsforngos.org/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/137.nodoka.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Nodoka</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.nodoka.co/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/138.devex.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Devex</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.devex.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Herramientas de IA para visualizaciones</h2>
+                <p class="directory-description">
+                    herramientas de IA que transforman datos en visualizaciones interactivas, precisas y automatizadas eficientemente.
+                </p>
+                <div class="directory-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 900px;">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/90.napkin.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Napkin</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.napkin.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Creación de infografías científicas visualmente atractivas">
+                        <img src="imagenes/ia/75.mind.png" alt="sitio 1" class="directory-image">
+                        <h3 class="directory-name">Mindthegraph</h3>
+                         <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://mindthegraph.com/es/" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Diseña documentos interactivos, pitches y decks con IA, incluyendo gráficos y layouts profesionales.">
+                        <img src="imagenes/ia/105.gamma.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Gamma</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://gamma.app/signup?r=95auto0ocbrdngm" class="directory-link">Visitar Sitio</a>
+                    </div>
+                    <div class="directory-card" title="Dapp todo-en-uno con IA para búsqueda, presentaciones, análisis y automatización inteligente.">
+                        <img src="imagenes/ia/131.genspark.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name" style="color: red;">Genspark</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.genspark.ai" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card" title="crea documentos, presentaciones, hojas, podcasts y webs automatizados con IA.">
+                        <img src="imagenes/ia/151.skywork.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Skywork</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://skywork.ai/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="elegant-divider"></div>
+        <section id="directorio-relevante" class="directory-section">
+            <div class="directory-container">
+                <h2 class="directory-title">Recursos de imágenes, videos y audios</h2>
+                <p class="directory-description">
+                    Recursos multimedia: imágenes, videos y audios para tus proyectos creativos.
+                </p>
+                <div class="directory-grid">
+                    <!-- Primera fila (visible) -->
+                    <div class="directory-card">
+                        <img src="imagenes/ia/93.pixabay.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Pixabay</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://pixabay.com/es/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/94.mixkit.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Mixkit</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://mixkit.co/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/95.unsplash.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Unsplash</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://unsplash.com/es" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/96.pexels.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Pexels</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://www.pexels.com/es-es/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/97.freerange.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Freerangestock</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://freerangestock.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/98.stocksnap.jpeg" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Stocksnap</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://stocksnap.io/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                    <div class="directory-card">
+                        <img src="imagenes/ia/99.allthefreestock.png" alt="sitio 5" class="directory-image">
+                        <h3 class="directory-name">Allthefreestock</h3>
+                        <a href="#" class="directory-link" onclick="event.preventDefault();">
+                          <img src="https://cdn-icons-png.flaticon.com/512/25/25284.png" alt="Enlace Deshabilitado" style="width:16px; height:16px; vertical-align:middle; margin-right:5px;">
+                        </a>
+                        <a href="https://allthefreestock.com/" class="directory-link">Visitar Sitio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+                    const header = document.querySelector("header");
+
+                    if (header) {
+                        // Eliminar cualquier clase que pueda hacer el header fijo
+                        header.classList.remove("fixed", "sticky");
+
+                        // Establecer la posición como relativa para asegurarse de que no sea fija
+                        header.style.position = "relative";
+                        header.style.top = "auto";
+                    }
+                }
+            });
+        </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var cards = document.querySelectorAll('.directory-card');
+
+    cards.forEach(function(card) {
+        var image = card.querySelector('.directory-image');
+        var toolName = card.querySelector('.directory-name');
+
+        // Función para mostrar la descripción
+        function showDescription(e) {
+            var description = card.getAttribute('title');
+            if (description) {
+                alert(description);
+            }
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Agregar eventos a la imagen y al nombre
+        if (image) {
+            image.addEventListener('touchend', showDescription);
+            image.addEventListener('click', showDescription);
+        }
+
+        if (toolName) {
+            toolName.addEventListener('touchend', showDescription);
+            toolName.addEventListener('click', showDescription);
+        }
+    });
+});
+</script>
+    </body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+            <!-- Línea divisoria -->
+            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+            <div class="container">
+                <!-- Menú de navegación -->
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="socios.html">Socios</a></li>
+                        <li><a href="oportunidades.html">Oportunidades</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="incubadora.html">Incubadora</a></li>
+                    </ul>
+                </nav>
+                <!-- Botón de menú responsivo -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+    </header>
+
+    <main>
+
+        <section id="tienda">
+            <!-- Reemplazar el div de categorías con este código -->
+            <div class="categorias menu-categorias-carousel">
+              <div class="menu-carousel">
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-libros.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <span>Libros</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-cursos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <span>Cursos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-servicios.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <span>Servicios</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-aplicaciones.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <span>Apps</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda-equipos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-laptop"></i>
+                  </div>
+                  <span>Dispositivos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/eventos.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <span>Eventos</span>
+                </div>
+                <div class="menu-item" onclick="window.location.href='https://feiaal.org/tienda.html'">
+                  <div class="menu-icon">
+                    <i class="fas fa-store"></i>
+                  </div>
+                  <span>Tienda</span>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section id="tienda">
+            <section id="libros">
+                <h3 style="color: #ff9100;">Servicios</h3>
+                <p class="directory-description">
+                        Descubre nuestra amplia gama de servicios diseñados para impulsar el crecimiento y éxito de tus proyectos. Desde el
+                         desarrollo de aplicaciones y sitios web hasta análisis de datos y consultoría estratégica, ofrecemos soluciones adaptadas
+                         a tus necesidades específicas. Permítenos ser tu aliado en la transformación digital y el avance empresarial. Contáctanos
+                         hoy y lleva tu proyecto al siguiente nivel.
+                </p>
+                <!-- HTML actualizado para las tarjetas de servicios profesionales -->
+<!-- HTML para las tarjetas de servicios con animación controlada por JS -->
+<div class="fila-servicios2">
+    <div class="post2 post1">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/1.escritura-libro.svg" alt="Escritura de libros" class="icon-book">
+                <h3 class="service-title">Escritura de Libros</h3>
+                <p class="service-description">Servicios profesionales de escritura y edición para publicaciones de alta calidad.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+
+    <div class="post2 post2">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/2.Doc-academicos.svg" alt="Documentos académicos" class="icon-book">
+                <h3 class="service-title">Documentos Académicos</h3>
+                <p class="service-description">Elaboración y revisión de documentos académicos con rigor científico.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+
+    <div class="post2 post3">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/3.desarrollo.svg" alt="Desarrollo de software" class="icon-book">
+                <h3 class="service-title">Desarrollo de Software</h3>
+                <p class="service-description">Creación de soluciones tecnológicas personalizadas para tu negocio.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+
+    <div class="post2 post4">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/4.web-development.svg" alt="Desarrollo web" class="icon-book">
+                <h3 class="service-title">Desarrollo Web</h3>
+                <p class="service-description">Sitios web profesionales y aplicaciones modernas con tecnologías avanzadas.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+
+    <div class="post2 post5">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/5.consultoria-fixed.svg" alt="Consultoría" class="icon-book">
+                <h3 class="service-title">Consultoría</h3>
+                <p class="service-description">Asesoramiento estratégico para proyectos y empresas en crecimiento.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+
+    <div class="post2 post6">
+        <a href="#">
+            <div class="content-post2">
+                <img src="animaciones/6.data-analysis-complete.svg" alt="Análisis de datos" class="icon-book">
+                <h3 class="service-title">Análisis de Datos</h3>
+                <p class="service-description">Extracción de conocimiento y visualización de datos para decisiones informadas.</p>
+                <button class="service-btn">Ver servicio</button>
+                <div class="card-indicator"></div>
+            </div>
+            <div class="highlight-border"></div>
+        </a>
+    </div>
+</div>
+
+<!-- Script para controlar la animación secuencial -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionar todas las tarjetas
+  const cards = document.querySelectorAll('.post2');
+
+  // Si no hay tarjetas, salir
+  if (!cards.length) return;
+
+  // Índice de la tarjeta activa
+  let activeIndex = 0;
+
+  // Tiempo en milisegundos que cada tarjeta estará activa
+  const activeTime = 3000;
+
+  // Función para activar una tarjeta específica
+  function activateCard(index) {
+    // Desactivar todas las tarjetas primero
+    cards.forEach(card => {
+      card.classList.remove('active-card');
+    });
+
+    // Activar la tarjeta seleccionada
+    cards[index].classList.add('active-card');
+  }
+
+  // Iniciar la primera tarjeta como activa
+  activateCard(activeIndex);
+
+  // Función para pasar a la siguiente tarjeta
+  function nextCard() {
+    // Avanzar al siguiente índice, volviendo al principio si es necesario
+    activeIndex = (activeIndex + 1) % cards.length;
+    activateCard(activeIndex);
+  }
+
+  // Configurar el intervalo para cambiar de tarjeta
+  let intervalId = setInterval(nextCard, activeTime);
+
+  // Detener la animación cuando el cursor está sobre cualquier tarjeta
+  const cardsContainer = document.querySelector('.fila-servicios2');
+  if (cardsContainer) {
+    cardsContainer.addEventListener('mouseenter', function() {
+      clearInterval(intervalId);
+    });
+
+    cardsContainer.addEventListener('mouseleave', function() {
+      // Reiniciar la animación desde la tarjeta actual
+      clearInterval(intervalId);
+      intervalId = setInterval(nextCard, activeTime);
+    });
+  }
+
+  // Permitir que el hover funcione independientemente de la animación
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.classList.add('hover-card');
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.classList.remove('hover-card');
+    });
+  });
+});
+</script>
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+                        const header = document.querySelector("header");
+        
+                        if (header) {
+                            // Eliminar cualquier clase que pueda hacer el header fijo
+                            header.classList.remove("fixed", "sticky");
+        
+                            // Establecer la posición como relativa para asegurarse de que no sea fija
+                            header.style.position = "relative";
+                            header.style.top = "auto";
+                        }
+                    }
+                });
+            </script>
+            <script>
+        // Script para destacado secuencial de iconos en el carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+          // Referencias a elementos
+          const menuItems = document.querySelectorAll('.menu-item');
+        
+          // Verificar que existan elementos
+          if (!menuItems.length) {
+            console.error('No se encontraron elementos del carrusel');
+            return;
+          }
+        
+          // Variables para el efecto de destacado
+          let currentIndex = 0;
+          const highlightDuration = 2000; // Duración en ms que cada elemento permanece destacado
+          const transitionDuration = 500; // Duración de la transición entre elementos
+          let highlightInterval;
+        
+          // Función para destacar un elemento
+          function highlightItem(index) {
+            // Primero, quitar el destacado de todos los elementos
+            menuItems.forEach(item => {
+              // Eliminar la clase de destacado
+              item.classList.remove('highlight');
+        
+              // Obtener los elementos de icono y texto
+              const iconEl = item.querySelector('.menu-icon');
+              const textEl = item.querySelector('span');
+        
+              // Restaurar estilos originales
+              if (iconEl) {
+                iconEl.style.backgroundColor = '';
+                iconEl.style.color = '';
+                iconEl.style.boxShadow = '';
+              }
+        
+              if (textEl) {
+                textEl.style.color = '';
+                textEl.style.fontWeight = '';
+              }
+            });
+        
+            // Destacar el elemento actual
+            const currentItem = menuItems[index];
+        
+            if (currentItem) {
+              // Añadir clase de destacado
+              currentItem.classList.add('highlight');
+        
+              // Aplicar estilos directamente para asegurar la sincronización
+              const iconEl = currentItem.querySelector('.menu-icon');
+              const textEl = currentItem.querySelector('span');
+        
+              if (iconEl) {
+                iconEl.style.backgroundColor = '#ff9100';
+                iconEl.style.color = 'white';
+                iconEl.style.boxShadow = '0 0 15px rgba(255, 145, 0, 0.6)';
+                iconEl.style.transform = 'translateY(-5px)';
+              }
+        
+              if (textEl) {
+                textEl.style.color = '#ff9100';
+                textEl.style.fontWeight = 'bold';
+              }
+            }
+          }
+        
+          // Función para iniciar el ciclo de destacado
+          function startHighlightCycle() {
+            // Limpiar intervalo existente
+            if (highlightInterval) {
+              clearInterval(highlightInterval);
+            }
+        
+            // Destacar el primer elemento
+            highlightItem(currentIndex);
+        
+            // Establecer intervalo para el ciclo de destacado
+            highlightInterval = setInterval(() => {
+              // Avanzar al siguiente elemento
+              currentIndex = (currentIndex + 1) % menuItems.length;
+        
+              // Destacar el siguiente elemento
+              highlightItem(currentIndex);
+            }, highlightDuration);
+          }
+        
+          // Detener el ciclo de destacado cuando se interactúa con los elementos
+          menuItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', () => {
+              // Detener el ciclo automático
+              clearInterval(highlightInterval);
+        
+              // Destacar solo el elemento actual
+              highlightItem(index);
+            });
+        
+            item.addEventListener('mouseleave', () => {
+              // Guardar el índice actual antes de reiniciar
+              currentIndex = index;
+        
+              // Reiniciar el ciclo automático
+              startHighlightCycle();
+            });
+          });
+        
+          // Iniciar el ciclo de destacado
+          startHighlightCycle();
+        
+          // Detener y reanudar el ciclo cuando la página no es visible
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              // Detener cuando la página no es visible
+              clearInterval(highlightInterval);
+            } else {
+              // Reanudar cuando la página es visible de nuevo
+              startHighlightCycle();
+            }
+          });
+        });
+            </script>
+        <script>
+        // Script para añadir elementos interactivos a la sección de libros
+        document.addEventListener('DOMContentLoaded', function() {
+          // Referencia a los elementos de la sección de libros
+          const librosSection = document.getElementById('libros');
+          const libros = document.querySelectorAll('.curso');
+        
+          if (!librosSection || !libros.length) return;
+        
+          // Añadir botón de compra a cada libro
+          libros.forEach((libro) => {
+            // Crear botón de compra
+            const comprarBtn = document.createElement('button');
+            comprarBtn.className = 'comprar-btn';
+            comprarBtn.textContent = '¡Comprar Ahora!';
+        
+            // Obtener el enlace original del libro
+            const originalLink = libro.querySelector('a')?.getAttribute('href') || '';
+        
+            // Asignar el mismo enlace al botón de compra
+            comprarBtn.addEventListener('click', function() {
+              window.location.href = originalLink;
+            });
+        
+            // Añadir el botón al contenedor del libro
+            libro.appendChild(comprarBtn);
+        
+            // Efecto de rotación 3D al mover el mouse sobre el libro
+            libro.addEventListener('mousemove', function(e) {
+              // Calcular posición relativa del mouse dentro del elemento
+              const rect = this.getBoundingClientRect();
+              const x = e.clientX - rect.left; // posición X dentro del elemento
+              const y = e.clientY - rect.top;  // posición Y dentro del elemento
+        
+              // Calcular rotación basada en la posición del mouse
+              // La rotación máxima es de 10 grados en cada dirección
+              const rotateY = ((x / rect.width) - 0.5) * 10;  // -5 a 5 grados
+              const rotateX = ((y / rect.height) - 0.5) * -10; // 5 a -5 grados (inverso para que sea natural)
+        
+              // Aplicar la transformación
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px) translateY(-10px)`;
+            });
+        
+            // Restaurar posición original al salir del elemento
+            libro.addEventListener('mouseleave', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) translateY(0)';
+            });
+          });
+        
+          // Efecto de "foco de atención" que se mueve entre los libros
+          let spotlightIndex = 0;
+          const spotlightDuration = 5000; // 5 segundos por libro
+        
+          function moveSpotlight() {
+            // Quitar el foco anterior
+            libros.forEach(libro => {
+              libro.classList.remove('spotlight');
+            });
+        
+            // Aplicar foco al libro actual
+            if (libros[spotlightIndex]) {
+              libros[spotlightIndex].classList.add('spotlight');
+            }
+        
+            // Avanzar al siguiente libro
+            spotlightIndex = (spotlightIndex + 1) % libros.length;
+          }
+        
+          // Iniciar el movimiento del foco
+          setInterval(moveSpotlight, spotlightDuration);
+        
+          // Añadir CSS dinámico para el efecto de spotlight
+          const styleSheet = document.createElement('style');
+          styleSheet.innerHTML = `
+            .curso.spotlight {
+              animation: spotlight 2s infinite;
+              z-index: 5;
+            }
+        
+            @keyframes spotlight {
+              0%, 100% { box-shadow: 0 5px 15px rgba(255, 145, 0, 0.3); }
+              50% { box-shadow: 0 5px 30px rgba(255, 145, 0, 0.8); transform: translateY(-10px); }
+            }
+          `;
+          document.head.appendChild(styleSheet);
+        });
+        </script>
+         <script>
+             // JavaScript para controlar la animación secuencial de tarjetas
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionar todas las tarjetas
+  const cards = document.querySelectorAll('.post2');
+
+  // Si no hay tarjetas, salir
+  if (!cards.length) return;
+
+  // Índice de la tarjeta activa
+  let activeIndex = 0;
+
+  // Tiempo en milisegundos que cada tarjeta estará activa
+  const activeTime = 3000;
+
+  // Función para activar una tarjeta específica
+  function activateCard(index) {
+    // Desactivar todas las tarjetas primero
+    cards.forEach(card => {
+      card.classList.remove('active-card');
+    });
+
+    // Activar la tarjeta seleccionada
+    cards[index].classList.add('active-card');
+  }
+
+  // Iniciar la primera tarjeta como activa
+  activateCard(activeIndex);
+
+  // Función para pasar a la siguiente tarjeta
+  function nextCard() {
+    // Avanzar al siguiente índice, volviendo al principio si es necesario
+    activeIndex = (activeIndex + 1) % cards.length;
+    activateCard(activeIndex);
+  }
+
+  // Configurar el intervalo para cambiar de tarjeta
+  const intervalId = setInterval(nextCard, activeTime);
+
+  // Detener la animación cuando el cursor está sobre cualquier tarjeta
+  const cardsContainer = document.querySelector('.fila-servicios2');
+  if (cardsContainer) {
+    cardsContainer.addEventListener('mouseenter', function() {
+      clearInterval(intervalId);
+    });
+
+    cardsContainer.addEventListener('mouseleave', function() {
+      // Reiniciar la animación desde la tarjeta actual
+      clearInterval(intervalId);
+      intervalId = setInterval(nextCard, activeTime);
+    });
+  }
+
+  // Permitir que el hover funcione independientemente de la animación
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.classList.add('hover-card');
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.classList.remove('hover-card');
+    });
+  });
+});
+         </script>
+</body>
+</html>

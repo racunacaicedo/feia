@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Definiciones -->
+  <defs>
+    <!-- Gradientes y patrones -->
+    <linearGradient id="browserGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f5f5f5" />
+    </linearGradient>
+    
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e57373" />
+      <stop offset="100%" stop-color="#d32f2f" />
+    </linearGradient>
+    
+    <!-- Filtro para sombras -->
+    <filter id="shadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="2" dy="3" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="400" height="300" fill="#f8f8ff" />
+  
+  <!-- Ventana del navegador -->
+  <g id="browser" filter="url(#shadowFilter)">
+    <!-- Marco del navegador -->
+    <rect x="70" y="80" width="260" height="170" rx="5" fill="url(#browserGradient)" stroke="#e0e0e0" stroke-width="1" />
+    
+    <!-- Barra de direcciones -->
+    <rect x="70" y="80" width="260" height="30" rx="5" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1" />
+    
+    <!-- Botones de navegador -->
+    <circle cx="85" cy="95" r="5" fill="#ff5252" />
+    <circle cx="100" cy="95" r="5" fill="#ffab40" />
+    <circle cx="115" cy="95" r="5" fill="#69f0ae" />
+    
+    <!-- Barra de URL -->
+    <rect x="130" y="87" width="180" height="16" rx="8" fill="#e0e0e0" />
+    <text x="145" y="99" font-family="sans-serif" font-size="10" fill="#757575">www.miproyecto.com</text>
+    
+    <!-- Contenido web -->
+    <g id="webContent">
+      <!-- Header del sitio -->
+      <rect x="70" y="110" width="260" height="40" fill="url(#headerGradient)" />
+      <text x="90" y="135" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Mi Proyecto Web</text>
+      
+      <!-- Menú de navegación -->
+      <rect x="200" y="120" width="40" height="20" rx="3" fill="#ffffff" opacity="0.2" />
+      <text x="208" y="135" font-family="sans-serif" font-size="10" fill="#ffffff">Inicio</text>
+      
+      <rect x="250" y="120" width="60" height="20" rx="3" fill="#ffffff" opacity="0.2" />
+      <text x="258" y="135" font-family="sans-serif" font-size="10" fill="#ffffff">Servicios</text>
+      
+      <!-- Contenido principal -->
+      <g id="mainContent">
+        <!-- Columna izquierda -->
+        <rect x="90" y="170" width="100" height="60" rx="3" fill="#e0e0e0">
+          <animate 
+            attributeName="y" 
+            values="170; 165; 170" 
+            dur="4s" 
+            repeatCount="indefinite"/>
+          <animate 
+            attributeName="fill" 
+            values="#e0e0e0; #f5f5f5; #e0e0e0" 
+            dur="4s" 
+            repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Líneas de texto (simuladas) -->
+        <rect x="100" y="180" width="80" height="3" rx="1.5" fill="#9e9e9e">
+          <animate 
+            attributeName="y" 
+            values="180; 175; 180" 
+            dur="4s" 
+            repeatCount="indefinite"/>
+        </rect>
+        <rect x="100" y="190" width="70" height="3" rx="1.5" fill="#9e9e9e">
+          <animate 
+            attributeName="y" 
+            values="190; 185; 190" 
+            dur="4s" 
+            repeatCount="indefinite"/>
+        </rect>
+        <rect x="100" y="200" width="80" height="3" rx="1.5" fill="#9e9e9e">
+          <animate 
+            attributeName="y" 
+            values="200; 195; 200" 
+            dur="4s" 
+            repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Columna derecha - imagen -->
+        <rect x="210" y="170" width="100" height="60" rx="3" fill="#bbdefb">
+          <animate 
+            attributeName="y" 
+            values="170; 165; 170" 
+            dur="5s" 
+            repeatCount="indefinite"/>
+          <animate 
+            attributeName="fill" 
+            values="#bbdefb; #90caf9; #bbdefb" 
+            dur="5s" 
+            repeatCount="indefinite"/>
+        </rect>
+        
+        <!-- Íconos de imagen -->
+        <circle cx="230" cy="190" r="5" fill="#2196f3">
+          <animate 
+            attributeName="cy" 
+            values="190; 185; 190" 
+            dur="5s" 
+            repeatCount="indefinite"/>
+        </circle>
+        <polygon points="240,185 250,195 260,180 270,200" fill="none" stroke="#2196f3" stroke-width="2">
+          <animate 
+            attributeName="transform" 
+            type="translate" 
+            values="0,-5; 0,0; 0,-5" 
+            dur="5s" 
+            repeatCount="indefinite"/>
+        </polygon>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Elementos de diseño web flotantes -->
+  <g id="webElements" filter="url(#shadowFilter)">
+    <!-- Elemento HTML -->
+    <g id="htmlElement">
+      <rect x="30" y="120" width="30" height="25" rx="3" fill="#ff7043" opacity="0.8">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; 5,10; 0,0" 
+          dur="7s" 
+          repeatCount="indefinite"/>
+      </rect>
+      <text x="35" y="137" font-family="monospace" font-size="12" fill="#ffffff" font-weight="bold">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; 5,10; 0,0" 
+          dur="7s" 
+          repeatCount="indefinite"/>
+        HTML
+      </text>
+    </g>
+    
+    <!-- Elemento CSS -->
+    <g id="cssElement">
+      <rect x="30" y="160" width="30" height="25" rx="3" fill="#42a5f5" opacity="0.8">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; 10,-5; 0,0" 
+          dur="6s" 
+          repeatCount="indefinite"/>
+      </rect>
+      <text x="38" y="177" font-family="monospace" font-size="12" fill="#ffffff" font-weight="bold">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; 10,-5; 0,0" 
+          dur="6s" 
+          repeatCount="indefinite"/>
+        CSS
+      </text>
+    </g>
+    
+    <!-- Elemento JS -->
+    <g id="jsElement">
+      <rect x="30" y="200" width="30" height="25" rx="3" fill="#ffca28" opacity="0.8">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; -5,15; 0,0" 
+          dur="8s" 
+          repeatCount="indefinite"/>
+      </rect>
+      <text x="40" y="217" font-family="monospace" font-size="12" fill="#ffffff" font-weight="bold">
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,0; -5,15; 0,0" 
+          dur="8s" 
+          repeatCount="indefinite"/>
+        JS
+      </text>
+    </g>
+    
+    <!-- Cables conectando los elementos flotantes -->
+    <line x1="60" y1="132" x2="70" y2="145" stroke="#ff7043" stroke-width="1.5" stroke-dasharray="3,2">
+      <animate 
+        attributeName="x2" 
+        values="70; 75; 70" 
+        dur="7s" 
+        repeatCount="indefinite"/>
+      <animate 
+        attributeName="y2" 
+        values="145; 155; 145" 
+        dur="7s" 
+        repeatCount="indefinite"/>
+    </line>
+    
+    <line x1="60" y1="172" x2="70" y2="165" stroke="#42a5f5" stroke-width="1.5" stroke-dasharray="3,2">
+      <animate 
+        attributeName="x2" 
+        values="70; 80; 70" 
+        dur="6s" 
+        repeatCount="indefinite"/>
+      <animate 
+        attributeName="y2" 
+        values="165; 160; 165" 
+        dur="6s" 
+        repeatCount="indefinite"/>
+    </line>
+    
+    <line x1="60" y1="212" x2="70" y2="200" stroke="#ffca28" stroke-width="1.5" stroke-dasharray="3,2">
+      <animate 
+        attributeName="x2" 
+        values="70; 65; 70" 
+        dur="8s" 
+        repeatCount="indefinite"/>
+      <animate 
+        attributeName="y2" 
+        values="200; 215; 200" 
+        dur="8s" 
+        repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Título en la parte superior -->
+  <text x="200" y="50" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="bold" fill="#d32f2f">
+    Desarrollo de sitios Web
+  </text>
+</svg>

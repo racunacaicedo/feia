@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curso de Inteligencia Artificial para Emprendedores - UTM y FEIAAL. Aprende a usar IA en tu negocio. 48 horas académicas, modalidad virtual. ¡Inscríbete ya!">
+    <meta name="keywords" content="inteligencia artificial, emprendedores, UTM, FEIAAL, curso, IA, innovación, tecnología">
+    <meta name="author" content="Universidad Técnica de Manabí, FEIAAL">
+    <title>IA para Emprendedores | UTM + FEIAAL</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://feiaal.org/cursos/utm/emprendimiento.html">
+    <meta property="og:title" content="Curso de Inteligencia Artificial para Emprendedores">
+    <meta property="og:description" content="Aprende a revolucionar tu negocio con IA. 48 horas de formación práctica. UTM + FEIAAL">
+    <meta property="og:image" content="https://feiaal.org/images/curso-ia-emprendedores.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://feiaal.org/cursos/utm/emprendimiento.html">
+    <meta property="twitter:title" content="Curso de Inteligencia Artificial para Emprendedores">
+    <meta property="twitter:description" content="Aprende a revolucionar tu negocio con IA. 48 horas de formación práctica. UTM + FEIAAL">
+    <meta property="twitter:image" content="https://feiaal.org/images/curso-ia-emprendedores.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-btn {
+            background: rgba(255,255,255,0.5);
+            border: 2px solid white;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* Course Info Section */
+        .course-info {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .highlight-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Instructors Section */
+        .instructors {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .instructor-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .instructor-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .radio-option:hover, .checkbox-option:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .radio-option input[type="radio"]:checked + span,
+        .checkbox-option input[type="checkbox"]:checked + span {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .radio-option:has(input:checked),
+        .checkbox-option:has(input:checked) {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .terms-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .terms-section h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .terms-text {
+            max-height: 200px;
+            overflow-y: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .terms-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .checkbox-option {
+            background: white;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .slider-nav {
+                display: none;
+            }
+
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">IA para Emprendedores | UTM + FEIAAL</div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#curso">El Curso</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#instructores">Instructores</a></li>
+                        <li><a href="#inscripcion">Inscripción</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Revoluciona Tu Negocio con Inteligencia Artificial</h1>
+            <p class="hero-subtitle">Aprende a usar IA para automatizar procesos, analizar datos y tomar decisiones estratégicas que impulsen tu emprendimiento al siguiente nivel</p>
+            <a href="#inscripcion" class="cta-button">¡Inscríbete Ahora!</a>
+        </div>
+
+        <div class="slider-nav">
+            <button class="slider-btn" onclick="prevSlide()">‹</button>
+            <button class="slider-btn" onclick="nextSlide()">›</button>
+        </div>
+    </section>
+
+    <!-- Course Info Section -->
+    <section id="curso" class="course-info">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Transforma Tu Emprendimiento en 48 Horas</h2>
+
+            <div class="highlight-box animate-on-scroll">
+                <h2>🚀 ¿Listo para el Futuro de los Negocios?</h2>
+                <p>La inteligencia artificial ya no es cosa del futuro. Los emprendedores que la adopten AHORA tendrán ventaja competitiva definitiva. No te quedes atrás.</p>
+            </div>
+
+            <div class="course-grid">
+                <div class="course-card animate-on-scroll">
+                    <h3>📅 Fechas del Curso</h3>
+                    <p><strong>Septiembre:</strong> 15, 22, 29</p>
+                    <p><strong>Octubre:</strong> 6, 13, 20</p>
+                    <p>Modalidad virtual con tutorías síncronas</p>
+                </div>
+
+                <div class="course-card animate-on-scroll">
+                    <h3>🎓 Duración y Créditos</h3>
+                    <p><strong>48 horas académicas</strong></p>
+                    <p>Equivalente a 1 crédito universitario</p>
+                    <p>Certificación oficial UTM</p>
+                </div>
+
+                <div class="course-card animate-on-scroll">
+                    <h3>💻 Modalidad MOOC</h3>
+                    <p>Plataforma de Curso Online Masivo y Abierto</p>
+                    <p>Sesiones asincrónicas y síncronas</p>
+                    <p>Acceso 24/7 al material</p>
+                </div>
+
+                <div class="course-card animate-on-scroll">
+                    <h3>🎯 Dirigido a</h3>
+                    <p>Emprendedores de la Incubadora UTM</p>
+                    <p>Comunidad académica</p>
+                    <p><strong>No necesitas conocimientos previos en IA</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="benefits">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">¿Qué Lograrás al Completar Este Curso?</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Dominio de Conceptos IA</h3>
+                    <p>Comprenderás los fundamentos de la inteligencia artificial y cómo aplicarla estratégicamente en tu negocio</p>
+                </div>
+
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Automatización Inteligente</h3>
+                    <p>Identifica y utiliza herramientas de IA para automatizar tareas repetitivas y analizar datos complejos</p>
+                </div>
+
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Creación de Contenido IA</h3>
+                    <p>Aplica técnicas avanzadas para generar contenido, diseñar productos y crear estrategias de marketing digital</p>
+                </div>
+
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">🔧</div>
+                    <h3>Integración Práctica</h3>
+                    <p>Implementa soluciones tecnológicas simples basadas en IA directamente en tus procesos de negocio</p>
+                </div>
+
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">💡</div>
+                    <h3>Innovación Estratégica</h3>
+                    <p>Desarrolla propuestas concretas de mejora e innovación para tu emprendimiento usando IA</p>
+                </div>
+
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Decisiones Basadas en Datos</h3>
+                    <p>Mejora significativamente tu toma de decisiones usando análisis inteligente de información</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section id="instructores" class="instructors">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Aprende de Expertos Reconocidos</h2>
+
+            <div class="instructor-grid">
+                <div class="instructor-card animate-on-scroll">
+                    <h3>Ing. Jaime Alcides Meza, PhD.</h3>
+                    <p>Doctor en Ingeniería con amplia experiencia en inteligencia artificial y emprendimiento tecnológico.</p>
+                </div>
+
+                <div class="instructor-card animate-on-scroll">
+                    <h3>Ing. Roberto Wellington Acuña Caicedo</h3>
+                    <p>Especialista en implementación de soluciones IA en entornos empresariales y startups.</p>
+                </div>
+
+                <div class="instructor-card animate-on-scroll">
+                    <h3>Ing. Christian Caicedo Plúa, PhD</h3>
+                    <p>Doctor en Ingeniería con expertise en transferencia tecnológica y innovación empresarial.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box animate-on-scroll">
+                <h2>🏆 Respaldo Institucional de Excelencia</h2>
+                <p><strong>Universidad Técnica de Manabí (UTM)</strong> + <strong>Fundación para la Enseñanza de IA en América Latina (FEIAAL)</strong></p>
+                <p>Dos instituciones líderes unidas para ofrecerte la mejor formación en IA para emprendedores</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Lo Que Dicen Nuestros Estudiantes</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">"Gracias a este curso, pude automatizar el 60% de mis procesos administrativos. Mi productividad se multiplicó por 3."</p>
+                    <p class="testimonial-author">- María González, CEO TechStart</p>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">"Los instructores son excepcionales. Logré implementar IA en mi estrategia de marketing y mis ventas aumentaron 150%."</p>
+                    <p class="testimonial-author">- Carlos Mendoza, Fundador EcoSolutions</p>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-text">"Sin conocimientos previos en IA, ahora tengo herramientas que me dan ventaja competitiva real en mi sector."</p>
+                    <p class="testimonial-author">- Ana Rodríguez, Directora InnovateLab</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="inscripcion" class="contact-form">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">¡Inscríbete Ahora! Cupos Limitados</h2>
+
+            <div class="form-container animate-on-scroll">
+                <!-- Mensajes de éxito y error se insertan aquí dinámicamente -->
+
+                <form id="inscriptionForm">
+                    <div class="form-group">
+                        <label for="correo">Correo *</label>
+                        <input type="email" id="correo" name="correo" placeholder="Tu dirección de correo electrónico" required>
+                        <div class="error" id="correoError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos *</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos completos" required>
+                        <div class="error" id="apellidosError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombres">Nombres *</label>
+                        <input type="text" id="nombres" name="nombres" placeholder="Tus nombres completos" required>
+                        <div class="error" id="nombresError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudadDomicilio">Ciudad de domicilio *</label>
+                        <input type="text" id="ciudadDomicilio" name="ciudadDomicilio" placeholder="Tu ciudad de residencia" required>
+                        <div class="error" id="ciudadDomicilioError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Perfil de participante *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="emprendedor" required>
+                                <span>Emprendedor</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="empleado_publico" required>
+                                <span>Empleado Público</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="empleado_privado" required>
+                                <span>Empleado Privado</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="academia" required>
+                                <span>Academia</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="graduado_utm" required>
+                                <span>Graduado UTM</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="perfilParticipante" value="otro" required>
+                                <span>Otro</span>
+                            </label>
+                        </div>
+                        <div class="error" id="perfilParticipanteError"></div>
+                    </div>
+
+                    <div class="form-group" id="facultadGroup" style="display: none;">
+                        <label for="facultadUtm">Si eres Docente / Estudiante UTM, indica a que Facultad perteneces:</label>
+                        <select id="facultadUtm" name="facultadUtm">
+                            <option value="">Elige</option>
+                            <option value="Facultad de Ciencias Informáticas">Facultad de Ciencias Informáticas</option>
+                            <option value="Facultad de Ciencias Veterinarias">Facultad de Ciencias Veterinarias</option>
+                            <option value="Facultad de Ciencias de la Salud">Facultad de Ciencias de la Salud</option>
+                            <option value="Facultad de Ciencias Administrativas y Económicas">Facultad de Ciencias Administrativas y Económicas</option>
+                            <option value="Facultad de Ciencias Matemáticas, Físicas y Químicas">Facultad de Ciencias Matemáticas, Físicas y Químicas</option>
+                            <option value="Facultad de Filosofía, Letras y Ciencias de la Educación">Facultad de Filosofía, Letras y Ciencias de la Educación</option>
+                            <option value="Facultad de Ingeniería Agronómica">Facultad de Ingeniería Agronómica</option>
+                            <option value="Facultad de Ingeniería Agrícola">Facultad de Ingeniería Agrícola</option>
+                            <option value="Facultad de Ciencias Humanísticas y Sociales">Facultad de Ciencias Humanísticas y Sociales</option>
+                            <option value="Facultad de Ciencias Zootécnicas">Facultad de Ciencias Zootécnicas</option>
+                            <option value="Instituto de Posgrado">Instituto de Posgrado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>¿Tienes un emprendimiento (producto o servicio), qué deseas apoyarte en la IA para mejorar o fortalecer tu negocio? *</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="tieneEmprendimiento" value="si" required>
+                                <span>Sí</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tieneEmprendimiento" value="no" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                        <div class="error" id="tieneEmprendimientoError"></div>
+                    </div>
+
+                    <div class="form-group" id="descripcionEmprendimientoGroup" style="display: none;">
+                        <label for="descripcionEmprendimiento">Si tu respuesta fue Sí, ¿Indícanos que emprendimiento tienes?</label>
+                        <textarea id="descripcionEmprendimiento" name="descripcionEmprendimiento" rows="3" placeholder="Describe brevemente tu emprendimiento..."></textarea>
+                    </div>
+
+                    <div class="form-group" id="sitioWebGroup" style="display: none;">
+                        <label for="sitioWeb">Si tu respuesta fue Sí, ¿Sitio Web - Fan Page: ?</label>
+                        <input type="url" id="sitioWeb" name="sitioWeb" placeholder="https://www.ejemplo.com o enlace de redes sociales">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="terms-section">
+                            <h4>Declaración de Imagen y Datos Personales</h4>
+                            <div class="terms-text">
+                                <p>El Titular reconoce expresamente que el tratamiento de sus datos personales por parte de los organizadores como responsables del tratamiento de estos, la recolección de los mismos se da en relación participación, así como para la gestión de servicio o productos ofertados por los organizadores. Asimismo reconoce que dicho tratamiento incluye los fines vinculados y/o afines, en beneficio de su dominio.</p>
+
+                                <p>Los datos de contacto o información de los organizadores que cuentan con herramientas de seguridad que garantizan su adecuado tratamiento y uso lícito, de acuerdo con las finalidades descritas en el almacenamiento se mantendrá mientras subsista la relación del Titular con el observancia del Titular la de conformidad con los estándares establecidos. Es del interés público, previsto en la Ley Orgánica de Protección de Datos Personales, para lo cual se establecer las garantías de seguridad necesaria. Hasta que el Titular revoque el consentimiento, Se te solicitara esta información durante la relación con el Titular en los términos desarrollados con el desarrollo, por tanto se compromete a titular tiene conforme a las finalidades que garantizan los derechos reconocidos por la Ley de datos que proporcionados sean exactos, íntegros, precisos, completos, comprobables, claros y actualizables.</p>
+
+                                <p>La autorización otorgada en el presente documento es para las finalidades descritas en los procedimientos, así como el tratamiento industrial e irrevocable para cumplir con la finalidad que garantiza con información recopilar autorización de datos personales, por lo que no se proporcionado por el Titular no se podrá prestar el servicio solicitado.</p>
+                            </div>
+
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" required>
+                                <span>Acepto la declaración de Datos Personales</span>
+                            </label>
+                            <div class="error" id="aceptaTerminosError"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">🚀 ¡Inscribirme al Curso!</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Universidad Técnica de Manabí</h3>
+                    <p>Dirección de Vinculación</p>
+                    <p>Gestión de Innovación Social, Transferencia Tecnológica y Emprendimiento</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contacto UTM</h3>
+                    <p>📧 emprendimiento@utm.edu.ec</p>
+                    <p>📞 +593968985305 </p>
+                    <p>📍 Portoviejo, Manabí, Ecuador</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>FEIAAL</h3>
+                    <p>Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</p>
+                    <p>📧 info@feiaal.org</p>
+                    <p>🌐 www.feiaal.org</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
+                <p>&copy; 2024 Universidad Técnica de Manabí + FEIAAL. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ====== SLIDER FUNCTIONALITY ======
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // ====== NAVIGATION ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ====== ANIMATIONS ======
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ====== FORMULARIO - LÓGICA CONDICIONAL ======
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar/ocultar campo de facultad según perfil
+            const perfilRadios = document.querySelectorAll('input[name="perfilParticipante"]');
+            const facultadGroup = document.getElementById('facultadGroup');
+
+            perfilRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'graduado_utm' || this.value === 'academia') {
+                        facultadGroup.style.display = 'block';
+                    } else {
+                        facultadGroup.style.display = 'none';
+                        document.getElementById('facultadUtm').value = '';
+                    }
+                });
+            });
+
+            // Mostrar/ocultar campos de emprendimiento
+            const emprendimientoRadios = document.querySelectorAll('input[name="tieneEmprendimiento"]');
+            const descripcionGroup = document.getElementById('descripcionEmprendimientoGroup');
+            const sitioWebGroup = document.getElementById('sitioWebGroup');
+
+            emprendimientoRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'si') {
+                        descripcionGroup.style.display = 'block';
+                        sitioWebGroup.style.display = 'block';
+                    } else {
+                        descripcionGroup.style.display = 'none';
+                        sitioWebGroup.style.display = 'none';
+                        document.getElementById('descripcionEmprendimiento').value = '';
+                        document.getElementById('sitioWeb').value = '';
+                    }
+                });
+            });
+        });
+
+        // ====== FORM HANDLING WITH DATABASE CONNECTION ======
+        const form = document.getElementById('inscriptionForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Deshabilitar botón y mostrar loading
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span>Enviando...';
+
+            // Limpiar errores previos
+            document.querySelectorAll('.error').forEach(error => {
+                error.textContent = '';
+            });
+
+            // Limpiar mensajes previos
+            limpiarMensajes();
+
+            // Crear FormData con todos los campos
+            const formData = new FormData();
+
+            // Campos básicos
+            formData.append('correo', document.getElementById('correo').value.trim());
+            formData.append('apellidos', document.getElementById('apellidos').value.trim());
+            formData.append('nombres', document.getElementById('nombres').value.trim());
+            formData.append('ciudadDomicilio', document.getElementById('ciudadDomicilio').value.trim());
+
+            // Perfil de participante (radio button)
+            const perfilRadio = document.querySelector('input[name="perfilParticipante"]:checked');
+            if (perfilRadio) {
+                formData.append('perfilParticipante', perfilRadio.value);
+            }
+
+            // Facultad UTM (opcional)
+            const facultadUtm = document.getElementById('facultadUtm');
+            if (facultadUtm && facultadUtm.value) {
+                formData.append('facultadUtm', facultadUtm.value);
+            }
+
+            // Tiene emprendimiento (radio button)
+            const emprendimientoRadio = document.querySelector('input[name="tieneEmprendimiento"]:checked');
+            if (emprendimientoRadio) {
+                formData.append('tieneEmprendimiento', emprendimientoRadio.value);
+            }
+
+            // Descripción emprendimiento (opcional)
+            const descripcion = document.getElementById('descripcionEmprendimiento');
+            if (descripcion && descripcion.value.trim()) {
+                formData.append('descripcionEmprendimiento', descripcion.value.trim());
+            }
+
+            // Sitio web (opcional)
+            const sitioWeb = document.getElementById('sitioWeb');
+            if (sitioWeb && sitioWeb.value.trim()) {
+                formData.append('sitioWeb', sitioWeb.value.trim());
+            }
+
+            // Aceptar términos (checkbox)
+            const aceptaTerminos = document.getElementById('aceptaTerminos');
+            if (aceptaTerminos && aceptaTerminos.checked) {
+                formData.append('aceptaTerminos', 'true');
+            }
+
+            // Enviar datos al servidor
+            fetch('save_inscription.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                // Verificar que la respuesta sea JSON válida
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('La respuesta del servidor no es JSON válida. Verifica que save_inscription.php esté funcionando.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Respuesta del servidor:', data);
+
+                if (data.success) {
+                    // Mostrar mensaje de éxito
+                    mostrarMensajeExito(data);
+
+                    // Reiniciar formulario
+                    form.reset();
+                    ocultarCamposCondicionales();
+
+                } else {
+                    // Mostrar errores específicos
+                    if (data.errors && Array.isArray(data.errors)) {
+                        mostrarErrores(data.errors);
+                    } else {
+                        mostrarError(data.message || 'Error desconocido al procesar la inscripción');
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error de conexión:', error);
+                mostrarError('Error de conexión con el servidor. Verifica que los archivos PHP estén subidos correctamente. ' + error.message);
+            })
+            .finally(() => {
+                // Restaurar botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+        });
+
+        /**
+         * Mostrar mensaje de éxito
+         */
+        function mostrarMensajeExito(data) {
+            const successMessage = document.getElementById('successMessage') || crearMensajeExito();
+
+            successMessage.innerHTML = `
+                <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 20px; border-radius: 10px; margin: 20px 0; animation: fadeInUp 0.5s ease-out;">
+                    <h3 style="margin-top: 0; color: #155724;">🎉 ¡Inscripción Exitosa!</h3>
+                    <p><strong>Gracias ${data.data.nombres_completos}</strong>, tu inscripción ha sido registrada correctamente.</p>
+
+                    <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                        <p><strong>📋 Detalles de tu inscripción:</strong></p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li><strong>ID de inscripción:</strong> ${data.data.id}</li>
+                            <li><strong>Correo registrado:</strong> ${data.data.correo}</li>
+                            <li><strong>Fecha:</strong> ${data.data.fecha_inscripcion}</li>
+                            <li><strong>Cupos restantes:</strong> ${data.data.cupos_restantes}</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(255,193,7,0.1); padding: 15px; border-radius: 8px; border-left: 5px solid #ffc107;">
+                        <p><strong>📧 Próximos pasos:</strong></p>
+                        <p>Pronto recibirás un correo de confirmación con más información sobre el curso y el acceso a la plataforma virtual.</p>
+                    </div>
+
+                    <div style="background: rgba(102, 126, 234, 0.1); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <p style="margin: 0; font-size: 0.9rem;">
+                            <strong>📅 Fechas del curso:</strong> 15, 22, 29 de septiembre - 6, 13, 20 de octubre<br>
+                            <strong>🎓 Modalidad:</strong> Virtual MOOC - 48 horas académicas<br>
+                            <strong>🏛️ Organizan:</strong> Universidad Técnica de Manabí + FEIAAL
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            successMessage.style.display = 'block';
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /**
+         * Crear elemento para mensaje de éxito si no existe
+         */
+        function crearMensajeExito() {
+            const successDiv = document.createElement('div');
+            successDiv.id = 'successMessage';
+            successDiv.style.display = 'none';
+
+            // Insertar antes del formulario
+            form.parentNode.insertBefore(successDiv, form);
+            return successDiv;
+        }
+
+        /**
+         * Mostrar errores múltiples
+         */
+        function mostrarErrores(errores) {
+            const errorContainer = document.getElementById('errorContainer') || crearContainerError();
+
+            let errorHTML = '<div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 8px; margin: 20px 0; animation: fadeInUp 0.5s ease-out;">';
+            errorHTML += '<h4 style="margin-top: 0;">❌ Por favor corrige los siguientes errores:</h4>';
+            errorHTML += '<ul style="margin: 10px 0; padding-left: 20px;">';
+
+            errores.forEach(error => {
+                errorHTML += `<li>${error}</li>`;
+            });
+
+            errorHTML += '</ul></div>';
+
+            errorContainer.innerHTML = errorHTML;
+            errorContainer.style.display = 'block';
+            errorContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /**
+         * Mostrar error simple
+         */
+        function mostrarError(mensaje) {
+            const errorContainer = document.getElementById('errorContainer') || crearContainerError();
+
+            errorContainer.innerHTML = `
+                <div style="background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 8px; margin: 20px 0; animation: fadeInUp 0.5s ease-out;">
+                    <p><strong>❌ Error:</strong> ${mensaje}</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">💡 <strong>Sugerencias:</strong></p>
+                    <ul style="font-size: 0.9rem; margin: 5px 0; padding-left: 20px;">
+                        <li>Verifica que todos los archivos PHP estén subidos</li>
+                        <li>Comprueba que la base de datos esté configurada</li>
+                        <li>Revisa la configuración en config.php</li>
+                    </ul>
+                </div>
+            `;
+
+            errorContainer.style.display = 'block';
+            errorContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /**
+         * Crear container para errores si no existe
+         */
+        function crearContainerError() {
+            const errorDiv = document.createElement('div');
+            errorDiv.id = 'errorContainer';
+            errorDiv.style.display = 'none';
+
+            // Insertar antes del formulario
+            form.parentNode.insertBefore(errorDiv, form);
+            return errorDiv;
+        }
+
+        /**
+         * Ocultar campos condicionales al resetear
+         */
+        function ocultarCamposCondicionales() {
+            // Ocultar campo facultad
+            const facultadGroup = document.getElementById('facultadGroup');
+            if (facultadGroup) {
+                facultadGroup.style.display = 'none';
+                const facultadSelect = document.getElementById('facultadUtm');
+                if (facultadSelect) facultadSelect.value = '';
+            }
+
+            // Ocultar campos de emprendimiento
+            const descripcionGroup = document.getElementById('descripcionEmprendimientoGroup');
+            const sitioWebGroup = document.getElementById('sitioWebGroup');
+
+            if (descripcionGroup) {
+                descripcionGroup.style.display = 'none';
+                const descripcionTextarea = document.getElementById('descripcionEmprendimiento');
+                if (descripcionTextarea) descripcionTextarea.value = '';
+            }
+
+            if (sitioWebGroup) {
+                sitioWebGroup.style.display = 'none';
+                const sitioWebInput = document.getElementById('sitioWeb');
+                if (sitioWebInput) sitioWebInput.value = '';
+            }
+        }
+
+        /**
+         * Limpiar mensajes previos al enviar nuevo formulario
+         */
+        function limpiarMensajes() {
+            const successMessage = document.getElementById('successMessage');
+            const errorContainer = document.getElementById('errorContainer');
+
+            if (successMessage) successMessage.style.display = 'none';
+            if (errorContainer) errorContainer.style.display = 'none';
+        }
+
+        // Limpiar mensajes cuando se empiece a escribir de nuevo
+        form.addEventListener('input', limpiarMensajes);
+
+        // ====== INPUT EFFECTS ======
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentNode.style.transform = 'translateY(-2px)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentNode.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

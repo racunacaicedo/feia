@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html">
+
+<!-- Agregar esto en el <head> del documento -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Agregar Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Archivo de traducciones -->
+    <script defer src="js/translations.js"></script>
+    <!-- Archivo principal con lógica -->
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container" style="
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            width: 100%;">
+
+            <!-- Selector de idioma con icono -->
+            <!-- Selector de idioma con icono -->
+            <div id="language-selector">
+                <button id="language-btn">
+                    <i class="fas fa-globe"></i>
+                    <span>Idiomas</span>
+                </button>
+                <ul id="language-options" class="hidden">
+                    <li data-lang="es">Español</li>
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+            <!-- Logo de la fundación -->
+            <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+            <!-- Texto -->
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                margin: 0;
+                padding: 0;">
+                <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+                <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+            </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+
+        <div class="container">
+            <!-- Menú de navegación -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="socios.html">Socios</a></li>
+                    <li><a href="oportunidades.html">Oportunidades</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="incubadora.html">Incubadora</a></li>
+                </ul>
+            </nav>
+            <!-- Botón de menú responsivo -->
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="eventos" class="events-section">
+            <div class="events-container">
+               <img src="imagenes/feiaal.png" alt="Artículo 1" class="article-float-image">
+               <p class="dropcap"; style="font-size: 20px; line-height: 1.6; text-align: justify; color: #333; font-family: Arial, sans-serif;">
+                    <strong>¡Bienvenido/a!</strong> Gracias por interesarte en conocernos. Somos la Fundación para la Enseñanza de la
+                   Inteligencia Artificial en América Latina (FEIA), una organización sin fines de lucro con sede en Ecuador. Nuestra
+                   labor se centra en la investigación, el uso y la aplicación de la IA en diversos sectores productivos, con énfasis
+                   en promover la formación de calidad desde la educación primaria y secundaria hasta la superior. De este modo, contribuimos
+                   a cerrar la brecha digital en la región, impulsando la innovación, fomentando la equidad y garantizando el acceso a
+                   herramientas tecnológicas que transformen la enseñanza y forjen el futuro de nuestra sociedad.<br><br>
+
+                    <strong style="font-size: 20px;">Qué buscamos:</strong> Nuestro propósito es convertirnos en un referente en la educación
+                   y aplicación de la IA en América Latina. Aspiramos a diseñar programas formativos y de capacitación especializados, impulsando
+                   la investigación y la innovación tecnológica para resolver desafíos sociales y productivos en la región. Creemos en la fuerza
+                   de las alianzas estratégicas con instituciones académicas, empresas tecnológicas y organismos internacionales, con el objetivo
+                   de intercambiar conocimientos y recursos. Asimismo, promovemos el uso responsable y ético de la IA a todos los niveles,
+                   asegurando que esta potente herramienta contribuya al bienestar colectivo.<br><br>
+
+                    <strong style="font-size: 20px;">Qué ofrecemos:</strong> Ponemos a disposición una amplia gama de programas y servicios orientados
+                   a transformar tanto la educación como el acceso a la IA en la región. Entre ellos se incluyen talleres, seminarios y cursos dirigidos
+                   a estudiantes, docentes y profesionales, así como asesoría especializada en soluciones de IA para organizaciones públicas y privadas.
+                   También apoyamos a emprendedores y startups mediante formación, mentoría y búsqueda de oportunidades de financiamiento. A su vez,
+                   desarrollamos proyectos de inclusión social y tecnológica que ofrecen a grupos vulnerables la posibilidad de integrarse en este cambio
+                   transformador.<br><br>
+
+                   Como Fundación, nos regimos por valores de ética, innovación y responsabilidad social, con la visión de forjar un futuro en el que la
+                   tecnología esté al alcance de todas las personas.
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+        <footer>
+        <div class="container">
+            <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+            <!-- Botón para mostrar/ocultar -->
+            <!-- Redes Sociales -->
+            <div class="social-icons hidden">
+                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.twitter.com/" class="icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/" class="icon linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/" class="icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+
+            <!-- Botón para alternar redes sociales -->
+            <button id="toggle-social-icons" class="toggle-button">
+                <i class="fas fa-share-alt"></i>
+            </button>
+
+            <!-- Botón de WhatsApp -->
+            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+               target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
+            const header = document.querySelector("header");
+
+            if (header) {
+                // Eliminar cualquier clase que pueda hacer el header fijo
+                header.classList.remove("fixed", "sticky");
+
+                // Establecer la posición como relativa para asegurarse de que no sea fija
+                header.style.position = "relative";
+                header.style.top = "auto";
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

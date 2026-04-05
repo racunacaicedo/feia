@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulación 3D de la Tierra - Fotorealista</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+    }
+    canvas {
+      display: block;
+    }
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+      padding: 8px 12px;
+      font-family: sans-serif;
+      font-size: 14px;
+      border-radius: 5px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">🌍 Usa el mouse para rotar, arrastrar y hacer zoom</div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script>
+    // Escena, cámara, renderizador
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.shadowMap.enabled = true;
+    document.body.appendChild(renderer.domElement);
+
+    // Controles interactivos
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.minDistance = 2;
+    controls.maxDistance = 15;
+
+    // Texturas (diurna, nocturna, especular, nubes, estrellas)
+    const loader = new THREE.TextureLoader();
+    const textures = {
+      day: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_atmos_2048.jpg'),
+      night: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_lights_2048.png'),
+      specular: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_specular_2048.jpg'),
+      clouds: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/earth_clouds_2048.png'),
+      stars: loader.load('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/planets/starfield.jpg')
+    };
+
+    // Tierra - ShaderMaterial personalizado para transición día/noche
+    const earthGeometry = new THREE.SphereGeometry(1, 64, 64);
+    const earthMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        dayTexture: { value: textures.day },
+        nightTexture: { value: textures.night },
+        specularMap: { value: textures.specular },
+        sunDirection: { value: new THREE.Vector3(5, 0, 0) },
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          vNormal = normalize(normalMatrix * normal);
+          vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform sampler2D dayTexture;
+        uniform sampler2D nightTexture;
+        uniform sampler2D specularMap;
+        uniform vec3 sunDirection;
+
+        varying vec3 vNormal;
+        varying vec3 vPosition;
+        varying vec2 vUv;
+
+        void main() {
+          vec3 normal = normalize(vNormal);
+          vec3 lightDir = normalize(sunDirection);
+          float diffuse = max(dot(normal, lightDir), 0.0);
+
+          vec3 dayColor = texture2D(dayTexture, vUv).rgb;
+          vec3 nightColor = texture2D(nightTexture, vUv).rgb;
+
+          // Interpolación día/noche
+          vec3 color = mix(nightColor, dayColor, diffuse);
+
+          // Reflejos especulares
+          vec3 viewDir = normalize(-vPosition);
+          vec3 reflectDir = reflect(-lightDir, normal);
+          float spec = pow(max(dot(viewDir, reflectDir), 0.0), 16.0);
+          vec3 specular = texture2D(specularMap, vUv).rgb * spec * 0.4;
+
+          gl_FragColor = vec4(color + specular, 1.0);
+        }
+      `
+    });
+
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    earthMesh.castShadow = true;
+    earthMesh.receiveShadow = true;
+    scene.add(earthMesh);
+
+    // Nubes
+    const cloudGeometry = new THREE.SphereGeometry(1.01, 64, 64);
+    const cloudMaterial = new THREE.MeshPhongMaterial({
+      map: textures.clouds,
+      transparent: true,
+      opacity: 0.4,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+    const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+    scene.add(cloudMesh);
+
+    // Estrellas
+    const starGeometry = new THREE.SphereGeometry(90, 64, 64);
+    const starMaterial = new THREE.MeshBasicMaterial({
+      map: textures.stars,
+      side: THREE.BackSide
+    });
+    const starMesh = new THREE.Mesh(starGeometry, starMaterial);
+    scene.add(starMesh);
+
+    // Iluminación solar
+    const sun = new THREE.DirectionalLight(0xffffff, 1.2);
+    sun.position.set(5, 0, 0);
+    sun.castShadow = true;
+    scene.add(sun);
+
+    // Luz ambiente
+    scene.add(new THREE.AmbientLight(0x333333));
+
+    // Posición inicial de la cámara
+    camera.position.set(2, 1.5, 2);
+    controls.update();
+
+    // Animación
+    function animate() {
+      requestAnimationFrame(animate);
+      earthMesh.rotation.y += 0.0008;
+      cloudMesh.rotation.y += 0.0012;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Redimensionar ventana
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
