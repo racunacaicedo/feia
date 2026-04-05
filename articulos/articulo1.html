@@ -1,20 +1,639 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- Agregar esto en el <head> del documento -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <title>Importancia de la IA en el Mundo Actual — FEIAAL</title>
+    <meta name="description" content="Desde el lanzamiento de ChatGPT en 2022, la IA transformó la vida cotidiana. Análisis del mercado global, fases de evolución e impacto en Latinoamérica.">
     <link rel="stylesheet" href="../../css/styles.css">
-    <!-- Agregar Font Awesome 6 -->
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Archivo de traducciones -->
+    <!-- Traducciones y lógica del sitio -->
     <script defer src="../../js/translations.js"></script>
-    <!-- Archivo principal con lógica -->
     <script defer src="../../js/script.js"></script>
+
+    <style>
+        /* ================================================
+           ARTÍCULO INDIVIDUAL — ESTILOS PREMIUM 2025/2026
+           ================================================ */
+
+        /* ── Barra de progreso de lectura ── */
+        #art-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, #0073e6, #00c6ff);
+            z-index: 9999;
+            transition: width 0.1s linear;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* ── Hero del artículo ── */
+        .art-hero {
+            background: linear-gradient(135deg, #0d1f4f 0%, #1e3c72 50%, #2a5298 100%);
+            padding: 72px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .art-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="40" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="80" r="60" fill="rgba(255,255,255,0.02)"/></svg>') no-repeat center/cover;
+            pointer-events: none;
+        }
+
+        .art-hero-inner {
+            max-width: 780px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .art-breadcrumb {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+        }
+        .art-breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .art-breadcrumb a:hover { color: #fff; }
+        .art-breadcrumb span { margin: 0 6px; }
+
+        .art-category-tag {
+            display: inline-block;
+            background: rgba(0,198,255,0.2);
+            border: 1px solid rgba(0,198,255,0.4);
+            color: #7dd3fc;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+
+        .art-hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+            margin: 0 0 28px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .art-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
+        }
+        .art-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .art-meta-item i { color: #7dd3fc; font-size: 0.8rem; }
+
+        /* ── Layout principal: content + sidebar ── */
+        #articulo-individual {
+            background: #f0f4f8;
+            padding: 0 0 60px;
+            display: block;
+        }
+
+        .art-layout {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ── Sidebar: tabla de contenidos ── */
+        .art-toc {
+            position: sticky;
+            top: 80px;
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            order: 2;
+        }
+        .art-toc h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin: 0 0 16px;
+        }
+        .art-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .art-toc li { margin-bottom: 4px; }
+        .art-toc a {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: #475569;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+        .art-toc a:hover,
+        .art-toc a.active {
+            background: #eff6ff;
+            color: #0073e6;
+            border-left-color: #0073e6;
+        }
+
+        .art-toc-divider {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 16px 0;
+        }
+
+        .art-toc-download {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #0073e6;
+            text-decoration: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: #eff6ff;
+            transition: background 0.2s;
+        }
+        .art-toc-download:hover { background: #dbeafe; }
+
+        /* ── Contenido principal del artículo ── */
+        .art-content {
+            order: 1;
+            min-width: 0;
+        }
+
+        .art-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 44px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            margin-bottom: 28px;
+        }
+
+        /* Tipografía del contenido */
+        .art-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #374151;
+            margin: 0 0 1.4em;
+            text-align: justify;
+        }
+        .art-content h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.55rem;
+            color: #1e3c72;
+            margin: 40px 0 18px;
+            padding-top: 8px;
+        }
+        .art-content h2:first-child { margin-top: 0; }
+
+        .art-content a {
+            color: #0073e6;
+            text-decoration: underline;
+            text-decoration-color: rgba(0,115,230,0.3);
+            text-underline-offset: 3px;
+            transition: text-decoration-color 0.2s;
+        }
+        .art-content a:hover { text-decoration-color: #0073e6; }
+
+        /* ── Cards de estadísticas ── */
+        .art-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .art-stat-card {
+            background: linear-gradient(135deg, #f0f7ff, #e8f4fd);
+            border: 1px solid #bfdbfe;
+            border-radius: 14px;
+            padding: 20px 22px;
+            text-align: center;
+        }
+        .art-stat-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #1e3c72;
+            line-height: 1.1;
+            display: block;
+        }
+        .art-stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 6px;
+            line-height: 1.4;
+            display: block;
+        }
+        .art-stat-source {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ── Imagen destacada con caption ── */
+        .art-figure {
+            margin: 32px 0;
+        }
+        .art-figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            display: block;
+        }
+        .art-figure figcaption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Imagen flotante (primera) */
+        .art-float-img {
+            float: left;
+            width: 200px;
+            height: auto;
+            margin: 4px 24px 16px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .art-clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* ── Pull quote ── */
+        .art-pullquote {
+            border: none;
+            margin: 36px 0;
+            padding: 28px 36px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+        .art-pullquote::before {
+            content: '\201C';
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 8rem;
+            color: rgba(255,255,255,0.12);
+            position: absolute;
+            top: -20px;
+            left: 16px;
+            line-height: 1;
+        }
+        .art-pullquote p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            position: relative;
+            text-align: left;
+        }
+
+        /* ── Timeline de fases ── */
+        .art-timeline-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.55rem;
+            color: #1e3c72;
+            margin: 40px 0 24px;
+        }
+
+        .art-timeline {
+            position: relative;
+            padding-left: 32px;
+            margin: 0 0 24px;
+        }
+        .art-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, #0073e6, #2a5298, #1e3c72, #0d1f4f);
+            border-radius: 2px;
+        }
+
+        .art-phase {
+            position: relative;
+            margin-bottom: 28px;
+        }
+        .art-phase:last-child { margin-bottom: 0; }
+
+        .art-phase-dot {
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #0073e6;
+        }
+
+        .art-phase:nth-child(1) .art-phase-dot { background: #0073e6; }
+        .art-phase:nth-child(2) .art-phase-dot { background: #2a5298; }
+        .art-phase:nth-child(3) .art-phase-dot { background: #1e3c72; }
+        .art-phase:nth-child(4) .art-phase-dot { background: #0d1f4f; }
+
+        .art-phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .art-phase-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0073e6;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 3px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .art-phase-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .art-phase p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.75;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* ── Vídeo ── */
+        .art-video-wrap {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 28px;
+            margin: 32px 0;
+            border: 1px solid #e2e8f0;
+        }
+        .art-video-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .art-video-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        .art-video-wrap iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+            border-radius: 10px;
+            display: block;
+        }
+
+        /* ── Tarjeta del autor ── */
+        .art-author-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            margin-bottom: 28px;
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+        .art-author-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #0073e6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-weight: 700;
+        }
+        .art-author-info { flex: 1; }
+        .art-author-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0073e6;
+            margin-bottom: 4px;
+        }
+        .art-author-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            color: #1e293b;
+            margin: 0 0 4px;
+        }
+        .art-author-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .art-author-name a:hover { color: #0073e6; }
+        .art-author-affil {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0 0 14px;
+        }
+        .art-author-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #94a3b8;
+        }
+        .art-author-meta span { display: flex; align-items: center; gap: 6px; }
+        .art-author-meta i { color: #0073e6; }
+
+        .art-author-spotify {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #1db954;
+            text-decoration: none;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-top: 12px;
+            transition: background 0.2s;
+        }
+        .art-author-spotify:hover { background: #dcfce7; }
+
+        /* ── Botones de acción ── */
+        .art-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        }
+
+        .art-btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #0073e6, #1e3c72);
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: opacity 0.2s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(0,115,230,0.35);
+        }
+        .art-btn-download:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .art-btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .art-btn-back:hover { background: #e2e8f0; color: #1e293b; }
+
+        .art-share-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .art-share-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .art-share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .art-share-btn:hover { transform: scale(1.12); opacity: 0.9; }
+        .art-share-btn.linkedin { background: #0077b5; }
+        .art-share-btn.twitter  { background: #1da1f2; }
+        .art-share-btn.facebook { background: #1877f2; }
+        .art-share-btn.whatsapp { background: #25d366; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .art-layout {
+                grid-template-columns: 1fr;
+            }
+            .art-toc { display: none; }
+            .art-card { padding: 28px 24px; }
+            .art-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .art-author-card { flex-direction: column; gap: 16px; padding: 24px; }
+            .art-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+            .art-share-group { justify-content: flex-start; }
+        }
+
+        @media (max-width: 500px) {
+            .art-hero { padding: 48px 16px 40px; }
+            .art-stats-grid { grid-template-columns: 1fr; }
+            .art-float-img { float: none; width: 100%; margin: 0 0 16px; }
+            .art-pullquote { padding: 20px 22px; }
+            .art-pullquote p { font-size: 1.05rem; }
+            .art-layout { padding: 24px 14px 0; }
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- Barra de progreso de lectura -->
+    <div id="art-progress-bar"></div>
 
     <header>
         <div class="container" style="
@@ -26,8 +645,6 @@
             padding: 0;
             width: 100%;">
 
-            <!-- Selector de idioma con icono -->
-            <!-- Selector de idioma con icono -->
             <div id="language-selector">
                 <button id="language-btn">
                     <i class="fas fa-globe"></i>
@@ -40,11 +657,8 @@
                 </ul>
             </div>
 
-
-            <!-- Logo de la fundación -->
             <img src="../imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
 
-            <!-- Texto -->
             <div style="
                 display: flex;
                 flex-direction: column;
@@ -58,182 +672,350 @@
             </div>
         </div>
 
-            <!-- Línea divisoria -->
-            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+        <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
 
-            <div class="container">
-                <!-- Menú de navegación -->
-                <nav>
-                    <ul>
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="../nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="../herramientas.html">Herramientas de IA</a></li>
-                        <li><a href="../proyectos.html">Proyectos</a></li>
-                        <li><a href="../socios.html">Socios</a></li>
-                        <li><a href="../eventos.html">Eventos</a></li>
-                        <li><a href=../"tienda.html">Tienda</a></li>
-                        <li><a href="../blog.html">Blog</a></li>
-                        <li><a href="../contacto.html">Contacto</a></li>
-                    </ul>
-                </nav>
-                <!-- Botón de menú responsivo -->
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="../herramientas.html">Herramientas de IA</a></li>
+                    <li><a href="../proyectos.html">Proyectos</a></li>
+                    <li><a href="../socios.html">Socios</a></li>
+                    <li><a href="../eventos.html">Eventos</a></li>
+                    <li><a href="../tienda.html">Tienda</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+        </div>
     </header>
 
     <main>
-<section id="articulo-individual">
-    <div class="articulo-individual-container">
-        <h2 class="section-title">Importancia de la Inteligencia Artificial (IA) en el mundo actual</h2>
 
-        <!-- Contenedor de texto, imagen y video -->
-        <div class="text-image-container2">
-            <img src="imagenes/1.articulo_imag1.jpeg" alt="Imagen Representativa" class="article-float-image2">
-            <p class="article-text2">
-                Desde el 30 de noviembre del año 2022, con el <a href="https://openai.com/index/chatgpt/?utm_source=chatgpt.com">lanzamiento de ChatGPT 3.5 por OpenAI</a>, la inteligencia artificial (IA)
-                dejó de ser una visión futurista para convertirse en una herramienta accesible para millones de personas en todo
-                el mundo con acceso a computadoras, tabletas o teléfonos. Su impacto ha transformado la vida cotidiana, optimizando
-                procesos y mejorando la eficiencia en diversos sectores productivos, como la industria farmacéutica, la manufactura
-                y la programación. . </br></br>
-
-                Desde entonces, cientos de empresas tecnológicas han lanzado sus propias versiones de inteligencia artificial,
-                abarcando prácticamente todas las áreas del conocimiento. Estas herramientas van desde modelos especializados en la
-                generación de texto hasta avanzados creadores de gráficos y muchas más, disponibles en el directorio de <a href="https://aifindy.com/">aifindy.com</a>.
-                Entre las más destacadas se encuentran <a href="https://gemini.google.com/app?hl=es">Gemini</a>, desarrollada por Google, y
-                <a href="https://claude.ai/">Claude</a>, de Anthropic. Además, desde el 20
-                de enero de 2025, han irrumpido en el mercado innovadoras herramientas de inteligencia artificial chinas, como <a href="https://www.deepseek.com/">DeepSeek</a>,
-                respaldada por la firma de inversión Huanfang Quant, y <a href="https://chat.qwenlm.ai/">QwenLM</a>, desarrollada por Alibaba. Estas nuevas propuestas han
-                demostrado que, incluso con menos recursos, es posible crear IA con un rendimiento competitivo a la altura de las
-                principales del sector.</br></br>
-
-                Gracias a todo este desarrollo, la inteligencia artificial (IA) está experimentando un crecimiento sin precedentes a nivel mundial. Se proyecta que el
-                mercado global de IA alcanzará un valor de <a href="https://es.statista.com/estadisticas/1139768/inteligencia-artificial-vaolr-de-mercado/?utm_source=chatgpt.com" >
-                300.000 millones de dólares en 2026</a>. Este auge se refleja en la adopción empresarial, ya que más del
-                <a href="https://www.hostinger.es/tutoriales/estadisticas-y-tendencias-de-ia?utm_source=chatgpt.com" >50%
-                    de las grandes empresas incorporón IA en sus operaciones en el 2024</a>. Además, se estima que la IA contribuirá con
-                más de <a href="https://www.imf.org/es/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity?utm_source=chatgpt.com" >
-                15 billones de dólares a la economía global para 2030</a>. Sin embargo, este avance también plantea desafíos en el
-                mercado laboral, ya que aproximadamente el <a href="https://www.imf.org/es/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity?utm_source=chatgpt.com" >
-                40% del empleo mundial está expuesto a la automatización impulsada por la IA</a>. Por ello, es crucial que las políticas
-                públicas y las estrategias empresariales se enfoquen en una transición laboral equitativa y en la capacitación de la
-                fuerza laboral para maximizar los beneficios de la IA y mitigar sus posibles efectos adversos. </br></br>
-
-                Desde el año 2022 hasta 2025, la inteligencia artificial ha experimentado una evolución vertiginosa, pasando de simples chatbots
-                a sofisticados agentes autónomos con capacidades avanzadas:
-
-                <ul class="article-text2">
-                    <li>
-                        <strong>Primera fase (2022-2023):</strong> Modelos como ChatGPT (GPT-3.5 y GPT-4) revolucionaron la comprensión del
-                        lenguaje, permitiendo la integración de chatbots en diversas plataformas como atención al cliente y generación de
-                        contenido, mientras herramientas como Microsoft Copilot y Notion AI mejoraron la productividad.
-                    </li>
-                    <li>
-                        <strong>Segunda fase (2023-2024):</strong> Surgieron modelos multimodales como GPT-4 y DALL·E 3, capaces de
-                        interpretar imágenes, audio y video, lo que impulsó la generación de contenido digital y la especialización
-                        de IA en sectores como educación y salud.
-                    </li>
-                    <li>
-                        <strong>Tercera fase (2024-2025):</strong> La IA dejó de ser solo un asistente para convertirse en un agente
-                        autónomo, con desarrollos como Auto-GPT y BabyAGI, que pueden planificar y ejecutar tareas sin intervención
-                        humana, además de agentes cognitivos que aprenden de la interacción.
-                    </li>
-                    <li>
-                        <strong>Cuarta fase (2025 en adelante):</strong> Los agentes de IA se consolidan como asistentes inteligentes
-                        capaces de operar en educación, salud e industria, integrándose con la robótica, colaborando entre sí para
-                        resolver problemas y ofreciendo personalización avanzada basada en emociones y contexto personal.
-                    </li>
-                </ul>
-            </p>
-
-            <p class="article-text2">En algo más de dos años, la IA ha pasado de ser una herramienta conversacional a convertirse en un colaborador autónomo,
-            marcando el inicio de una nueva era tecnológica con un impacto transformador en múltiples industrias y la vida cotidiana.
-
-            </p>
-
-            <div class="image-container-articulo">
-                <img src="imagenes/1.evolucionIA.png" alt="Imagen Representativa" class="responsive-img">
+        <!-- ══════════════════════════════════════════
+             HERO DEL ARTÍCULO
+        ══════════════════════════════════════════ -->
+        <div class="art-hero">
+            <div class="art-hero-inner">
+                <div class="art-breadcrumb">
+                    <a href="../index.html">Inicio</a>
+                    <span>›</span>
+                    <a href="../blog.html">Blog</a>
+                    <span>›</span>
+                    Artículo
+                </div>
+                <div class="art-category-tag">Inteligencia Artificial</div>
+                <h1>Importancia de la Inteligencia Artificial (IA) en el mundo actual</h1>
+                <div class="art-meta">
+                    <div class="art-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>6 de febrero, 2025</span>
+                    </div>
+                    <div class="art-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>8 min de lectura</span>
+                    </div>
+                    <div class="art-meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Ing. Roberto W. Acuña Caicedo, PhD.</span>
+                    </div>
+                </div>
             </div>
-
-            <p class="article-text2">
-                Con la aparición de herramientas de IA como la china DeepSeek y la norteamericana Llama de Meta, ambas de código abierto y enfocadas en flexibilidad
-                y colaboración, junto con modelos propietarios como ChatGPT, Gemini y Claude, optimizados para entornos empresariales, se ha dado inicio a una nueva
-                era en la inteligencia artificial. La elección entre estas opciones dependerá de las necesidades específicas: innovación y personalización con acceso
-                abierto, o facilidad de implementación y soporte especializado en soluciones comerciales, permitiendo optar entre alternativas gratuitas o de pago.</br></br>
-
-                Desde mi experiencia personal, la herramienta que más utilizo es  ChatGPT version de pago, porque es una opción accesible que me brinda acceso a una
-                amplia variedad de herramientas avanzadas, incluyendo los GPTs (Generative Pre-trained Transformers), que son modelos de inteligencia artificial
-                diseñados para procesar, generar y comprender texto de manera natural. Lo más interesante es que estos modelos pueden personalizarse para realizar
-                tareas específicas, adaptándose a las necesidades del usuario en áreas como programación, generación de contenido, asistencia en investigación y
-                muchas más. Tal como puedes ver en el siguiente video.
-            </p>
         </div>
 
-        <!-- 📌 Video relacionado de YouTube -->
-        <div class="video-container-articulo">
-            <iframe
-                src="https://www.youtube.com/embed/NgydVCJbpqU"
-                title="Video sobre IA y Educación"
-                allowfullscreen>
-            </iframe>
-        </div>
+        <!-- ══════════════════════════════════════════
+             LAYOUT: ARTÍCULO + SIDEBAR
+        ══════════════════════════════════════════ -->
+        <section id="articulo-individual">
+            <div class="art-layout">
 
-        <!-- Más contenido del artículo -->
-        <div class="articulo-contenido">
-            <p>
-                Además, utilizo Claude y Gemini, y he explorado herramientas como Qwen, Sora para la generación de videos, y Leonardo AI para la creación
-                de imágenes, entre muchas otras que facilitan mi trabajo y que documentaré en próximos artículos. La inteligencia artificial continúa
-                evolucionando rápidamente e impactando múltiples sectores, por lo que su adopción en la educación en Latinoamérica debe ser una prioridad.
-                Tanto estudiantes como docentes necesitan acceso a herramientas avanzadas que potencien el aprendizaje y la enseñanza, permitiéndoles estar
-                a la par de sus pares en países desarrollados y obtener ventajas competitivas en un mundo cada vez más impulsado por la tecnología.
-            </p>
-        </div>
+                <!-- ── SIDEBAR: TABLA DE CONTENIDOS ── -->
+                <aside class="art-toc">
+                    <h4>Contenido del artículo</h4>
+                    <ul>
+                        <li><a href="#sec-intro">Introducción</a></li>
+                        <li><a href="#sec-mercado">Crecimiento del mercado</a></li>
+                        <li><a href="#sec-evolucion">Evolución 2022–2025</a></li>
+                        <li><a href="#sec-ecosistema">Ecosistema actual de IA</a></li>
+                        <li><a href="#sec-experiencia">Experiencia personal</a></li>
+                        <li><a href="#sec-video">Video relacionado</a></li>
+                        <li><a href="#sec-educacion">IA en Latinoamérica</a></li>
+                    </ul>
+                    <hr class="art-toc-divider">
+                    <a href="1.Importancia%20de%20la%20Inteligencia%20Artificial%20(IA)%20en%20el%20Mundo%20Actual.pdf"
+                       download class="art-toc-download">
+                        <i class="fas fa-file-pdf"></i> Descargar PDF
+                    </a>
+                </aside>
 
-        <!-- 📌 Nueva Sección: Bibliografía Relacionada -->
-<div class="datos-del-autor-container">
-    <div class="datos-del-autor">
-        <h3>✍️ Datos del Autor</h3>
-        <ul>
-            <li><strong>Nombre:</strong> <a href="https://www.robertoacunacaicedo.com">Ing. Roberto Wellington Acuña Caicedo, PhD.</a></li>
-            <li>
-                <strong>Filiación:</strong> Fundación para la Enseñanza de la Inteligencia Artificial en América Latina (FEIAAL) </br>
-                <span class="espaciado-izquierda">Universidad Estatal del Sur de Manabí</span>
-            </li>
-            <li><strong>Fecha de Publicación:</strong> 6 de febrero de 2025</li>
-            <li><strong>Escucha el artículo en Spotify:</strong>
-                <a href="[URL_DEL_AUDIO_EN_SPOTIFY]" target="_blank">
-                    <i class="fab fa-spotify"></i> Reproducir en Spotify
-                </a>
-            </li>
-        </ul>
-    </div>
+                <!-- ── CONTENIDO PRINCIPAL ── -->
+                <div class="art-content">
 
-    <!-- 📌 Botón de Descargar dentro del mismo contenedor -->
-    <div class="boton-descargar">
-        <a href="1.Importancia%20de%20la%20Inteligencia%20Artificial%20(IA)%20en%20el%20Mundo%20Actual.pdf" download class="btn-descargar">
-            <i class="fas fa-download"></i> Descargar Artículo
-        </a>
-    </div>
-</div>
+                    <!-- SECCIÓN: INTRODUCCIÓN -->
+                    <div class="art-card" id="sec-intro">
 
+                        <!-- Imagen flotante + primer párrafo -->
+                        <div class="art-clearfix">
+                            <img src="imagenes/1.articulo_imag1.jpeg"
+                                 alt="Inteligencia Artificial - visión global"
+                                 class="art-float-img">
+                            <p>
+                                Desde el 30 de noviembre del año 2022, con el
+                                <a href="https://openai.com/index/chatgpt/?utm_source=chatgpt.com" target="_blank" rel="noopener">lanzamiento de ChatGPT 3.5 por OpenAI</a>,
+                                la inteligencia artificial (IA) dejó de ser una visión futurista para convertirse en una herramienta
+                                accesible para millones de personas en todo el mundo con acceso a computadoras, tabletas o teléfonos.
+                                Su impacto ha transformado la vida cotidiana, optimizando procesos y mejorando la eficiencia en
+                                diversos sectores productivos, como la industria farmacéutica, la manufactura y la programación.
+                            </p>
+                        </div>
 
-        <!-- 📌 Botón de Regresar en una fila separada -->
-        <div class="boton-regreso">
-            <a href="../blog.html" class="btn-regresar">
-                <i class="fas fa-arrow-left"></i> Regresar
-            </a>
-        </div>
+                        <p>
+                            Desde entonces, cientos de empresas tecnológicas han lanzado sus propias versiones de inteligencia artificial,
+                            abarcando prácticamente todas las áreas del conocimiento. Estas herramientas van desde modelos especializados en la
+                            generación de texto hasta avanzados creadores de gráficos y muchas más, disponibles en el directorio de
+                            <a href="https://aifindy.com/" target="_blank" rel="noopener">aifindy.com</a>.
+                            Entre las más destacadas se encuentran <a href="https://gemini.google.com/app?hl=es" target="_blank" rel="noopener">Gemini</a>,
+                            desarrollada por Google, y <a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>, de Anthropic.
+                            Además, desde el 20 de enero de 2025, han irrumpido en el mercado innovadoras herramientas de inteligencia artificial chinas,
+                            como <a href="https://www.deepseek.com/" target="_blank" rel="noopener">DeepSeek</a>, respaldada por la firma de inversión
+                            Huanfang Quant, y <a href="https://chat.qwenlm.ai/" target="_blank" rel="noopener">QwenLM</a>, desarrollada por Alibaba.
+                            Estas nuevas propuestas han demostrado que, incluso con menos recursos, es posible crear IA con un rendimiento
+                            competitivo a la altura de las principales del sector.
+                        </p>
+                    </div>
 
-    </div>
-</section>
+                    <!-- SECCIÓN: ESTADÍSTICAS CLAVE -->
+                    <div class="art-card" id="sec-mercado">
+                        <h2>Crecimiento sin precedentes del mercado</h2>
 
+                        <!-- Cards de estadísticas -->
+                        <div class="art-stats-grid">
+                            <div class="art-stat-card">
+                                <span class="art-stat-value">$300B</span>
+                                <span class="art-stat-label">Valor del mercado global de IA proyectado para 2026</span>
+                                <span class="art-stat-source">Fuente: Statista</span>
+                            </div>
+                            <div class="art-stat-card">
+                                <span class="art-stat-value">+50%</span>
+                                <span class="art-stat-label">De grandes empresas incorporaron IA en sus operaciones en 2024</span>
+                                <span class="art-stat-source">Fuente: Hostinger</span>
+                            </div>
+                            <div class="art-stat-card">
+                                <span class="art-stat-value">$15T</span>
+                                <span class="art-stat-label">Contribución estimada de la IA a la economía global para 2030</span>
+                                <span class="art-stat-source">Fuente: FMI</span>
+                            </div>
+                            <div class="art-stat-card">
+                                <span class="art-stat-value">40%</span>
+                                <span class="art-stat-label">Del empleo mundial expuesto a la automatización por IA</span>
+                                <span class="art-stat-source">Fuente: FMI</span>
+                            </div>
+                        </div>
 
+                        <p>
+                            Gracias a todo este desarrollo, la inteligencia artificial está experimentando un crecimiento sin precedentes a nivel mundial.
+                            Este auge se refleja en la adopción empresarial masiva y en proyecciones económicas que redefinen el panorama global.
+                            Sin embargo, este avance también plantea desafíos en el mercado laboral, por lo que es crucial que las políticas
+                            públicas y las estrategias empresariales se enfoquen en una
+                            <a href="https://www.imf.org/es/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity?utm_source=chatgpt.com"
+                               target="_blank" rel="noopener">transición laboral equitativa</a>
+                            y en la capacitación de la fuerza laboral para maximizar los beneficios de la IA y mitigar sus posibles efectos adversos.
+                        </p>
 
+                        <!-- Pull quote -->
+                        <blockquote class="art-pullquote">
+                            <p>
+                                "En algo más de dos años, la IA ha pasado de ser una herramienta conversacional a convertirse
+                                en un colaborador autónomo, marcando el inicio de una nueva era tecnológica."
+                            </p>
+                        </blockquote>
+                    </div>
 
+                    <!-- SECCIÓN: TIMELINE DE EVOLUCIÓN -->
+                    <div class="art-card" id="sec-evolucion">
+                        <h2 class="art-timeline-title">Evolución de la IA: 2022 – 2025</h2>
+                        <p>
+                            Desde el año 2022 hasta 2025, la inteligencia artificial ha experimentado una evolución vertiginosa,
+                            pasando de simples chatbots a sofisticados agentes autónomos con capacidades avanzadas:
+                        </p>
 
+                        <div class="art-timeline">
+                            <div class="art-phase">
+                                <div class="art-phase-dot"></div>
+                                <div class="art-phase-header">
+                                    <span class="art-phase-badge">2022 – 2023</span>
+                                    <span class="art-phase-name">Fase 1: Revolución del lenguaje</span>
+                                </div>
+                                <p>
+                                    Modelos como ChatGPT (GPT-3.5 y GPT-4) revolucionaron la comprensión del lenguaje, permitiendo la
+                                    integración de chatbots en diversas plataformas como atención al cliente y generación de contenido,
+                                    mientras herramientas como Microsoft Copilot y Notion AI mejoraron la productividad.
+                                </p>
+                            </div>
+
+                            <div class="art-phase">
+                                <div class="art-phase-dot"></div>
+                                <div class="art-phase-header">
+                                    <span class="art-phase-badge">2023 – 2024</span>
+                                    <span class="art-phase-name">Fase 2: Capacidades multimodales</span>
+                                </div>
+                                <p>
+                                    Surgieron modelos multimodales como GPT-4 y DALL·E 3, capaces de interpretar imágenes, audio y video,
+                                    lo que impulsó la generación de contenido digital y la especialización de IA en sectores como
+                                    educación y salud.
+                                </p>
+                            </div>
+
+                            <div class="art-phase">
+                                <div class="art-phase-dot"></div>
+                                <div class="art-phase-header">
+                                    <span class="art-phase-badge">2024 – 2025</span>
+                                    <span class="art-phase-name">Fase 3: Agentes autónomos</span>
+                                </div>
+                                <p>
+                                    La IA dejó de ser solo un asistente para convertirse en un agente autónomo, con desarrollos como
+                                    Auto-GPT y BabyAGI, que pueden planificar y ejecutar tareas sin intervención humana, además de
+                                    agentes cognitivos que aprenden de la interacción.
+                                </p>
+                            </div>
+
+                            <div class="art-phase">
+                                <div class="art-phase-dot"></div>
+                                <div class="art-phase-header">
+                                    <span class="art-phase-badge">2025 en adelante</span>
+                                    <span class="art-phase-name">Fase 4: Inteligencia integrada</span>
+                                </div>
+                                <p>
+                                    Los agentes de IA se consolidan como asistentes inteligentes capaces de operar en educación, salud e industria,
+                                    integrándose con la robótica, colaborando entre sí para resolver problemas y ofreciendo personalización
+                                    avanzada basada en emociones y contexto personal.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Infografía de evolución -->
+                        <figure class="art-figure">
+                            <img src="imagenes/1.evolucionIA.png" alt="Infografía: Evolución de la Inteligencia Artificial 2022-2025">
+                            <figcaption>Infografía: Evolución de la Inteligencia Artificial — de los chatbots a los agentes autónomos (2022–2025)</figcaption>
+                        </figure>
+                    </div>
+
+                    <!-- SECCIÓN: ECOSISTEMA ACTUAL -->
+                    <div class="art-card" id="sec-ecosistema">
+                        <h2>El ecosistema actual: código abierto vs. modelos propietarios</h2>
+                        <p>
+                            Con la aparición de herramientas de IA como la china DeepSeek y la norteamericana Llama de Meta, ambas de código abierto
+                            y enfocadas en flexibilidad y colaboración, junto con modelos propietarios como ChatGPT, Gemini y Claude, optimizados
+                            para entornos empresariales, se ha dado inicio a una nueva era en la inteligencia artificial. La elección entre estas
+                            opciones dependerá de las necesidades específicas: innovación y personalización con acceso abierto, o facilidad de
+                            implementación y soporte especializado en soluciones comerciales, permitiendo optar entre alternativas gratuitas o de pago.
+                        </p>
+                    </div>
+
+                    <!-- SECCIÓN: EXPERIENCIA PERSONAL -->
+                    <div class="art-card" id="sec-experiencia">
+                        <h2>Perspectiva personal: herramientas en uso</h2>
+                        <p>
+                            Desde mi experiencia personal, la herramienta que más utilizo es ChatGPT versión de pago, porque es una opción accesible
+                            que me brinda acceso a una amplia variedad de herramientas avanzadas, incluyendo los GPTs (Generative Pre-trained Transformers),
+                            que son modelos de inteligencia artificial diseñados para procesar, generar y comprender texto de manera natural. Lo más
+                            interesante es que estos modelos pueden personalizarse para realizar tareas específicas, adaptándose a las necesidades del
+                            usuario en áreas como programación, generación de contenido, asistencia en investigación y muchas más. Tal como puedes ver
+                            en el siguiente video.
+                        </p>
+
+                        <!-- Vídeo relacionado -->
+                        <div class="art-video-wrap" id="sec-video">
+                            <div class="art-video-label">
+                                <i class="fas fa-play-circle"></i>
+                                Video relacionado
+                            </div>
+                            <iframe
+                                src="https://www.youtube.com/embed/NgydVCJbpqU"
+                                title="Video sobre IA y Educación — FEIAAL"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN: IA EN LATINOAMÉRICA -->
+                    <div class="art-card" id="sec-educacion">
+                        <h2>IA y educación en Latinoamérica: una prioridad urgente</h2>
+                        <p>
+                            Además, utilizo Claude y Gemini, y he explorado herramientas como Qwen, Sora para la generación de videos, y Leonardo AI
+                            para la creación de imágenes, entre muchas otras que facilitan mi trabajo y que documentaré en próximos artículos.
+                            La inteligencia artificial continúa evolucionando rápidamente e impactando múltiples sectores, por lo que su adopción
+                            en la educación en Latinoamérica debe ser una prioridad. Tanto estudiantes como docentes necesitan acceso a herramientas
+                            avanzadas que potencien el aprendizaje y la enseñanza, permitiéndoles estar a la par de sus pares en países desarrollados
+                            y obtener ventajas competitivas en un mundo cada vez más impulsado por la tecnología.
+                        </p>
+                    </div>
+
+                    <!-- TARJETA DEL AUTOR -->
+                    <div class="art-author-card">
+                        <div class="art-author-avatar">RA</div>
+                        <div class="art-author-info">
+                            <div class="art-author-role">Autor del artículo</div>
+                            <h3 class="art-author-name">
+                                <a href="https://www.robertoacunacaicedo.com" target="_blank" rel="noopener">
+                                    Ing. Roberto Wellington Acuña Caicedo, PhD.
+                                </a>
+                            </h3>
+                            <p class="art-author-affil">
+                                Fundación para la Enseñanza de la Inteligencia Artificial en América Latina (FEIAAL)<br>
+                                Universidad Estatal del Sur de Manabí
+                            </p>
+                            <div class="art-author-meta">
+                                <span><i class="fas fa-calendar"></i> Publicado el 6 de febrero, 2025</span>
+                            </div>
+                            <a href="[URL_DEL_AUDIO_EN_SPOTIFY]" target="_blank" class="art-author-spotify">
+                                <i class="fab fa-spotify"></i> Escuchar en Spotify
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- BOTONES DE ACCIÓN -->
+                    <div class="art-actions">
+                        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <a href="1.Importancia%20de%20la%20Inteligencia%20Artificial%20(IA)%20en%20el%20Mundo%20Actual.pdf"
+                               download class="art-btn-download">
+                                <i class="fas fa-download"></i> Descargar artículo
+                            </a>
+                            <a href="../blog.html" class="art-btn-back">
+                                <i class="fas fa-arrow-left"></i> Regresar al Blog
+                            </a>
+                        </div>
+                        <div class="art-share-group">
+                            <span class="art-share-label">Compartir:</span>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://feiaal.org/articulos/articulo1.html"
+                               target="_blank" rel="noopener" class="art-share-btn linkedin" aria-label="Compartir en LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url=https://feiaal.org/articulos/articulo1.html&text=Importancia%20de%20la%20IA%20en%20el%20mundo%20actual%20-%20FEIAAL"
+                               target="_blank" rel="noopener" class="art-share-btn twitter" aria-label="Compartir en Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://feiaal.org/articulos/articulo1.html"
+                               target="_blank" rel="noopener" class="art-share-btn facebook" aria-label="Compartir en Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/?text=Importancia%20de%20la%20IA%20en%20el%20mundo%20actual%20-%20FEIAAL%3A%20https://feiaal.org/articulos/articulo1.html"
+                               target="_blank" rel="noopener" class="art-share-btn whatsapp" aria-label="Compartir por WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /.art-content -->
+            </div><!-- /.art-layout -->
+        </section>
 
     </main>
 
@@ -243,49 +1025,80 @@
         </div>
     </footer>
 
-            <!-- Botón para mostrar/ocultar -->
-            <!-- Redes Sociales -->
-            <div class="social-icons hidden">
-                <a href="https://www.facebook.com/" target="_blank" class="icon facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" class="icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/" target="_blank" class="icon twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/" target="_blank" class="icon linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.youtube.com/" target="_blank" class="icon youtube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://www.tiktok.com/" target="_blank" class="icon tiktok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
+    <!-- Redes Sociales flotantes -->
+    <div class="social-icons hidden">
+        <a href="https://www.facebook.com/" target="_blank" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.twitter.com/" target="_blank" class="icon twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" class="icon youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
+    </div>
 
-            <!-- Botón para alternar redes sociales -->
-            <button id="toggle-social-icons" class="toggle-button">
-                <i class="fas fa-share-alt"></i>
-            </button>
+    <button id="toggle-social-icons" class="toggle-button">
+        <i class="fas fa-share-alt"></i>
+    </button>
 
-            <!-- Botón de WhatsApp -->
-            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
-               target="_blank" class="whatsapp-icon">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+    <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+       target="_blank" class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
+        /* ── Barra de progreso de lectura ── */
+        (function () {
+            var bar = document.getElementById('art-progress-bar');
+            function updateProgress() {
+                var scrollTop = window.scrollY || document.documentElement.scrollTop;
+                var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = Math.min(pct, 100) + '%';
+            }
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            updateProgress();
+        })();
+
+        /* ── Tabla de contenidos: resaltar sección activa ── */
+        (function () {
+            var tocLinks = document.querySelectorAll('.art-toc a');
+            var sections = [];
+            tocLinks.forEach(function (link) {
+                var id = link.getAttribute('href').replace('#', '');
+                var el = document.getElementById(id);
+                if (el) sections.push({ link: link, el: el });
+            });
+
+            function onScroll() {
+                var scrollY = window.scrollY + 120;
+                var active = null;
+                sections.forEach(function (s) {
+                    if (s.el.offsetTop <= scrollY) active = s;
+                });
+                tocLinks.forEach(function (l) { l.classList.remove('active'); });
+                if (active) active.link.classList.add('active');
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+
+        /* ── Smooth scroll para el TOC ── */
+        document.querySelectorAll('.art-toc a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        /* ── Ocultar elementos del header en esta página (legado) ── */
         document.addEventListener("DOMContentLoaded", function () {
-        // Detectar si estamos en la pantalla específica
-        if (window.location.pathname.includes("articulo1.html")) {
-            // Ocultar elementos solo en esta pantalla
-            document.querySelector(".main-header")?.classList.add("hide-on-mobile");
-            document.querySelector(".subheader")?.classList.add("hide-on-mobile");
-            document.querySelector(".logo")?.classList.add("hide-on-mobile");
-            document.querySelector("#language-selector")?.classList.add("hide-on-mobile");
+            if (window.location.pathname.includes("articulo1.html")) {
+                document.querySelector(".main-header")?.classList.add("hide-on-mobile");
+                document.querySelector(".subheader")?.classList.add("hide-on-mobile");
+                document.querySelector(".logo")?.classList.add("hide-on-mobile");
+                document.querySelector("#language-selector")?.classList.add("hide-on-mobile");
             }
         });
     </script>
