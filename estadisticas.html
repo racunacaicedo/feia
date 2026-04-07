@@ -853,24 +853,59 @@
         <div class="embed-wrap">
             <div class="embed-header">
                 <span class="embed-label">Dashboard en vivo</span>
-                <span class="embed-badge">Pendiente de configurar</span>
+                <span class="embed-badge" id="looker-badge">Pendiente de configurar</span>
             </div>
-            <!--
-                PARA ACTIVAR: reemplaza el div.placeholder por el iframe de Looker Studio
-                Ejemplo:
-                <iframe src="https://lookerstudio.google.com/embed/reporting/TU-REPORT-ID/page/PAGE-ID"
-                    style="width:100%;height:600px;border:none;border-radius:10px"
+
+            <!-- Configurador -->
+            <div id="looker-config-box" style="background:#f8fafc;border:1.5px dashed #cbd5e1;border-radius:12px;padding:24px 28px;margin-bottom:0">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+                    <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0073e6,#1e3c72);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0"><i class="fas fa-cog"></i></div>
+                    <div>
+                        <div style="font-size:0.9rem;font-weight:700;color:#1e293b">Conectar Looker Studio</div>
+                        <div style="font-size:0.75rem;color:#94a3b8">Pega la URL de embed y el reporte aparecerá automáticamente</div>
+                    </div>
+                </div>
+
+                <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:0.82rem;color:#1e40af">
+                    <strong><i class="fas fa-list-ol"></i> Pasos para obtener la URL:</strong>
+                    <ol style="margin:8px 0 0 18px;line-height:2">
+                        <li>Ve a <a href="https://lookerstudio.google.com/" target="_blank" style="color:#0073e6;font-weight:600">lookerstudio.google.com</a> e inicia sesión con tu cuenta Google</li>
+                        <li>Crea un nuevo reporte → Añadir datos → <strong>Google Analytics</strong> → propiedad <strong>G-PS34S9QRVV</strong></li>
+                        <li>Diseña el dashboard con las métricas que necesites</li>
+                        <li>Clic en <strong>Compartir → Gestionar acceso → Cualquiera con el enlace puede ver</strong></li>
+                        <li>Luego <strong>Archivo → Insertar informe</strong> → copia la URL del <code>src</code> del iframe</li>
+                    </ol>
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <input type="url" id="looker-url-input"
+                        placeholder="https://lookerstudio.google.com/embed/reporting/..."
+                        style="flex:1;min-width:260px;padding:11px 14px;border:1.5px solid #e2e8f0;border-radius:9px;font-family:'Inter',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s"
+                        onfocus="this.style.borderColor='#0073e6'"
+                        onblur="this.style.borderColor='#e2e8f0'">
+                    <button onclick="activarLooker()"
+                        style="padding:11px 22px;background:linear-gradient(135deg,#0073e6,#1e3c72);color:#fff;border:none;border-radius:9px;font-family:'Inter',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;white-space:nowrap;transition:opacity 0.2s"
+                        onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                        <i class="fas fa-plug"></i> Activar reporte
+                    </button>
+                </div>
+                <div id="looker-config-error" style="display:none;margin-top:10px;font-size:0.8rem;color:#dc2626"><i class="fas fa-exclamation-circle"></i> Ingresa una URL válida de Looker Studio (debe empezar con https://lookerstudio.google.com/)</div>
+            </div>
+
+            <!-- iframe (oculto hasta configurar) -->
+            <div id="looker-frame-wrap" style="display:none">
+                <iframe id="looker-frame"
+                    src=""
+                    style="width:100%;height:620px;border:none;border-radius:10px;background:#f8fafc"
                     allowfullscreen
                     sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
                 </iframe>
-            -->
-            <div class="placeholder">
-                <i class="fas fa-chart-pie"></i>
-                <h3>Conecta Looker Studio</h3>
-                <p>Crea un reporte en <strong>Google Looker Studio</strong> con tu cuenta GA4 (<strong>G-PS34S9QRVV</strong>), activa el acceso público y pega el iframe aquí para ver el dashboard visual en vivo.</p>
-                <a href="https://lookerstudio.google.com/" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> Crear reporte en Looker Studio
-                </a>
+                <div style="margin-top:12px;display:flex;justify-content:flex-end">
+                    <button onclick="desactivarLooker()"
+                        style="padding:8px 16px;background:#fff;border:1px solid #e2e8f0;color:#64748b;border-radius:8px;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px">
+                        <i class="fas fa-times"></i> Cambiar reporte
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -909,6 +944,45 @@
     var now = new Date();
     document.getElementById('last-update').textContent =
         now.toLocaleDateString('es-EC', { day: '2-digit', month: 'long', year: 'numeric' });
+
+    // ── Looker Studio ──
+    function activarLooker() {
+        var url = document.getElementById('looker-url-input').value.trim();
+        var err = document.getElementById('looker-config-error');
+        if (!url.startsWith('https://lookerstudio.google.com/')) {
+            err.style.display = 'block'; return;
+        }
+        err.style.display = 'none';
+        localStorage.setItem('looker_url', url);
+        mostrarLooker(url);
+    }
+
+    function desactivarLooker() {
+        localStorage.removeItem('looker_url');
+        document.getElementById('looker-frame').src = '';
+        document.getElementById('looker-frame-wrap').style.display = 'none';
+        document.getElementById('looker-config-box').style.display = 'block';
+        document.getElementById('looker-url-input').value = '';
+        document.getElementById('looker-badge').textContent = 'Pendiente de configurar';
+        document.getElementById('looker-badge').style.background = '#f0fdf4';
+        document.getElementById('looker-badge').style.color = '#16a34a';
+        document.getElementById('looker-badge').style.borderColor = '#bbf7d0';
+    }
+
+    function mostrarLooker(url) {
+        document.getElementById('looker-frame').src = url;
+        document.getElementById('looker-config-box').style.display = 'none';
+        document.getElementById('looker-frame-wrap').style.display = 'block';
+        var badge = document.getElementById('looker-badge');
+        badge.textContent = 'En vivo';
+        badge.style.background = '#f0fdf4';
+        badge.style.color = '#16a34a';
+        badge.style.borderColor = '#bbf7d0';
+    }
+
+    // Cargar Looker si ya estaba configurado
+    var savedLooker = localStorage.getItem('looker_url');
+    if (savedLooker) mostrarLooker(savedLooker);
 </script>
 
 <!-- Google Analytics -->
