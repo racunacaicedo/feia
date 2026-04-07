@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas del Sitio — FEIAAL</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── LOGIN ── */
+        #login-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(135deg, #0d1f4f 0%, #1e3c72 60%, #2a5298 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .login-box {
+            background: #fff; border-radius: 20px;
+            padding: 48px 44px; width: 100%; max-width: 400px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.3); text-align: center;
+        }
+        .login-logo {
+            width: 72px; height: 72px; border-radius: 16px;
+            background: linear-gradient(135deg, #1e3c72, #0073e6);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 1.8rem; color: #fff;
+        }
+        .login-box h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem; color: #1e293b; margin: 0 0 6px;
+        }
+        .login-box p { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #94a3b8; margin: 0 0 28px; }
+        .login-input-wrap { position: relative; margin-bottom: 16px; }
+        .login-input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 0.9rem; }
+        #login-password {
+            width: 100%; padding: 12px 14px 12px 38px;
+            border: 1.5px solid #e2e8f0; border-radius: 10px;
+            font-family: 'Inter', sans-serif; font-size: 1rem;
+            outline: none; transition: border-color 0.2s;
+        }
+        #login-password:focus { border-color: #0073e6; }
+        #login-error { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #dc2626; margin-bottom: 12px; display: none; }
+        #login-btn {
+            width: 100%; padding: 13px;
+            background: linear-gradient(135deg, #0073e6, #1e3c72);
+            color: #fff; border: none; border-radius: 10px;
+            font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600;
+            cursor: pointer; transition: opacity 0.2s;
+        }
+        #login-btn:hover { opacity: 0.9; }
+
+        /* ── BASE ── */
+        body { background: #f0f4f8; font-family: 'Inter', sans-serif; }
+        #dashboard { display: none; }
+
+        /* ── TOPBAR ── */
+        .topbar {
+            background: linear-gradient(135deg, #0d1f4f, #1e3c72);
+            padding: 18px 32px; display: flex; align-items: center;
+            justify-content: space-between; flex-wrap: wrap; gap: 12px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .topbar-left { display: flex; align-items: center; gap: 14px; }
+        .topbar-left img { height: 40px; }
+        .topbar-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; font-weight: 600; }
+        .topbar-sub { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+        .topbar-right { display: flex; gap: 10px; align-items: center; }
+        .btn-ga {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #fff; color: #1e3c72;
+            font-size: 0.82rem; font-weight: 700;
+            padding: 9px 18px; border-radius: 8px;
+            text-decoration: none; transition: opacity 0.2s;
+        }
+        .btn-ga:hover { opacity: 0.9; }
+        .btn-logout {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8); font-size: 0.82rem; font-weight: 500;
+            padding: 9px 16px; border-radius: 8px; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-logout:hover { background: rgba(255,255,255,0.2); }
+
+        /* ── MAIN ── */
+        .main { max-width: 1300px; margin: 0 auto; padding: 36px 24px; }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #1e3c72;
+            margin: 0 0 20px; padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-title i { color: #0073e6; font-size: 1.1rem; }
+
+        /* ── KPI CARDS ── */
+        .kpi-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px; margin-bottom: 36px;
+        }
+        .kpi-card {
+            background: #fff; border-radius: 16px; padding: 24px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .kpi-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; }
+        .kpi-value { font-size: 2rem; font-weight: 700; color: #1e293b; line-height: 1; }
+        .kpi-change { font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .kpi-change.down { color: #dc2626; }
+        .kpi-change.up   { color: #16a34a; }
+        .kpi-change.neutral { color: #94a3b8; }
+        .kpi-period { font-size: 0.72rem; color: #94a3b8; }
+
+        /* ── ALERT BANNER ── */
+        .alert-banner {
+            background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px;
+            padding: 16px 20px; margin-bottom: 28px;
+            display: flex; align-items: flex-start; gap: 14px;
+        }
+        .alert-banner i { color: #f97316; font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+        .alert-banner strong { display: block; color: #9a3412; font-size: 0.9rem; margin-bottom: 4px; }
+        .alert-banner p { color: #7c2d12; font-size: 0.83rem; line-height: 1.5; }
+
+        /* ── CATEGORY SECTION ── */
+        .cat-block { margin-bottom: 40px; }
+        .cat-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #fff; background: linear-gradient(135deg, #1e3c72, #0073e6);
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; border-radius: 999px; margin-bottom: 16px;
+        }
+
+        /* ── PAGE CARDS ── */
+        .pages-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+        }
+        .page-card {
+            background: #fff; border-radius: 14px; padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .page-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+        .page-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
+        .page-card-icon {
+            width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; color: #fff;
+        }
+        .page-card-icon.blue   { background: linear-gradient(135deg, #0073e6, #2563eb); }
+        .page-card-icon.green  { background: linear-gradient(135deg, #16a34a, #15803d); }
+        .page-card-icon.purple { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+        .page-card-icon.orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .page-card-icon.teal   { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .page-card-icon.red    { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .page-card-icon.pink   { background: linear-gradient(135deg, #db2777, #be185d); }
+        .page-card-icon.indigo { background: linear-gradient(135deg, #4f46e5, #4338ca); }
+        .page-card-icon.slate  { background: linear-gradient(135deg, #475569, #334155); }
+
+        .page-card-status { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 600; }
+        .page-card-status.ok { color: #16a34a; }
+        .page-card-status.ok::before { content:''; width:7px; height:7px; background:#16a34a; border-radius:50%; }
+
+        .page-card-name { font-size: 0.95rem; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
+        .page-card-path { font-size: 0.72rem; color: #94a3b8; font-family: monospace; margin-bottom: 14px; word-break: break-all; }
+
+        .page-card-metrics { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+        .page-metric {
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 8px 12px; flex: 1; min-width: 70px; text-align: center;
+        }
+        .page-metric-val { font-size: 1.1rem; font-weight: 700; color: #1e3c72; display: block; }
+        .page-metric-lbl { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .page-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-view {
+            flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 8px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+            text-decoration: none; transition: opacity 0.2s; cursor: pointer; border: none;
+        }
+        .btn-view.primary { background: linear-gradient(135deg, #0073e6, #1e3c72); color: #fff; }
+        .btn-view.ghost { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .btn-view:hover { opacity: 0.85; }
+
+        /* ── UPDATE FORM ── */
+        .update-note {
+            background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px;
+            padding: 14px 18px; margin-bottom: 28px; font-size: 0.83rem; color: #1e40af;
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .update-note i { margin-top: 2px; flex-shrink: 0; }
+
+        /* ── LOOKER EMBED ── */
+        .embed-wrap {
+            background: #fff; border-radius: 16px; padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 28px; border: 1px solid #e2e8f0;
+        }
+        .embed-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .embed-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; }
+        .embed-badge {
+            font-size: 0.72rem; font-weight: 600; background: #f0fdf4; color: #16a34a;
+            border: 1px solid #bbf7d0; padding: 3px 10px; border-radius: 999px;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .embed-badge::before { content: ''; width: 7px; height: 7px; background: #16a34a; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .placeholder {
+            background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 12px;
+            padding: 60px 32px; text-align: center;
+        }
+        .placeholder i { font-size: 3rem; color: #cbd5e1; margin-bottom: 16px; display: block; }
+        .placeholder h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #64748b; margin: 0 0 8px; }
+        .placeholder p { font-size: 0.88rem; color: #94a3b8; max-width: 460px; margin: 0 auto 20px; line-height: 1.6; }
+        .placeholder a {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #0073e6, #1e3c72); color: #fff;
+            padding: 11px 22px; border-radius: 9px; text-decoration: none;
+            font-size: 0.88rem; font-weight: 600; transition: opacity 0.2s;
+        }
+        .placeholder a:hover { opacity: 0.9; }
+
+        /* ── QUICKLINKS ── */
+        .quicklinks { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin-bottom: 36px; }
+        .quicklink {
+            background: #fff; border-radius: 14px; padding: 18px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-decoration: none;
+            display: flex; align-items: center; gap: 12px;
+            transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e2e8f0;
+        }
+        .quicklink:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .quicklink-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex-shrink: 0; }
+        .quicklink-icon.orange  { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .quicklink-icon.blue    { background: linear-gradient(135deg, #0073e6, #2563eb); }
+        .quicklink-icon.green   { background: linear-gradient(135deg, #16a34a, #15803d); }
+        .quicklink-icon.purple  { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+        .quicklink-icon.red     { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .quicklink-icon.teal    { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .ql-strong { display: block; font-size: 0.88rem; font-weight: 600; color: #1e293b; }
+        .ql-span { font-size: 0.72rem; color: #94a3b8; }
+
+        @media (max-width: 640px) {
+            .topbar { padding: 14px 16px; }
+            .main { padding: 20px 14px; }
+            .pages-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .quicklinks { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="login-overlay">
+    <div class="login-box">
+        <div class="login-logo"><i class="fas fa-chart-line"></i></div>
+        <h2>Panel de Estadísticas</h2>
+        <p>Acceso restringido — FEIAAL</p>
+        <div class="login-input-wrap">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="login-password" placeholder="Contraseña de acceso"
+                   onkeydown="if(event.key==='Enter') checkLogin()">
+        </div>
+        <div id="login-error">Contraseña incorrecta. Inténtalo nuevamente.</div>
+        <button id="login-btn" onclick="checkLogin()">
+            <i class="fas fa-sign-in-alt"></i> Ingresar
+        </button>
+    </div>
+</div>
+
+<!-- ══ DASHBOARD ══ -->
+<div id="dashboard">
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="topbar-left">
+            <img src="imagenes/feiaal.png" alt="FEIAAL">
+            <div>
+                <div class="topbar-title">Panel de Estadísticas</div>
+                <div class="topbar-sub">Google Analytics 4 · ID: G-PS34S9QRVV · Última actualización: <span id="last-update"></span></div>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <a href="https://analytics.google.com/analytics/web/" target="_blank" class="btn-ga">
+                <i class="fab fa-google"></i> Abrir Google Analytics
+            </a>
+            <button class="btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+            </button>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <!-- ── RESUMEN GLOBAL ── -->
+        <div class="section-title"><i class="fas fa-tachometer-alt"></i> Resumen global (últimos 7 días)</div>
+
+        <div class="alert-banner">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <strong>Caída de tráfico detectada</strong>
+                <p>Los usuarios activos bajaron un <strong>34.2%</strong> y las sesiones directas un <strong>16.2%</strong> respecto a la semana anterior. El 100% del tráfico proviene de Ecuador — se recomienda activar presencia en redes sociales y mejorar SEO para ampliar el alcance.</p>
+            </div>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-users"></i> Usuarios activos</span>
+                <span class="kpi-value" id="kpi-users">25</span>
+                <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 34.2% vs semana anterior</span>
+                <span class="kpi-period">30 mar – 05 abr 2026</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-eye"></i> Vistas totales</span>
+                <span class="kpi-value" id="kpi-views">112</span>
+                <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 5.9% vs semana anterior</span>
+                <span class="kpi-period">30 mar – 05 abr 2026</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-bolt"></i> Eventos</span>
+                <span class="kpi-value" id="kpi-events">340</span>
+                <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 10.1% vs semana anterior</span>
+                <span class="kpi-period">30 mar – 05 abr 2026</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-circle"></i> En tiempo real</span>
+                <span class="kpi-value" id="kpi-realtime">1</span>
+                <span class="kpi-change neutral">Usuario activo ahora</span>
+                <span class="kpi-period">Ecuador</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-link"></i> Sesiones directas</span>
+                <span class="kpi-value" id="kpi-sessions">57</span>
+                <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 16.2% vs semana anterior</span>
+                <span class="kpi-period">Canal: Direct</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label"><i class="fas fa-globe"></i> País principal</span>
+                <span class="kpi-value" style="font-size:1.4rem">Ecuador</span>
+                <span class="kpi-change down"><i class="fas fa-arrow-down"></i> 50% usuarios activos</span>
+                <span class="kpi-period">Único mercado activo</span>
+            </div>
+        </div>
+
+        <!-- ── ACCESOS RÁPIDOS GA4 ── -->
+        <div class="section-title"><i class="fas fa-bolt"></i> Accesos rápidos a Google Analytics</div>
+        <div class="quicklinks">
+            <a href="https://analytics.google.com/analytics/web/" target="_blank" class="quicklink">
+                <div class="quicklink-icon orange"><i class="fas fa-home"></i></div>
+                <div><span class="ql-strong">Inicio GA4</span><span class="ql-span">Panel principal</span></div>
+            </a>
+            <a href="https://analytics.google.com/analytics/web/#/realtime" target="_blank" class="quicklink">
+                <div class="quicklink-icon green"><i class="fas fa-circle"></i></div>
+                <div><span class="ql-strong">Tiempo real</span><span class="ql-span">Visitantes ahora</span></div>
+            </a>
+            <a href="https://analytics.google.com/analytics/web/#/acquisition" target="_blank" class="quicklink">
+                <div class="quicklink-icon blue"><i class="fas fa-bullseye"></i></div>
+                <div><span class="ql-strong">Adquisición</span><span class="ql-span">Fuentes de tráfico</span></div>
+            </a>
+            <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="quicklink">
+                <div class="quicklink-icon purple"><i class="fas fa-mouse-pointer"></i></div>
+                <div><span class="ql-strong">Interacción</span><span class="ql-span">Páginas y eventos</span></div>
+            </a>
+            <a href="https://analytics.google.com/analytics/web/#/user-attributes" target="_blank" class="quicklink">
+                <div class="quicklink-icon teal"><i class="fas fa-users"></i></div>
+                <div><span class="ql-strong">Audiencia</span><span class="ql-span">Demografía y geo</span></div>
+            </a>
+            <a href="https://lookerstudio.google.com/" target="_blank" class="quicklink">
+                <div class="quicklink-icon red"><i class="fas fa-chart-bar"></i></div>
+                <div><span class="ql-strong">Looker Studio</span><span class="ql-span">Reportes visuales</span></div>
+            </a>
+        </div>
+
+        <!-- ══ ESTADÍSTICAS POR PÁGINA ══ -->
+        <div class="section-title"><i class="fas fa-file-alt"></i> Estadísticas por página</div>
+
+        <div class="update-note">
+            <i class="fas fa-info-circle"></i>
+            <span>Los datos de cada página se actualizan manualmente desde <strong>GA4 → Informes → Interacción → Páginas y pantallas</strong>. Haz clic en <strong>"Ver en Analytics"</strong> para filtrar por cada página. Para actualizar los datos, edita los valores en el archivo HTML y sube de nuevo al servidor.</span>
+        </div>
+
+        <!-- PÁGINAS PRINCIPALES -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-star"></i> Páginas principales</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon blue"><i class="fas fa-home"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Inicio — FEIAAL</div>
+                    <div class="page-card-path">feiaal.org/feiaal.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="feiaal" data-key="views">74</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="feiaal" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="feiaal" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/feiaal.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon teal"><i class="fas fa-info-circle"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Sobre Nosotros</div>
+                    <div class="page-card-path">feiaal.org/nosotros.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="nosotros" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="nosotros" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="nosotros" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/nosotros.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon green"><i class="fas fa-envelope"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Contacto</div>
+                    <div class="page-card-path">feiaal.org/contacto.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="contacto" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="contacto" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="contacto" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/contacto.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CONTENIDO Y BLOG -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-newspaper"></i> Contenido y Blog</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon orange"><i class="fas fa-blog"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Blog</div>
+                    <div class="page-card-path">feiaal.org/blog.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="blog" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="blog" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="blog" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/blog.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon purple"><i class="fas fa-file-alt"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Artículo 1</div>
+                    <div class="page-card-path">feiaal.org/articulos/articulo1.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo1" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo1" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo1" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/articulos/articulo1.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon purple"><i class="fas fa-file-alt"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Artículo 2</div>
+                    <div class="page-card-path">feiaal.org/articulos/articulo2.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo2" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo2" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="articulo2" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/articulos/articulo2.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon indigo"><i class="fas fa-globe-americas"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Mundo IA</div>
+                    <div class="page-card-path">feiaal.org/mundo.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="mundo" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="mundo" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="mundo" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/mundo.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROGRAMAS Y SERVICIOS -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-graduation-cap"></i> Programas y Servicios</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon blue"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Eventos</div>
+                    <div class="page-card-path">feiaal.org/eventos.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="eventos" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="eventos" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="eventos" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/eventos.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon orange"><i class="fas fa-robot"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Curso IA</div>
+                    <div class="page-card-path">feiaal.org/curso_ia.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="curso_ia" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="curso_ia" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="curso_ia" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/curso_ia.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon green"><i class="fas fa-lightbulb"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Incubadora</div>
+                    <div class="page-card-path">feiaal.org/incubadora.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="incubadora" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="incubadora" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="incubadora" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/incubadora.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon teal"><i class="fas fa-briefcase"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Oportunidades</div>
+                    <div class="page-card-path">feiaal.org/oportunidades.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="oportunidades" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="oportunidades" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="oportunidades" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/oportunidades.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon indigo"><i class="fas fa-book-open"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Biblioteca IA</div>
+                    <div class="page-card-path">feiaal.org/biblioteca.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="biblioteca" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="biblioteca" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="biblioteca" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/biblioteca.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon pink"><i class="fas fa-handshake"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Socios</div>
+                    <div class="page-card-path">feiaal.org/socios.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="socios" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="socios" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="socios" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/socios.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PROYECTOS -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-flask"></i> Proyectos</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon blue"><i class="fas fa-project-diagram"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Proyectos</div>
+                    <div class="page-card-path">feiaal.org/proyectos.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyectos" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyectos" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyectos" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/proyectos.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon green"><i class="fas fa-code"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Proyecto 1</div>
+                    <div class="page-card-path">feiaal.org/proyecto1.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto1" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto1" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto1" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/proyecto1.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon purple"><i class="fas fa-code"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Proyecto 2</div>
+                    <div class="page-card-path">feiaal.org/proyecto2.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto2" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto2" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="proyecto2" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/proyecto2.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TIENDA -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-shopping-cart"></i> Tienda</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon orange"><i class="fas fa-store"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Principal</div>
+                    <div class="page-card-path">feiaal.org/tienda.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon blue"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Cursos</div>
+                    <div class="page-card-path">feiaal.org/tienda-cursos.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-cursos" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-cursos" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-cursos" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda-cursos.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon green"><i class="fas fa-book"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Libros</div>
+                    <div class="page-card-path">feiaal.org/tienda-libros.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-libros" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-libros" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-libros" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda-libros.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon teal"><i class="fas fa-concierge-bell"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Servicios</div>
+                    <div class="page-card-path">feiaal.org/tienda-servicios.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-servicios" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-servicios" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-servicios" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda-servicios.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon slate"><i class="fas fa-laptop"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Equipos</div>
+                    <div class="page-card-path">feiaal.org/tienda-equipos.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-equipos" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-equipos" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-equipos" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda-equipos.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon purple"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Tienda Aplicaciones</div>
+                    <div class="page-card-path">feiaal.org/tienda-aplicaciones.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-apps" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-apps" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="tienda-apps" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/tienda-aplicaciones.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CURSOS -->
+        <div class="cat-block">
+            <div class="cat-label"><i class="fas fa-university"></i> Cursos</div>
+            <div class="pages-grid">
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <div class="page-card-icon orange"><i class="fas fa-rocket"></i></div>
+                        <div class="page-card-status ok">Activa</div>
+                    </div>
+                    <div class="page-card-name">Emprendimiento UTM</div>
+                    <div class="page-card-path">feiaal.org/cursos/utm/emprendimiento.html</div>
+                    <div class="page-card-metrics">
+                        <div class="page-metric"><span class="page-metric-val" data-page="emprendimiento" data-key="views">—</span><span class="page-metric-lbl">Vistas</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="emprendimiento" data-key="users">—</span><span class="page-metric-lbl">Usuarios</span></div>
+                        <div class="page-metric"><span class="page-metric-val" data-page="emprendimiento" data-key="time">—</span><span class="page-metric-lbl">T. medio</span></div>
+                    </div>
+                    <div class="page-card-actions">
+                        <a href="https://analytics.google.com/analytics/web/#/engagement" target="_blank" class="btn-view primary"><i class="fab fa-google"></i> Ver en Analytics</a>
+                        <a href="https://feiaal.org/cursos/utm/emprendimiento.html" target="_blank" class="btn-view ghost"><i class="fas fa-external-link-alt"></i> Página</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── REPORTE EMBEBIDO ── -->
+        <div class="section-title" style="margin-top:12px"><i class="fas fa-chart-area"></i> Reporte visual (Looker Studio)</div>
+        <div class="embed-wrap">
+            <div class="embed-header">
+                <span class="embed-label">Dashboard en vivo</span>
+                <span class="embed-badge">Pendiente de configurar</span>
+            </div>
+            <!--
+                PARA ACTIVAR: reemplaza el div.placeholder por el iframe de Looker Studio
+                Ejemplo:
+                <iframe src="https://lookerstudio.google.com/embed/reporting/TU-REPORT-ID/page/PAGE-ID"
+                    style="width:100%;height:600px;border:none;border-radius:10px"
+                    allowfullscreen
+                    sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+                </iframe>
+            -->
+            <div class="placeholder">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Conecta Looker Studio</h3>
+                <p>Crea un reporte en <strong>Google Looker Studio</strong> con tu cuenta GA4 (<strong>G-PS34S9QRVV</strong>), activa el acceso público y pega el iframe aquí para ver el dashboard visual en vivo.</p>
+                <a href="https://lookerstudio.google.com/" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Crear reporte en Looker Studio
+                </a>
+            </div>
+        </div>
+
+    </div><!-- /.main -->
+</div><!-- /#dashboard -->
+
+<script>
+    var ACCESS_PASSWORD = "feiaal2025";
+
+    function checkLogin() {
+        var input = document.getElementById('login-password').value;
+        if (input === ACCESS_PASSWORD) {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            sessionStorage.setItem('stats_auth', '1');
+        } else {
+            document.getElementById('login-error').style.display = 'block';
+            document.getElementById('login-password').value = '';
+            document.getElementById('login-password').focus();
+        }
+    }
+
+    function logout() {
+        sessionStorage.removeItem('stats_auth');
+        document.getElementById('login-overlay').style.display = 'flex';
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('login-password').value = '';
+    }
+
+    if (sessionStorage.getItem('stats_auth') === '1') {
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+    }
+
+    // Fecha de última actualización
+    var now = new Date();
+    document.getElementById('last-update').textContent =
+        now.toLocaleDateString('es-EC', { day: '2-digit', month: 'long', year: 'numeric' });
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS34S9QRVV"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PS34S9QRVV');
+</script>
+</body>
+</html>
