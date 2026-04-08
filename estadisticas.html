@@ -253,6 +253,114 @@
             .kpi-grid { grid-template-columns: 1fr 1fr; }
             .quicklinks { grid-template-columns: 1fr 1fr; }
         }
+
+        /* ── LOADING SHIMMER ── */
+        .shimmer {
+            display: inline-block; min-width: 36px; height: 1em;
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%; border-radius: 4px;
+            animation: sh 1.4s infinite;
+        }
+        @keyframes sh { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+        /* ── SETUP CARD ── */
+        .setup-card {
+            background: #fff; border-radius: 16px; border: 1.5px dashed #cbd5e1;
+            padding: 40px 32px; text-align: center; margin-bottom: 28px;
+        }
+        .setup-card i { font-size: 2.5rem; color: #0073e6; margin-bottom: 16px; display: block; }
+        .setup-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #1e293b; margin: 0 0 8px; }
+        .setup-card p { font-size: 0.84rem; color: #64748b; max-width: 540px; margin: 0 auto 20px; line-height: 1.6; }
+        .setup-steps { text-align: left; max-width: 540px; margin: 0 auto 24px; background: #f8fafc; border-radius: 12px; padding: 20px 24px; }
+        .setup-steps ol { margin: 0; padding-left: 20px; }
+        .setup-steps li { font-size: 0.83rem; color: #374151; line-height: 2.2; }
+        .setup-steps code { background: #e2e8f0; padding: 2px 7px; border-radius: 4px; font-size: 0.8rem; font-family: monospace; }
+        .setup-steps strong { color: #1e3c72; }
+
+        /* ── DATA TABLE ── */
+        .table-wrap {
+            background: #fff; border-radius: 16px; border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; margin-bottom: 36px;
+        }
+        .table-toolbar {
+            display: flex; align-items: center; gap: 10px; padding: 16px 20px;
+            border-bottom: 1px solid #f1f5f9; flex-wrap: wrap; background: #fafbfc;
+        }
+        .table-filter {
+            padding: 8px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #475569;
+            outline: none; background: #fff; transition: border-color 0.2s; cursor: pointer;
+        }
+        .table-filter:focus { border-color: #0073e6; }
+        .tbl-search {
+            flex: 1; min-width: 160px; padding: 8px 12px;
+            border: 1.5px solid #e2e8f0; border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 0.82rem;
+            outline: none; transition: border-color 0.2s;
+        }
+        .tbl-search:focus { border-color: #0073e6; }
+        .tbl-count { margin-left: auto; font-size: 0.73rem; color: #94a3b8; font-weight: 500; white-space: nowrap; }
+        .btn-export {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 14px; background: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 8px; font-size: 0.78rem; font-weight: 600; color: #475569;
+            cursor: pointer; text-decoration: none; transition: background 0.2s;
+        }
+        .btn-export:hover { background: #f1f5f9; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; font-family: 'Inter', sans-serif; }
+        .data-table thead th {
+            background: #f8fafc; padding: 11px 14px;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0;
+            cursor: pointer; user-select: none; white-space: nowrap; text-align: left;
+        }
+        .data-table thead th.num { text-align: right; }
+        .data-table thead th:hover { background: #f1f5f9; }
+        .data-table thead th.sort-asc::after  { content: ' ↑'; color: #0073e6; }
+        .data-table thead th.sort-desc::after { content: ' ↓'; color: #0073e6; }
+        .data-table tbody tr { border-bottom: 1px solid #f8fafc; transition: background 0.12s; }
+        .data-table tbody tr:hover { background: #f8fafc; }
+        .data-table tbody tr:last-child { border-bottom: none; }
+        .data-table td { padding: 11px 14px; vertical-align: middle; color: #374151; }
+        .td-month { white-space: nowrap; font-weight: 600; color: #1e3c72; font-size: 0.82rem; }
+        .td-page-name { font-weight: 600; color: #1e293b; font-size: 0.84rem;
+            max-width: 210px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .td-page-path { font-size: 0.68rem; color: #94a3b8; font-family: monospace;
+            max-width: 210px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .td-num { text-align: right; font-weight: 700; color: #1e293b; }
+        .td-time { text-align: right; font-weight: 600; color: #475569; white-space: nowrap; }
+        .td-bar { display: flex; align-items: center; gap: 8px; justify-content: flex-end; }
+        .bar-track { width: 60px; height: 5px; background: #e2e8f0; border-radius: 99px; overflow: hidden; flex-shrink: 0; }
+        .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #0073e6, #2563eb); }
+        .badge-pct {
+            display: inline-block; padding: 2px 8px; border-radius: 99px;
+            font-size: 0.7rem; font-weight: 700;
+        }
+        .badge-pct.low  { background: #f0fdf4; color: #16a34a; }
+        .badge-pct.mid  { background: #fff7ed; color: #ea580c; }
+        .badge-pct.high { background: #fef2f2; color: #dc2626; }
+        .tbl-empty { padding: 48px; text-align: center; color: #94a3b8; font-size: 0.9rem; }
+        .tbl-pagination {
+            display: flex; align-items: center; justify-content: flex-end;
+            gap: 6px; padding: 12px 20px; border-top: 1px solid #f1f5f9;
+        }
+        .tbl-page-btn {
+            padding: 6px 11px; border: 1px solid #e2e8f0; border-radius: 6px;
+            font-size: 0.78rem; font-weight: 600; color: #475569; cursor: pointer;
+            background: #fff; transition: background 0.15s;
+        }
+        .tbl-page-btn:hover, .tbl-page-btn.active { background: #1e3c72; color: #fff; border-color: #1e3c72; }
+        .tbl-page-btn:disabled { opacity: 0.4; cursor: default; }
+
+        /* API status badge */
+        .api-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 4px 12px; border-radius: 99px; font-size: 0.72rem; font-weight: 600;
+        }
+        .api-badge.ok   { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .api-badge.ok::before { content:''; width:7px; height:7px; background:#16a34a; border-radius:50%; animation: pulse 1.5s infinite; }
+        .api-badge.err  { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .api-badge.warn { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
     </style>
 </head>
 <body>
@@ -848,6 +956,74 @@
             </div>
         </div>
 
+        <!-- ══ TABLA MENSUAL POR PÁGINA ══ -->
+        <div class="section-title" style="margin-top:12px">
+            <i class="fas fa-table"></i> Visitantes por mes y página
+            <span id="api-status-badge" class="api-badge warn" style="margin-left:auto;font-family:'Inter',sans-serif">
+                <i class="fas fa-circle-notch fa-spin"></i> Cargando datos...
+            </span>
+        </div>
+
+        <!-- Card de configuración (se oculta cuando la API funciona) -->
+        <div id="api-setup-card" class="setup-card" style="display:none">
+            <i class="fas fa-plug"></i>
+            <h3>Conecta Google Analytics Data API</h3>
+            <p>Para ver datos reales en tiempo automático necesitas configurar un Service Account de Google Cloud. Son 5 pasos, toma 10 minutos.</p>
+            <div class="setup-steps">
+                <ol>
+                    <li>Ve a <strong>console.cloud.google.com</strong> → crea un proyecto (o usa uno existente)</li>
+                    <li>Activa la API: <strong>Google Analytics Data API</strong></li>
+                    <li>IAM y administración → <strong>Cuentas de servicio</strong> → Crear cuenta → descarga el JSON</li>
+                    <li>En GA4 → Admin → Administración de acceso → añade el email del service account como <strong>Lector</strong></li>
+                    <li>Copia el JSON descargado a <code>api/service-account.json</code> y edita <code>GA4_PROPERTY_ID</code> en <code>api/ga4.php</code></li>
+                </ol>
+            </div>
+            <p style="font-size:0.78rem;color:#94a3b8">Property ID numérico: GA4 → Admin → Configuración de propiedad → ID de propiedad</p>
+        </div>
+
+        <!-- Toolbar de filtros -->
+        <div class="table-wrap" id="monthly-table-wrap">
+            <div class="table-toolbar">
+                <select class="table-filter" id="filter-month">
+                    <option value="">Todos los meses</option>
+                </select>
+                <select class="table-filter" id="filter-page">
+                    <option value="">Todas las páginas</option>
+                </select>
+                <input type="text" class="tbl-search" id="filter-search" placeholder="Buscar página...">
+                <button class="btn-export" onclick="exportCSV()">
+                    <i class="fas fa-download"></i> Exportar CSV
+                </button>
+                <span class="tbl-count" id="tbl-count">— filas</span>
+            </div>
+
+            <!-- Tabla -->
+            <div style="overflow-x:auto">
+                <table class="data-table" id="monthly-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('monthLabel')" data-key="monthLabel">Mes</th>
+                            <th onclick="sortTable('title')" data-key="title">Página</th>
+                            <th onclick="sortTable('views')" data-key="views" class="num">Vistas</th>
+                            <th onclick="sortTable('users')" data-key="users" class="num">Usuarios</th>
+                            <th onclick="sortTable('newUsers')" data-key="newUsers" class="num">Nuevos</th>
+                            <th onclick="sortTable('sessions')" data-key="sessions" class="num">Sesiones</th>
+                            <th onclick="sortTable('avgTime')" data-key="avgTime" class="num">T. medio</th>
+                            <th onclick="sortTable('bounce')" data-key="bounce" class="num">% Rebote</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthly-tbody">
+                        <tr><td colspan="8" class="tbl-empty">
+                            <span class="shimmer" style="width:200px;height:16px;display:inline-block"></span>
+                        </td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginación -->
+            <div class="tbl-pagination" id="tbl-pagination"></div>
+        </div>
+
         <!-- ── REPORTE EMBEBIDO ── -->
         <div class="section-title" style="margin-top:12px"><i class="fas fa-chart-area"></i> Reporte visual (Looker Studio)</div>
         <div class="embed-wrap">
@@ -921,6 +1097,7 @@
             document.getElementById('login-overlay').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
             sessionStorage.setItem('stats_auth', '1');
+            if (typeof initDashboard === 'function') initDashboard();
         } else {
             document.getElementById('login-error').style.display = 'block';
             document.getElementById('login-password').value = '';
@@ -983,6 +1160,315 @@
     // Cargar Looker si ya estaba configurado
     var savedLooker = localStorage.getItem('looker_url');
     if (savedLooker) mostrarLooker(savedLooker);
+</script>
+
+<script>
+// ══════════════════════════════════════════════════════════════════════════
+//  GA4 DATA — fetch automático desde api/ga4.php
+// ══════════════════════════════════════════════════════════════════════════
+
+// Mapeo: data-page → ruta GA4
+const PAGE_MAP = {
+    'feiaal':           '/feiaal.html',
+    'nosotros':         '/nosotros.html',
+    'contacto':         '/contacto.html',
+    'biblioteca':       '/biblioteca.html',
+    'blog':             '/blog.html',
+    'oportunidades':    '/oportunidades.html',
+    'articulo1':        '/articulos/articulo1.html',
+    'articulo2':        '/articulos/articulo2.html',
+    'mundo':            '/mundo.html',
+    'eventos':          '/eventos.html',
+    'curso_ia':         '/curso_ia.html',
+    'incubadora':       '/incubadora.html',
+    'socios':           '/socios.html',
+    'proyectos':        '/proyectos.html',
+    'proyecto1':        '/proyecto1.html',
+    'proyecto2':        '/proyecto2.html',
+    'tienda':           '/tienda.html',
+    'tienda-cursos':    '/tienda-cursos.html',
+    'tienda-libros':    '/tienda-libros.html',
+    'tienda-servicios': '/tienda-servicios.html',
+    'tienda-equipos':   '/tienda-equipos.html',
+    'tienda-apps':      '/tienda-aplicaciones.html',
+    'emprendimiento':   '/cursos/utm/emprendimiento.html',
+};
+const PATH_NAMES = Object.fromEntries(Object.entries(PAGE_MAP).map(([k,v])=>[v,k]));
+
+// ── Formateo ──
+function fmtTime(secs) {
+    if (!secs) return '—';
+    const m = Math.floor(secs / 60), s = Math.round(secs % 60);
+    return m > 0 ? `${m}m ${s}s` : `${s}s`;
+}
+function fmtNum(n) { return n ? n.toLocaleString('es-EC') : '—'; }
+function fmtPct(p) { return p != null ? p + '%' : '—'; }
+function pctClass(p) { return p < 40 ? 'low' : p < 65 ? 'mid' : 'high'; }
+function chgHtml(pct) {
+    if (pct == null) return '<span style="color:#94a3b8">—</span>';
+    const cls = pct >= 0 ? 'up' : 'down';
+    const icon = pct >= 0 ? 'fa-arrow-up' : 'fa-arrow-down';
+    const color = pct >= 0 ? '#16a34a' : '#dc2626';
+    return `<span style="font-size:0.75rem;font-weight:600;color:${color}"><i class="fas ${icon}"></i> ${Math.abs(pct)}%</span>`;
+}
+
+// ── Estado de la tabla ──
+let allRows = [], sortKey = 'views', sortDir = -1, curPage = 1;
+const PER_PAGE = 20;
+
+// ── Poblar KPI cards ──
+function fillKpi(kpi, topCountry) {
+    const map = {
+        'kpi-users':    ['users',    kpi.users],
+        'kpi-views':    ['views',    kpi.views],
+        'kpi-events':   ['events',   kpi.events],
+        'kpi-sessions': ['sessions', kpi.sessions],
+    };
+    for (const [id, [key, data]] of Object.entries(map)) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = fmtNum(data?.value);
+        // actualizar cambio
+        const card = el?.closest('.kpi-card');
+        if (card) {
+            const chgEl = card.querySelector('.kpi-change');
+            if (chgEl && data?.change != null) {
+                const up = data.change >= 0;
+                chgEl.className = 'kpi-change ' + (up ? 'up' : 'down');
+                chgEl.innerHTML = `<i class="fas fa-arrow-${up?'up':'down'}"></i> ${Math.abs(data.change)}% vs semana anterior`;
+            }
+        }
+    }
+    // País
+    const paisEl = document.querySelector('.kpi-card .kpi-value[style]');
+    if (paisEl && topCountry) paisEl.textContent = topCountry;
+}
+
+// ── Poblar tarjetas por página ──
+function fillPageCards(pages) {
+    // Construir índice path → datos
+    const byPath = {};
+    pages.forEach(p => { byPath[p.path] = p; });
+
+    // Para cada span con data-page y data-key
+    document.querySelectorAll('[data-page][data-key]').forEach(span => {
+        const pageKey = span.dataset.page;
+        const key     = span.dataset.key;
+        const path    = PAGE_MAP[pageKey];
+        const data    = path ? (byPath[path] || byPath['/' + path]) : null;
+
+        if (!data) { span.textContent = '—'; return; }
+
+        if (key === 'views') span.textContent = fmtNum(data.views);
+        if (key === 'users') span.textContent = fmtNum(data.users);
+        if (key === 'time')  span.textContent = fmtTime(data.avgTime);
+    });
+}
+
+// ── Construir tabla mensual ──
+function buildTable() {
+    // Filtros
+    const fMonth  = document.getElementById('filter-month')?.value  || '';
+    const fPage   = document.getElementById('filter-page')?.value   || '';
+    const fSearch = (document.getElementById('filter-search')?.value || '').toLowerCase();
+
+    let rows = allRows.filter(r => {
+        if (fMonth  && r.month !== fMonth)               return false;
+        if (fPage   && r.path  !== fPage)                return false;
+        if (fSearch && !r.title.toLowerCase().includes(fSearch)
+                    && !r.path.toLowerCase().includes(fSearch)) return false;
+        return true;
+    });
+
+    // Ordenar
+    rows.sort((a, b) => {
+        let va = a[sortKey], vb = b[sortKey];
+        if (typeof va === 'string') return va.localeCompare(vb) * sortDir;
+        return (va - vb) * sortDir;
+    });
+
+    // Paginación
+    const total = rows.length;
+    const pages = Math.max(1, Math.ceil(total / PER_PAGE));
+    if (curPage > pages) curPage = 1;
+    const slice = rows.slice((curPage - 1) * PER_PAGE, curPage * PER_PAGE);
+
+    // Máximo vistas para barra
+    const maxViews = Math.max(1, ...rows.map(r => r.views));
+
+    // Render filas
+    const tbody = document.getElementById('monthly-tbody');
+    if (!slice.length) {
+        tbody.innerHTML = '<tr><td colspan="8" class="tbl-empty"><i class="fas fa-search" style="display:block;font-size:2rem;margin-bottom:10px;color:#cbd5e1"></i>Sin resultados para los filtros seleccionados</td></tr>';
+    } else {
+        tbody.innerHTML = slice.map(r => {
+            const pct = Math.round(r.views / maxViews * 100);
+            return `<tr>
+                <td class="td-month">${r.monthLabel}</td>
+                <td>
+                    <div class="td-page-name" title="${r.title}">${r.title || r.path}</div>
+                    <div class="td-page-path">${r.path}</div>
+                </td>
+                <td class="td-num">
+                    <div class="td-bar">
+                        <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+                        ${fmtNum(r.views)}
+                    </div>
+                </td>
+                <td class="td-num">${fmtNum(r.users)}</td>
+                <td class="td-num">${fmtNum(r.newUsers)}</td>
+                <td class="td-num">${fmtNum(r.sessions)}</td>
+                <td class="td-time">${r.avgTimeFmt}</td>
+                <td><span class="badge-pct ${pctClass(r.bounce)}">${fmtPct(r.bounce)}</span></td>
+            </tr>`;
+        }).join('');
+    }
+
+    // Conteo
+    document.getElementById('tbl-count').textContent =
+        `${total.toLocaleString('es-EC')} ${total === 1 ? 'fila' : 'filas'}`;
+
+    // Paginación
+    renderPagination(pages);
+
+    // Resaltar columna activa
+    document.querySelectorAll('.data-table thead th').forEach(th => {
+        th.classList.remove('sort-asc', 'sort-desc');
+        if (th.dataset.key === sortKey)
+            th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+    });
+}
+
+function renderPagination(pages) {
+    const pg = document.getElementById('tbl-pagination');
+    if (pages <= 1) { pg.innerHTML = ''; return; }
+    let html = `<button class="tbl-page-btn" onclick="goPage(${curPage-1})" ${curPage===1?'disabled':''}>‹</button>`;
+    for (let i = 1; i <= pages; i++) {
+        if (i === 1 || i === pages || Math.abs(i - curPage) <= 2) {
+            html += `<button class="tbl-page-btn ${i===curPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+        } else if (Math.abs(i - curPage) === 3) {
+            html += `<span style="color:#94a3b8;padding:0 4px">…</span>`;
+        }
+    }
+    html += `<button class="tbl-page-btn" onclick="goPage(${curPage+1})" ${curPage===pages?'disabled':''}>›</button>`;
+    pg.innerHTML = html;
+}
+
+function goPage(n) { curPage = n; buildTable(); }
+
+function sortTable(key) {
+    if (sortKey === key) sortDir *= -1;
+    else { sortKey = key; sortDir = -1; }
+    curPage = 1;
+    buildTable();
+}
+
+// ── Poblar filtros de select ──
+function fillFilters(rows) {
+    const months = [...new Set(rows.map(r => r.month))].sort().reverse();
+    const paths  = [...new Set(rows.map(r => r.path))].sort();
+
+    const fMonth = document.getElementById('filter-month');
+    months.forEach(m => {
+        const label = rows.find(r => r.month === m)?.monthLabel || m;
+        fMonth.insertAdjacentHTML('beforeend', `<option value="${m}">${label}</option>`);
+    });
+
+    const fPage = document.getElementById('filter-page');
+    paths.forEach(p => {
+        const label = rows.find(r => r.path === p)?.title || p;
+        fPage.insertAdjacentHTML('beforeend', `<option value="${p}">${label}</option>`);
+    });
+
+    ['filter-month','filter-page','filter-search'].forEach(id => {
+        document.getElementById(id)?.addEventListener('change', () => { curPage=1; buildTable(); });
+        document.getElementById(id)?.addEventListener('input',  () => { curPage=1; buildTable(); });
+    });
+}
+
+// ── Exportar CSV ──
+function exportCSV() {
+    if (!allRows.length) return;
+    const headers = ['Mes','Página','Ruta','Vistas','Usuarios','Nuevos','Sesiones','T. Medio (s)','% Rebote'];
+    const rows = allRows.map(r => [
+        r.monthLabel, r.title, r.path,
+        r.views, r.users, r.newUsers, r.sessions, r.avgTime, r.bounce
+    ]);
+    const csv = [headers, ...rows]
+        .map(row => row.map(v => `"${String(v).replace(/"/g,'""')}"`).join(','))
+        .join('\r\n');
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `feiaal-estadisticas-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+}
+
+// ── Fetch principal ──
+async function loadGA4Data() {
+    const badge = document.getElementById('api-status-badge');
+    try {
+        const res  = await fetch('api/ga4.php');
+        const data = await res.json();
+
+        if (data.error) {
+            // Mostrar card de configuración según el tipo de error
+            badge.className = 'api-badge warn';
+            badge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Sin configurar';
+            document.getElementById('api-setup-card').style.display = 'block';
+            document.getElementById('monthly-table-wrap').style.display = 'none';
+
+            // Mensajes específicos
+            const msgs = {
+                'no_credentials': 'Falta el archivo service-account.json',
+                'no_property_id': 'Falta definir GA4_PROPERTY_ID en api/ga4.php',
+                'invalid_credentials': 'El archivo service-account.json no es válido',
+            };
+            if (msgs[data.error]) {
+                const p = document.querySelector('#api-setup-card p');
+                if (p) p.textContent = msgs[data.error] + '. Sigue los pasos de configuración:';
+            }
+            return;
+        }
+
+        // ✅ API OK
+        badge.className = 'api-badge ok';
+        badge.innerHTML = `Datos en vivo · ${new Date(data.generated).toLocaleTimeString('es-EC', {hour:'2-digit',minute:'2-digit'})}`;
+
+        // Actualizar fecha
+        document.getElementById('last-update').textContent =
+            new Date(data.generated).toLocaleDateString('es-EC', {day:'2-digit', month:'long', year:'numeric'});
+
+        // KPIs
+        if (data.kpi) fillKpi(data.kpi, data.topCountry);
+
+        // Tarjetas por página
+        if (data.pages?.length) fillPageCards(data.pages);
+
+        // Tabla mensual
+        if (data.monthly?.length) {
+            allRows = data.monthly;
+            fillFilters(allRows);
+            buildTable();
+        } else {
+            document.getElementById('monthly-tbody').innerHTML =
+                '<tr><td colspan="8" class="tbl-empty">Sin datos mensuales disponibles aún</td></tr>';
+        }
+
+    } catch (err) {
+        badge.className = 'api-badge err';
+        badge.innerHTML = '<i class="fas fa-times-circle"></i> Error de conexión';
+        document.getElementById('monthly-tbody').innerHTML =
+            `<tr><td colspan="8" class="tbl-empty">No se pudo conectar con api/ga4.php<br><small style="color:#94a3b8">${err.message}</small></td></tr>`;
+    }
+}
+
+// Arrancar cuando el dashboard es visible (post-login)
+function initDashboard() {
+    loadGA4Data();
+}
+
+// Si ya está autenticado al cargar
+if (sessionStorage.getItem('stats_auth') === '1') initDashboard();
 </script>
 
 <!-- Google Analytics -->

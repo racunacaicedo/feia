@@ -1,0 +1,13 @@
+# Proteger archivos sensibles en api/
+<Files "*.json">
+    Order allow,deny
+    Deny from all
+</Files>
+<Files "*.php">
+    Order allow,deny
+    Allow from all
+</Files>
+<FilesMatch "^ga4\.php$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
