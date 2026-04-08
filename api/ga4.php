@@ -14,7 +14,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
 // ── CONFIGURACIÓN ──────────────────────────────────────────────────────────
-define('GA4_PROPERTY_ID', 'TU_PROPERTY_ID_NUMERICO'); // Ej: 320456789
+define('GA4_PROPERTY_ID', '320456789'); // Ej: 320456789
 define('CREDENTIALS_FILE', __DIR__ . '/service-account.json');
 define('CACHE_FILE',       __DIR__ . '/cache/ga4-cache.json');
 define('CACHE_TTL',        3600); // segundos (1 hora)
