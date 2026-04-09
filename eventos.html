@@ -1,18 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<!-- Agregar esto en el <head> del documento -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEIAAL - Fundación para la Enseñanza de IA</title>
+    <title>Eventos y Conferencias de Inteligencia Artificial — FEIAAL</title>
+    <meta name="description" content="Explora eventos, cursos y conferencias internacionales de inteligencia artificial organizados por FEIAAL. CES, MWC, Google I/O, Web Summit, Congreso América Digital y más.">
+    <meta name="keywords" content="eventos inteligencia artificial, conferencias IA, cursos IA, CES, MWC, Google IO, Web Summit, América Digital, FEIAAL, América Latina">
+    <meta name="author" content="FEIAAL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://feiaal.org/eventos.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eventos y Conferencias de Inteligencia Artificial — FEIAAL">
+    <meta property="og:description" content="Cursos y conferencias internacionales de IA: CES, MWC, Google I/O, Web Summit y más. Organizados o difundidos por FEIAAL.">
+    <meta property="og:url" content="https://feiaal.org/eventos.html">
+    <meta property="og:site_name" content="FEIAAL">
+    <meta property="og:locale" content="es_EC">
+
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Agregar Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Archivo de traducciones -->
     <script defer src="js/translations.js"></script>
-    <!-- Archivo principal con lógica -->
     <script defer src="js/script.js"></script>
+
+    <style>
+        /* ── Banner de página ── */
+        .page-banner {
+            background: linear-gradient(135deg, #4a0014, #8b0e3a, #c2185b, #e91e63);
+            padding: 3.5rem 1rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(255,255,255,0.07), transparent);
+            top: -120px; left: -100px; border-radius: 50%;
+        }
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+            bottom: -80px; right: -60px; border-radius: 50%;
+        }
+        .page-banner h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            position: relative; z-index: 1;
+        }
+        .page-banner p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.88);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative; z-index: 1;
+        }
+        .page-banner .banner-icon {
+            font-size: 3rem;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 1rem;
+            display: block;
+            position: relative; z-index: 1;
+        }
+
+        /* ── Categoría label ── */
+        .cat-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4a0014, #c2185b);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 7px 18px;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Sección interna ── */
+        .events-block {
+            margin-bottom: 3rem;
+        }
+
+        /* ── Ajuste de tarjeta para que la info sea visible en móvil ── */
+        @media (max-width: 640px) {
+            .event-info {
+                position: relative;
+                transform: none;
+                background: rgba(0,0,0,0.82);
+            }
+            .page-banner h1 { font-size: 1.6rem; }
+            .page-banner p  { font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -26,8 +113,6 @@
             padding: 0;
             width: 100%;">
 
-            <!-- Selector de idioma con icono -->
-            <!-- Selector de idioma con icono -->
             <div id="language-selector">
                 <button id="language-btn">
                     <i class="fas fa-globe"></i>
@@ -40,11 +125,8 @@
                 </ul>
             </div>
 
-
-            <!-- Logo de la fundación -->
             <img src="imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
 
-            <!-- Texto -->
             <div style="
                 display: flex;
                 flex-direction: column;
@@ -58,37 +140,148 @@
             </div>
         </div>
 
-            <!-- Línea divisoria -->
-            <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
+        <hr style="border: 2px solid #ccc; margin: 1.5rem auto; width: 80%;">
 
-            <div class="container">
-                <!-- Menú de navegación -->
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="biblioteca.html">Biblioteca de IA</a></li>
-                        <li><a href="proyectos.html">Proyectos</a></li>
-                        <li><a href="socios.html">Socios</a></li>
-                        <li><a href="oportunidades.html">Oportunidades</a></li>
-                        <li><a href="tienda.html">Tienda</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="eventos.html">Eventos</a></li>
-                        <li><a href="incubadora.html">Incubadora</a></li>
-                    </ul>
-                </nav>
-                <!-- Botón de menú responsivo -->
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="biblioteca.html">Biblioteca de IA</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="socios.html">Socios</a></li>
+                    <li><a href="oportunidades.html">Oportunidades</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="eventos.html" style="color:#ff9100;font-weight:700">Eventos</a></li>
+                    <li><a href="incubadora.html">Incubadora</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+        </div>
     </header>
 
     <main>
 
+        <!-- ── Banner de página ── -->
+        <div class="page-banner">
+            <i class="fas fa-calendar-star banner-icon"></i>
+            <h1>Eventos y Conferencias</h1>
+            <p>Explora nuestros cursos, eventos y conferencias internacionales de inteligencia artificial.
+               Desde talleres prácticos hasta los foros tecnológicos más importantes del mundo.
+               Haz clic en cualquier tarjeta para saber más y ser parte del cambio.</p>
+        </div>
 
+        <!-- ── Sección de eventos ── -->
+        <section id="eventos" class="events-section">
+            <div class="events-container">
+
+                <!-- ── CURSOS FEIAAL ── -->
+                <div class="events-block">
+                    <div class="cat-label">
+                        <i class="fas fa-graduation-cap"></i> Cursos FEIAAL
+                    </div>
+                    <div class="events-grid" style="grid-template-columns: repeat(4,1fr)">
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento1.jpg" alt="Curso Tesis con IA" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Curso de Tesis y Artículos Científicos con IA</h3>
+                                <p class="event-description">Escribe tu tesis o publica artículos científicos en revistas de alto impacto usando inteligencia artificial.</p>
+                                <a href="https://www.creinti.com/carta_curso_tesis_general.html" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="elegant-divider"></div>
+
+                <!-- ── CONFERENCIAS INTERNACIONALES ── -->
+                <div class="events-block">
+                    <div class="cat-label">
+                        <i class="fas fa-globe-americas"></i> Conferencias Internacionales
+                    </div>
+                    <p class="events-text">
+                        Los eventos tecnológicos más influyentes del mundo. Conoce dónde se definen las tendencias
+                        en inteligencia artificial, innovación y transformación digital.
+                    </p>
+                    <div class="events-grid">
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento2.png" alt="CES Consumer Electronics Show" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">CES — Consumer Electronics Show</h3>
+                                <p class="event-description">🇺🇸 Las Vegas, EE.UU &nbsp;|&nbsp; 📅 Enero &nbsp;|&nbsp; 🌟 Mayor feria de tecnología de consumo y electrónica del mundo.</p>
+                                <a href="https://www.ces.tech/" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento3.png" alt="MWC Mobile World Congress" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">MWC — Mobile World Congress</h3>
+                                <p class="event-description">🇪🇸 Barcelona, España &nbsp;|&nbsp; 📅 Febrero &nbsp;|&nbsp; 📱 Líder en innovación móvil, telecomunicaciones y 5G.</p>
+                                <a href="https://www.mwcbarcelona.com" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento4.png" alt="Google I/O" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Google I/O</h3>
+                                <p class="event-description">🇺🇸 Mountain View, EE.UU &nbsp;|&nbsp; 📅 Mayo &nbsp;|&nbsp; 🖥️ Novedades en software, IA y productos de Google.</p>
+                                <a href="https://io.google/2025/" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento5.png" alt="VivaTechnology" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Viva Technology</h3>
+                                <p class="event-description">🇫🇷 París, Francia &nbsp;|&nbsp; 📅 Junio &nbsp;|&nbsp; 🚀 Innovación, startups, IA, movilidad, sostenibilidad y Web3.</p>
+                                <a href="https://vivatechnology.com/" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento6.png" alt="Gartner IT Symposium" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Gartner IT Symposium / Xpo</h3>
+                                <p class="event-description">🌍 Varios países &nbsp;|&nbsp; 📅 Octubre &nbsp;|&nbsp; 📈 Tendencias en TI, transformación digital y estrategias empresariales.</p>
+                                <a href="https://www.gartner.com/en/conferences/emea/symposium-spain" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento7.png" alt="Web Summit" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Web Summit</h3>
+                                <p class="event-description">🇵🇹 Lisboa, Portugal &nbsp;|&nbsp; 📅 Noviembre &nbsp;|&nbsp; 🚀 Startups, inversión y tecnología de vanguardia.</p>
+                                <a href="https://websummit.com/" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <img src="imagenes/eventos/evento8.png" alt="Congreso América Digital" class="event-image">
+                            <div class="event-info">
+                                <h3 class="event-title">Congreso América Digital</h3>
+                                <p class="event-description">🇨🇱🇲🇽 Chile &amp; México &nbsp;|&nbsp; 📅 Abril &nbsp;|&nbsp; 💡 Transformación digital, IA, fintech y ciberseguridad.</p>
+                                <a href="https://congreso.america-digital.com/" target="_blank" class="event-link">Ver Más</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="elegant-divider"></div>
+
+            </div>
+        </section>
 
     </main>
 
@@ -98,65 +291,46 @@
         </div>
     </footer>
 
-            <!-- Botón para mostrar/ocultar -->
-            <!-- Redes Sociales -->
-            <div class="social-icons hidden">
-                <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.twitter.com/" class="icon twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/" class="icon linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://www.tiktok.com/" class="icon tiktok">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
+    <!-- Redes Sociales -->
+    <div class="social-icons hidden">
+        <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com/" class="icon twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/" class="icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.tiktok.com/" class="icon tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </div>
 
-            <!-- Botón para alternar redes sociales -->
-            <button id="toggle-social-icons" class="toggle-button">
-                <i class="fas fa-share-alt"></i>
-            </button>
+    <button id="toggle-social-icons" class="toggle-button">
+        <i class="fas fa-share-alt"></i>
+    </button>
 
-            <!-- Botón de WhatsApp -->
-            <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
-               target="_blank" class="whatsapp-icon">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+       target="_blank" class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (window.innerWidth <= 768) { // Solo aplica en pantallas pequeñas
-            const header = document.querySelector("header");
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS34S9QRVV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PS34S9QRVV');
+    </script>
 
-            if (header) {
-                // Eliminar cualquier clase que pueda hacer el header fijo
-                header.classList.remove("fixed", "sticky");
-
-                // Establecer la posición como relativa para asegurarse de que no sea fija
-                header.style.position = "relative";
-                header.style.top = "auto";
-            }
-        }
-    });
-</script>
-
-
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS34S9QRVV"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag("js", new Date());
-            gtag("config", "G-PS34S9QRVV");
-        </script>
 </body>
 </html>
