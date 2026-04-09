@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "titulo": "Importancia de la Inteligencia Artificial en el Mundo Actual",
+    "resumen": "La inteligencia artificial ha evolucionado de simples chatbots a agentes autónomos, impactando múltiples industrias y la educación. Su adopción crece, pero también plantea desafíos laborales y educativos que debemos afrontar.",
+    "imagen": "articulos/imagenes/1.articulo_imag1.jpeg",
+    "fecha": "2025-01-15",
+    "categoria": "IA General",
+    "url": "articulos/articulo1.html",
+    "autor": "FEIAAL"
+  },
+  {
+    "id": 2,
+    "titulo": "Modelos Avanzados de IA: OpenAI, DeepSeek y Google Gemini",
+    "resumen": "Análisis comparativo de los modelos avanzados de inteligencia artificial de OpenAI, DeepSeek y Google Gemini: capacidades técnicas, costos, accesibilidad y aplicabilidad en distintos sectores.",
+    "imagen": "articulos/imagenes/2.articulo_imag1.jpeg",
+    "fecha": "2025-02-20",
+    "categoria": "Modelos de IA",
+    "url": "articulos/articulo2.html",
+    "autor": "FEIAAL"
+  }
+]
