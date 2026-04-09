@@ -114,7 +114,7 @@
       </h2>
       <p style="color:#666; font-size:0.92rem;">Últimas publicaciones sobre inteligencia artificial y tecnología</p>
     </div>
-    <a href="admin/index.php" target="_blank"
+    <a href="admin/index.php"
        style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,#c2185b,#ff9100);
               color:#fff; text-decoration:none; padding:8px 20px; border-radius:999px; font-size:0.82rem;
               font-weight:700; transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
@@ -351,9 +351,6 @@
         ? `<img src="${n.imagen}" alt="${n.titulo}" class="news-card-img" onerror="this.outerHTML='<div class=\\'news-card-img-placeholder\\'><i class=\\'fas ${icon}\\'></i></div>'">`
         : `<div class="news-card-img-placeholder"><i class="fas ${icon}"></i></div>`;
 
-      const isExternal = n.url && (n.url.startsWith('http://') || n.url.startsWith('https://'));
-      const target     = isExternal ? 'target="_blank"' : '';
-
       const card = `
         <div class="news-card" data-cat="${n.categoria}">
           ${imgBlock}
@@ -367,7 +364,7 @@
             <div class="news-card-footer">
               <span class="news-autor"><i class="fas fa-user-circle"></i>${n.autor || 'FEIAAL'}</span>
               ${n.url && n.url !== '#'
-                ? `<a href="${n.url}" ${target} class="news-leer">Leer más</a>`
+                ? `<a href="${n.url}" class="news-leer">Leer más</a>`
                 : ''}
             </div>
           </div>
