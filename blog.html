@@ -106,145 +106,17 @@
 <section id="articulos">
 <div class="articles-container">
 
-  <!-- Filtros por categoría -->
+  <!-- Estilos tarjetas noticias -->
   <style>
-    /* ── Filtros ── */
     .filtro-btn {
-      padding: 5px 15px;
-      border-radius: 999px;
-      border: 1.5px solid #ccc;
-      background: #fff;
-      color: #555;
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 5px 15px; border-radius: 999px;
+      border: 1.5px solid #ccc; background: #fff;
+      color: #555; font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
     }
     .filtro-btn:hover { border-color: #c2185b; color: #c2185b; }
     .filtro-btn.active { background: linear-gradient(135deg,#c2185b,#ff9100); border-color:transparent; color:#fff; }
 
-    /* ── Tarjeta mejorada ── */
-    .nc-card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #f0f0f0;
-    }
-    .nc-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 32px rgba(194,24,91,0.13);
-    }
-    .nc-img-wrap {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      position: relative;
-      background: linear-gradient(135deg, #1a1a2e, #4a0014);
-      flex-shrink: 0;
-    }
-    .nc-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s;
-    }
-    .nc-card:hover .nc-img-wrap img { transform: scale(1.05); }
-    .nc-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      color: rgba(255,255,255,0.18);
-    }
-    .nc-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 3px 12px;
-      border-radius: 999px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      backdrop-filter: blur(6px);
-    }
-    .nc-badge-ia    { background:rgba(21,101,192,0.85); color:#fff; }
-    .nc-badge-mod   { background:rgba(106,27,154,0.85); color:#fff; }
-    .nc-badge-edu   { background:rgba(46,125,50,0.85);  color:#fff; }
-    .nc-badge-neg   { background:rgba(230,81,0,0.85);   color:#fff; }
-    .nc-badge-inv   { background:rgba(0,105,92,0.85);   color:#fff; }
-    .nc-badge-lat   { background:rgba(136,14,79,0.85);  color:#fff; }
-    .nc-badge-tec   { background:rgba(191,54,12,0.85);  color:#fff; }
-    .nc-badge-inn   { background:rgba(27,94,32,0.85);   color:#fff; }
-
-    .nc-body {
-      padding: 1.2rem 1.3rem 1.4rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .nc-meta {
-      font-size: 0.73rem;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nc-meta i { color: #c2185b; }
-    .nc-title {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #1a1a2e;
-      line-height: 1.35;
-      margin: 0;
-    }
-    .nc-text {
-      font-size: 0.84rem;
-      color: #666;
-      line-height: 1.6;
-      flex: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .nc-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.8rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid #f0f0f0;
-    }
-    .nc-autor {
-      font-size: 0.74rem;
-      color: #bbb;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .nc-btn {
-      display: inline-block;
-      background: linear-gradient(135deg,#c2185b,#ff9100);
-      color: #fff !important;
-      text-decoration: none;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 6px 18px;
-      border-radius: 999px;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .nc-btn:hover { opacity:0.88; transform:scale(1.04); }
-
-    /* Grid de tarjetas */
     .nc-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -253,6 +125,130 @@
     }
     @media (max-width: 900px) { .nc-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 580px) { .nc-grid { grid-template-columns: 1fr; } }
+
+    /* Tarjeta */
+    article.nc-card {
+      background: #fff !important;
+      border-radius: 16px !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09) !important;
+      border: 1px solid #f0f0f0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.3s, box-shadow 0.3s !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    article.nc-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 14px 32px rgba(194,24,91,0.14) !important;
+    }
+
+    /* Bloque de imagen */
+    .nc-cover {
+      width: 100% !important;
+      height: 195px !important;
+      position: relative !important;
+      overflow: hidden !important;
+      flex-shrink: 0 !important;
+      display: block !important;
+    }
+    .nc-cover img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center top !important;
+      display: block !important;
+      float: none !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      transition: transform 0.4s !important;
+    }
+    article.nc-card:hover .nc-cover img { transform: scale(1.05) !important; }
+
+    /* Placeholder sin imagen */
+    .nc-cover-ph {
+      width: 100% !important;
+      height: 195px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 3.8rem !important;
+      color: rgba(255,255,255,0.22) !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Badge sobre imagen */
+    .nc-badge {
+      position: absolute !important;
+      top: 12px !important; left: 12px !important;
+      padding: 3px 12px !important;
+      border-radius: 999px !important;
+      font-size: 0.68rem !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      backdrop-filter: blur(6px) !important;
+      z-index: 2 !important;
+    }
+    .nc-b-ia  { background:rgba(21,101,192,0.88)!important; color:#fff!important; }
+    .nc-b-mod { background:rgba(106,27,154,0.88)!important; color:#fff!important; }
+    .nc-b-edu { background:rgba(46,125,50,0.88)!important;  color:#fff!important; }
+    .nc-b-neg { background:rgba(230,81,0,0.88)!important;   color:#fff!important; }
+    .nc-b-inv { background:rgba(0,105,92,0.88)!important;   color:#fff!important; }
+    .nc-b-lat { background:rgba(136,14,79,0.88)!important;  color:#fff!important; }
+    .nc-b-tec { background:rgba(191,54,12,0.88)!important;  color:#fff!important; }
+    .nc-b-inn { background:rgba(27,94,32,0.88)!important;   color:#fff!important; }
+
+    /* Cuerpo */
+    .nc-body {
+      padding: 1.15rem 1.25rem 1.3rem !important;
+      flex: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.45rem !important;
+    }
+    .nc-meta { font-size: 0.73rem; color: #aaa; display:flex; align-items:center; gap:8px; }
+    .nc-meta i { color: #c2185b; }
+    .nc-title {
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      color: #1a1a2e !important;
+      line-height: 1.35 !important;
+      margin: 0 !important;
+    }
+    .nc-text {
+      font-size: 0.84rem !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
+      flex: 1 !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 3 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+      text-align: left !important;
+    }
+    .nc-footer {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-top: 0.8rem !important;
+      padding-top: 0.8rem !important;
+      border-top: 1px solid #f0f0f0 !important;
+    }
+    .nc-autor { font-size: 0.74rem; color: #bbb; display:flex; align-items:center; gap:5px; }
+    a.nc-btn {
+      display: inline-block !important;
+      background: linear-gradient(135deg,#c2185b,#ff9100) !important;
+      color: #fff !important;
+      text-decoration: none !important;
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      padding: 6px 18px !important;
+      border-radius: 999px !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    a.nc-btn:hover { opacity:0.88 !important; transform:scale(1.04) !important; }
   </style>
 
   <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:1.8rem;">
@@ -287,14 +283,14 @@
 <script>
 (function() {
   const badgeMap = {
-    'IA General'   : 'nc-badge-ia',
-    'Modelos de IA': 'nc-badge-mod',
-    'Educación'    : 'nc-badge-edu',
-    'Negocios'     : 'nc-badge-neg',
-    'Investigación': 'nc-badge-inv',
-    'América Latina': 'nc-badge-lat',
-    'Tecnología'   : 'nc-badge-tec',
-    'Innovación'   : 'nc-badge-inn',
+    'IA General'   : 'nc-b-ia',
+    'Modelos de IA': 'nc-b-mod',
+    'Educación'    : 'nc-b-edu',
+    'Negocios'     : 'nc-b-neg',
+    'Investigación': 'nc-b-inv',
+    'América Latina': 'nc-b-lat',
+    'Tecnología'   : 'nc-b-tec',
+    'Innovación'   : 'nc-b-inn',
   };
   const iconMap = {
     'IA General'   : 'fa-robot',
@@ -305,6 +301,16 @@
     'América Latina': 'fa-globe-americas',
     'Tecnología'   : 'fa-microchip',
     'Innovación'   : 'fa-lightbulb',
+  };
+  const gradMap = {
+    'IA General'   : 'linear-gradient(135deg,#1565c0,#0d47a1)',
+    'Modelos de IA': 'linear-gradient(135deg,#6a1b9a,#4a148c)',
+    'Educación'    : 'linear-gradient(135deg,#2e7d32,#1b5e20)',
+    'Negocios'     : 'linear-gradient(135deg,#e65100,#bf360c)',
+    'Investigación': 'linear-gradient(135deg,#00695c,#004d40)',
+    'América Latina': 'linear-gradient(135deg,#880e4f,#4a0014)',
+    'Tecnología'   : 'linear-gradient(135deg,#bf360c,#b71c1c)',
+    'Innovación'   : 'linear-gradient(135deg,#1b5e20,#004d40)',
   };
 
   let todasNoticias = [];
@@ -327,30 +333,37 @@
     if (lista.length === 0) { empty.style.display = 'block'; return; }
     empty.style.display = 'none';
 
-    // Agrupar en filas de 3
     for (let i = 0; i < lista.length; i += 3) {
       const grupo = lista.slice(i, i + 3);
       const grid  = document.createElement('div');
       grid.className = 'nc-grid';
 
       grupo.forEach(n => {
-        const badge = badgeMap[n.categoria] || 'nc-badge-ia';
+        const badge = badgeMap[n.categoria] || 'nc-b-ia';
         const icon  = iconMap[n.categoria]  || 'fa-newspaper';
-        const imgBloque = n.imagen
-          ? `<img src="${n.imagen}" alt="${n.titulo}" onerror="this.parentElement.innerHTML='<div class=\\'nc-img-placeholder\\'><i class=\\'fas ${icon}\\'></i></div>'">`
-          : `<div class="nc-img-placeholder"><i class="fas ${icon}"></i></div>`;
+        const grad  = gradMap[n.categoria]  || 'linear-gradient(135deg,#1a1a2e,#4a0014)';
         const btnHtml = (n.url && n.url !== '#')
           ? `<a href="${n.url}" class="nc-btn">Leer más</a>` : '';
 
+        // Bloque de imagen/placeholder
+        const coverBloque = n.imagen
+          ? `<div class="nc-cover" style="background:${grad}">
+               <img src="${n.imagen}" alt="${n.titulo}"
+                 onerror="this.style.display='none';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';">
+               <span class="nc-badge ${badge}">${n.categoria}</span>
+             </div>`
+          : `<div class="nc-cover-ph" style="background:${grad}">
+               <i class="fas ${icon}"></i>
+               <span class="nc-badge ${badge}" style="position:absolute;top:12px;left:12px">${n.categoria}</span>
+             </div>`;
+
         grid.insertAdjacentHTML('beforeend', `
           <article class="nc-card">
-            <div class="nc-img-wrap">
-              ${imgBloque}
-              <span class="nc-badge ${badge}">${n.categoria}</span>
-            </div>
+            <div style="position:relative;flex-shrink:0">${coverBloque}</div>
             <div class="nc-body">
               <div class="nc-meta">
-                <span><i class="fas fa-calendar-alt"></i> ${formatFecha(n.fecha)}</span>
+                <i class="fas fa-calendar-alt"></i>
+                <span>${formatFecha(n.fecha)}</span>
               </div>
               <h3 class="nc-title">${n.titulo}</h3>
               <p class="nc-text">${n.resumen || ''}</p>
