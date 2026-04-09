@@ -108,6 +108,7 @@
 
   <!-- Estilos tarjetas noticias -->
   <style>
+    /* Filtros */
     .filtro-btn {
       padding: 5px 15px; border-radius: 999px;
       border: 1.5px solid #ccc; background: #fff;
@@ -117,138 +118,138 @@
     .filtro-btn:hover { border-color: #c2185b; color: #c2185b; }
     .filtro-btn.active { background: linear-gradient(135deg,#c2185b,#ff9100); border-color:transparent; color:#fff; }
 
+    /* Grid: 1 columna de tarjetas apiladas */
     .nc-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
-      margin-bottom: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
-    @media (max-width: 900px) { .nc-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 580px) { .nc-grid { grid-template-columns: 1fr; } }
 
-    /* Tarjeta */
+    /* Tarjeta horizontal: icono/color izq + texto der */
     article.nc-card {
       background: #fff !important;
-      border-radius: 16px !important;
+      border-radius: 14px !important;
       overflow: hidden !important;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.09) !important;
-      border: 1px solid #f0f0f0 !important;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.08) !important;
+      border: 1px solid #efefef !important;
       display: flex !important;
-      flex-direction: column !important;
-      transition: transform 0.3s, box-shadow 0.3s !important;
+      flex-direction: row !important;
+      align-items: stretch !important;
+      transition: transform 0.25s, box-shadow 0.25s !important;
       padding: 0 !important;
       margin: 0 !important;
+      min-height: 130px !important;
     }
     article.nc-card:hover {
-      transform: translateY(-6px) !important;
-      box-shadow: 0 14px 32px rgba(194,24,91,0.14) !important;
+      transform: translateX(4px) !important;
+      box-shadow: 0 6px 24px rgba(194,24,91,0.13) !important;
     }
 
-    /* Bloque de imagen */
-    .nc-cover {
-      width: 100% !important;
-      height: 195px !important;
-      position: relative !important;
-      overflow: hidden !important;
+    /* Franja de color izquierda con ícono */
+    .nc-aside {
+      width: 90px !important;
       flex-shrink: 0 !important;
-      display: block !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 2rem !important;
+      color: rgba(255,255,255,0.85) !important;
+      position: relative !important;
     }
-    .nc-cover img {
-      width: 100% !important;
+
+    /* Miniatura de imagen cuando existe */
+    .nc-aside img {
+      width: 90px !important;
       height: 100% !important;
       object-fit: cover !important;
-      object-position: center top !important;
+      object-position: center center !important;
       display: block !important;
       float: none !important;
       margin: 0 !important;
       border-radius: 0 !important;
-      transition: transform 0.4s !important;
-    }
-    article.nc-card:hover .nc-cover img { transform: scale(1.05) !important; }
-
-    /* Placeholder sin imagen */
-    .nc-cover-ph {
-      width: 100% !important;
-      height: 195px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      font-size: 3.8rem !important;
-      color: rgba(255,255,255,0.22) !important;
-      flex-shrink: 0 !important;
     }
 
-    /* Badge sobre imagen */
+    /* Badge de categoría */
     .nc-badge {
-      position: absolute !important;
-      top: 12px !important; left: 12px !important;
-      padding: 3px 12px !important;
+      display: inline-block !important;
+      padding: 2px 9px !important;
       border-radius: 999px !important;
-      font-size: 0.68rem !important;
+      font-size: 0.66rem !important;
       font-weight: 700 !important;
       text-transform: uppercase !important;
       letter-spacing: 0.05em !important;
-      backdrop-filter: blur(6px) !important;
-      z-index: 2 !important;
+      margin-bottom: 4px !important;
+      white-space: nowrap !important;
     }
-    .nc-b-ia  { background:rgba(21,101,192,0.88)!important; color:#fff!important; }
-    .nc-b-mod { background:rgba(106,27,154,0.88)!important; color:#fff!important; }
-    .nc-b-edu { background:rgba(46,125,50,0.88)!important;  color:#fff!important; }
-    .nc-b-neg { background:rgba(230,81,0,0.88)!important;   color:#fff!important; }
-    .nc-b-inv { background:rgba(0,105,92,0.88)!important;   color:#fff!important; }
-    .nc-b-lat { background:rgba(136,14,79,0.88)!important;  color:#fff!important; }
-    .nc-b-tec { background:rgba(191,54,12,0.88)!important;  color:#fff!important; }
-    .nc-b-inn { background:rgba(27,94,32,0.88)!important;   color:#fff!important; }
+    .nc-b-ia  { background:#e3f2fd!important; color:#1565c0!important; }
+    .nc-b-mod { background:#f3e5f5!important; color:#6a1b9a!important; }
+    .nc-b-edu { background:#e8f5e9!important; color:#2e7d32!important; }
+    .nc-b-neg { background:#fff3e0!important; color:#e65100!important; }
+    .nc-b-inv { background:#e0f2f1!important; color:#00695c!important; }
+    .nc-b-lat { background:#fce4ec!important; color:#880e4f!important; }
+    .nc-b-tec { background:#fbe9e7!important; color:#bf360c!important; }
+    .nc-b-inn { background:#f1f8e9!important; color:#33691e!important; }
 
-    /* Cuerpo */
+    /* Cuerpo texto */
     .nc-body {
-      padding: 1.15rem 1.25rem 1.3rem !important;
       flex: 1 !important;
+      padding: 1rem 1.2rem !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: 0.45rem !important;
+      justify-content: center !important;
+      gap: 0.3rem !important;
+      min-width: 0 !important;
     }
-    .nc-meta { font-size: 0.73rem; color: #aaa; display:flex; align-items:center; gap:8px; }
-    .nc-meta i { color: #c2185b; }
+    .nc-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:2px; }
+    .nc-meta { font-size: 0.72rem; color: #bbb; display:flex; align-items:center; gap:4px; white-space:nowrap; }
+    .nc-meta i { color: #c2185b; font-size:0.65rem; }
     .nc-title {
-      font-size: 1rem !important;
+      font-size: 0.97rem !important;
       font-weight: 800 !important;
       color: #1a1a2e !important;
       line-height: 1.35 !important;
-      margin: 0 !important;
+      margin: 0 0 2px !important;
     }
     .nc-text {
-      font-size: 0.84rem !important;
-      color: #666 !important;
-      line-height: 1.6 !important;
-      flex: 1 !important;
+      font-size: 0.81rem !important;
+      color: #777 !important;
+      line-height: 1.55 !important;
       display: -webkit-box !important;
-      -webkit-line-clamp: 3 !important;
+      -webkit-line-clamp: 2 !important;
       -webkit-box-orient: vertical !important;
       overflow: hidden !important;
       text-align: left !important;
+      margin: 0 !important;
     }
     .nc-footer {
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      margin-top: 0.8rem !important;
-      padding-top: 0.8rem !important;
-      border-top: 1px solid #f0f0f0 !important;
+      margin-top: 0.6rem !important;
     }
-    .nc-autor { font-size: 0.74rem; color: #bbb; display:flex; align-items:center; gap:5px; }
+    .nc-autor { font-size: 0.72rem; color: #ccc; display:flex; align-items:center; gap:4px; }
     a.nc-btn {
       display: inline-block !important;
       background: linear-gradient(135deg,#c2185b,#ff9100) !important;
       color: #fff !important;
       text-decoration: none !important;
-      font-size: 0.76rem !important;
+      font-size: 0.72rem !important;
       font-weight: 700 !important;
-      padding: 6px 18px !important;
+      padding: 5px 15px !important;
       border-radius: 999px !important;
-      transition: opacity 0.2s, transform 0.2s !important;
+      white-space: nowrap !important;
+      transition: opacity 0.2s !important;
     }
-    a.nc-btn:hover { opacity:0.88 !important; transform:scale(1.04) !important; }
+    a.nc-btn:hover { opacity: 0.85 !important; }
+
+    /* Responsive: en móvil se apilan */
+    @media (max-width: 580px) {
+      article.nc-card { flex-direction: column !important; min-height: unset !important; }
+      .nc-aside { width: 100% !important; height: 140px !important; }
+      .nc-aside img { width: 100% !important; height: 140px !important; }
+    }
   </style>
 
   <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:1.8rem;">
@@ -303,14 +304,14 @@
     'Innovación'   : 'fa-lightbulb',
   };
   const gradMap = {
-    'IA General'   : 'linear-gradient(135deg,#1565c0,#0d47a1)',
-    'Modelos de IA': 'linear-gradient(135deg,#6a1b9a,#4a148c)',
-    'Educación'    : 'linear-gradient(135deg,#2e7d32,#1b5e20)',
-    'Negocios'     : 'linear-gradient(135deg,#e65100,#bf360c)',
-    'Investigación': 'linear-gradient(135deg,#00695c,#004d40)',
-    'América Latina': 'linear-gradient(135deg,#880e4f,#4a0014)',
-    'Tecnología'   : 'linear-gradient(135deg,#bf360c,#b71c1c)',
-    'Innovación'   : 'linear-gradient(135deg,#1b5e20,#004d40)',
+    'IA General'   : 'linear-gradient(160deg,#1565c0,#0d47a1)',
+    'Modelos de IA': 'linear-gradient(160deg,#6a1b9a,#4a148c)',
+    'Educación'    : 'linear-gradient(160deg,#2e7d32,#1b5e20)',
+    'Negocios'     : 'linear-gradient(160deg,#e65100,#bf360c)',
+    'Investigación': 'linear-gradient(160deg,#00695c,#004d40)',
+    'América Latina': 'linear-gradient(160deg,#880e4f,#4a0014)',
+    'Tecnología'   : 'linear-gradient(160deg,#bf360c,#b71c1c)',
+    'Innovación'   : 'linear-gradient(160deg,#33691e,#1b5e20)',
   };
 
   let todasNoticias = [];
@@ -341,29 +342,27 @@
       grupo.forEach(n => {
         const badge = badgeMap[n.categoria] || 'nc-b-ia';
         const icon  = iconMap[n.categoria]  || 'fa-newspaper';
-        const grad  = gradMap[n.categoria]  || 'linear-gradient(135deg,#1a1a2e,#4a0014)';
+        const grad  = gradMap[n.categoria]  || 'linear-gradient(160deg,#1a1a2e,#4a0014)';
         const btnHtml = (n.url && n.url !== '#')
           ? `<a href="${n.url}" class="nc-btn">Leer más</a>` : '';
 
-        // Bloque de imagen/placeholder
-        const coverBloque = n.imagen
-          ? `<div class="nc-cover" style="background:${grad}">
+        // Franja lateral: imagen si existe, gradiente+ícono si no
+        const asideBloque = n.imagen
+          ? `<div class="nc-aside" style="background:${grad}">
                <img src="${n.imagen}" alt="${n.titulo}"
-                 onerror="this.style.display='none';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';">
-               <span class="nc-badge ${badge}">${n.categoria}</span>
+                 onerror="this.style.display='none'">
              </div>`
-          : `<div class="nc-cover-ph" style="background:${grad}">
+          : `<div class="nc-aside" style="background:${grad}">
                <i class="fas ${icon}"></i>
-               <span class="nc-badge ${badge}" style="position:absolute;top:12px;left:12px">${n.categoria}</span>
              </div>`;
 
         grid.insertAdjacentHTML('beforeend', `
           <article class="nc-card">
-            <div style="position:relative;flex-shrink:0">${coverBloque}</div>
+            ${asideBloque}
             <div class="nc-body">
-              <div class="nc-meta">
-                <i class="fas fa-calendar-alt"></i>
-                <span>${formatFecha(n.fecha)}</span>
+              <div class="nc-top">
+                <span class="nc-badge ${badge}">${n.categoria}</span>
+                <span class="nc-meta"><i class="fas fa-calendar-alt"></i> ${formatFecha(n.fecha)}</span>
               </div>
               <h3 class="nc-title">${n.titulo}</h3>
               <p class="nc-text">${n.resumen || ''}</p>
