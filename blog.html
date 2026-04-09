@@ -374,12 +374,17 @@
     renderNoticias(lista);
   };
 
-  fetch('api/noticias.php')
-    .then(r => r.json())
+  // Construir URL absoluta relativa al directorio de blog.html
+  const base = window.location.href.replace(/blog\.html.*$/, '');
+  fetch(base + 'api/noticias.php')
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(data => { todasNoticias = data; renderNoticias(data); })
-    .catch(() => {
+    .catch(err => {
       document.getElementById('news-loading').innerHTML =
-        '<i class="fas fa-exclamation-circle" style="color:#c2185b;font-size:2rem;display:block;margin-bottom:0.5rem"></i>No se pudieron cargar los artículos.';
+        '<i class="fas fa-exclamation-circle" style="color:#c2185b;font-size:2rem;display:block;margin-bottom:0.5rem"></i>No se pudieron cargar los artículos. <small style="display:block;margin-top:4px;font-size:0.75rem">(' + err.message + ')</small>';
     });
 })();
 </script>
