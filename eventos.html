@@ -106,16 +106,29 @@
             box-shadow: 0 10px 28px rgba(0,0,0,0.16);
         }
 
-        /* Imagen con altura fija */
-        .event-image {
+        /* Contenedor de imagen — fondo oscuro para logos con fondo blanco/transparente */
+        .event-img-wrap {
             width: 100%;
             height: 190px;
-            object-fit: cover;
-            display: block;
+            background: #0d0d1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            transition: opacity 0.3s;
+            overflow: hidden;
         }
-        .event-card:hover .event-image { opacity: 0.92; }
+        /* Imagen completa visible (contain) centrada */
+        .event-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            transition: transform 0.3s, opacity 0.3s;
+            padding: 10px;
+        }
+        .event-card:hover .event-img-wrap { background: #111125; }
+        .event-card:hover .event-image { transform: scale(1.04); opacity: 0.92; }
 
         /* Info siempre visible — debajo de la imagen */
         .event-info {
@@ -160,20 +173,22 @@
         }
         .event-link:hover { opacity: 0.88; color: #fff !important; }
 
-        /* Grid: 4 col desktop → 3 tablet → 2 móvil grande */
+        /* Grid: flexbox centrado — últma fila queda centrada automáticamente */
         .events-grid {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
             gap: 1.6rem !important;
         }
+        .event-card {
+            flex: 0 1 260px;
+            max-width: 280px;
+        }
         @media (max-width: 1024px) {
-            .events-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .event-card { flex: 0 1 220px; }
         }
         @media (max-width: 700px) {
-            .events-grid {
-                grid-template-columns: 1fr !important;
-                gap: 0.85rem !important;
-            }
+            .events-grid { gap: 0.85rem !important; }
         }
 
         /* ── Tarjeta HORIZONTAL en móvil (≤700px) ── */
@@ -311,14 +326,16 @@
                     <div class="cat-label">
                         <i class="fas fa-graduation-cap"></i> Cursos FEIAAL
                     </div>
-                    <div class="events-grid" style="grid-template-columns: repeat(4,1fr)">
+                    <div class="events-grid">
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento1.png" alt="Evento 1" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento1.png" alt="Curso IA aplicada al trabajo" class="event-image">
+                            </div>
                             <div class="event-info">
-                                <h3 class="event-title">Inteligencia artificial aplicada al trabajo los negocios y la educación</h3>
-                                <p class="event-description">Domina herramientas reales que podrás utilizar desde el primer día en tu trabajo, negocio o estudios, mediante una metodología basada en aprender haciendo.</p>
-                                <a href="https://creinti.com/cursoIA.html" class="event-link">Ver Más</a>
+                                <h3 class="event-title">IA aplicada al trabajo, negocios y educación</h3>
+                                <p class="event-description">Domina herramientas reales que podrás usar desde el primer día en tu trabajo, negocio o estudios.</p>
+                                <a href="https://creinti.com/cursoIA.html" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
@@ -339,65 +356,79 @@
                     <div class="events-grid">
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento2.png" alt="CES Consumer Electronics Show" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento2.png" alt="CES Consumer Electronics Show" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">CES — Consumer Electronics Show</h3>
                                 <p class="event-description">🇺🇸 Las Vegas, EE.UU &nbsp;|&nbsp; 📅 Enero &nbsp;|&nbsp; 🌟 Mayor feria de tecnología de consumo y electrónica del mundo.</p>
-                                <a href="https://www.ces.tech/" class="event-link">Ver Más</a>
+                                <a href="https://www.ces.tech/" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento3.png" alt="MWC Mobile World Congress" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento3.png" alt="MWC Mobile World Congress" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">MWC — Mobile World Congress</h3>
                                 <p class="event-description">🇪🇸 Barcelona, España &nbsp;|&nbsp; 📅 Febrero &nbsp;|&nbsp; 📱 Líder en innovación móvil, telecomunicaciones y 5G.</p>
-                                <a href="https://www.mwcbarcelona.com" class="event-link">Ver Más</a>
+                                <a href="https://www.mwcbarcelona.com" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento4.png" alt="Google I/O" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento4.png" alt="Google I/O" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">Google I/O</h3>
                                 <p class="event-description">🇺🇸 Mountain View, EE.UU &nbsp;|&nbsp; 📅 Mayo &nbsp;|&nbsp; 🖥️ Novedades en software, IA y productos de Google.</p>
-                                <a href="https://io.google/2025/" class="event-link">Ver Más</a>
+                                <a href="https://io.google/2025/" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento5.png" alt="VivaTechnology" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento5.png" alt="VivaTechnology" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">Viva Technology</h3>
                                 <p class="event-description">🇫🇷 París, Francia &nbsp;|&nbsp; 📅 Junio &nbsp;|&nbsp; 🚀 Innovación, startups, IA, movilidad, sostenibilidad y Web3.</p>
-                                <a href="https://vivatechnology.com/" class="event-link">Ver Más</a>
+                                <a href="https://vivatechnology.com/" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento6.png" alt="Gartner IT Symposium" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento6.png" alt="Gartner IT Symposium" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">Gartner IT Symposium / Xpo</h3>
                                 <p class="event-description">🌍 Varios países &nbsp;|&nbsp; 📅 Octubre &nbsp;|&nbsp; 📈 Tendencias en TI, transformación digital y estrategias empresariales.</p>
-                                <a href="https://www.gartner.com/en/conferences/emea/symposium-spain" class="event-link">Ver Más</a>
+                                <a href="https://www.gartner.com/en/conferences/emea/symposium-spain" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento7.png" alt="Web Summit" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento7.png" alt="Web Summit" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">Web Summit</h3>
                                 <p class="event-description">🇵🇹 Lisboa, Portugal &nbsp;|&nbsp; 📅 Noviembre &nbsp;|&nbsp; 🚀 Startups, inversión y tecnología de vanguardia.</p>
-                                <a href="https://websummit.com/" class="event-link">Ver Más</a>
+                                <a href="https://websummit.com/" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
                         <div class="event-card">
-                            <img src="imagenes/eventos/evento8.png" alt="Congreso América Digital" class="event-image">
+                            <div class="event-img-wrap">
+                                <img src="imagenes/eventos/evento8.png" alt="Congreso América Digital" class="event-image">
+                            </div>
                             <div class="event-info">
                                 <h3 class="event-title">Congreso América Digital</h3>
                                 <p class="event-description">🇨🇱🇲🇽 Chile &amp; México &nbsp;|&nbsp; 📅 Abril &nbsp;|&nbsp; 💡 Transformación digital, IA, fintech y ciberseguridad.</p>
-                                <a href="https://congreso.america-digital.com/" class="event-link">Ver Más</a>
+                                <a href="https://congreso.america-digital.com/" target="_blank" class="event-link">Ver Más</a>
                             </div>
                         </div>
 
