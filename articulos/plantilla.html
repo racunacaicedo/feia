@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ══════════════════════════════════════════════════════════
+         ✏️  PASO 1: Cambia el título, descripción y palabras clave
+         ══════════════════════════════════════════════════════════ -->
+    <title>TÍTULO DEL ARTÍCULO — FEIAAL</title>
+    <meta name="description" content="Breve descripción del artículo para buscadores. Máximo 160 caracteres.">
+    <meta name="keywords" content="inteligencia artificial, palabra clave 2, palabra clave 3">
+    <meta name="author" content="FEIAAL">
+    <meta name="robots" content="index, follow">
+    <!-- Cambia el slug en canonical -->
+    <link rel="canonical" href="https://feiaal.org/articulos/nombre-del-articulo.html">
+    <!-- Open Graph (redes sociales) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="TÍTULO DEL ARTÍCULO — FEIAAL">
+    <meta property="og:description" content="Breve descripción para redes sociales.">
+    <meta property="og:url" content="https://feiaal.org/articulos/nombre-del-articulo.html">
+    <meta property="og:site_name" content="FEIAAL">
+    <meta property="og:locale" content="es_EC">
+    <!-- Imagen para compartir en redes (recomendado 1200x630px) -->
+    <!-- <meta property="og:image" content="https://feiaal.org/articulos/imagenes/nombre-imagen.jpg"> -->
+
+    <!-- Estilos y librerías -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="../js/translations.js"></script>
+    <script defer src="../js/script.js"></script>
+
+    <style>
+        /* ─── Barra de progreso de lectura ─── */
+        #art-progress-bar {
+            position: fixed; top: 0; left: 0;
+            height: 4px; width: 0%;
+            background: linear-gradient(90deg, #c2185b, #ff9100);
+            z-index: 9999;
+            transition: width 0.1s linear;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* ─── Hero / cabecera del artículo ─── */
+        .art-hero {
+            background: linear-gradient(135deg, #4a0014 0%, #8b0e3a 50%, #c2185b 100%);
+            padding: 72px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .art-hero::before {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06), transparent);
+            top: -150px; left: -100px; border-radius: 50%;
+        }
+        .art-hero-inner { max-width: 780px; margin: 0 auto; position: relative; }
+
+        .art-breadcrumb {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+            letter-spacing: 0.04em;
+        }
+        .art-breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+        .art-breadcrumb a:hover { color: #fff; }
+        .art-breadcrumb span { margin: 0 6px; }
+
+        .art-category-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 14px; border-radius: 999px; margin-bottom: 20px;
+        }
+
+        .art-hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700; color: #fff;
+            line-height: 1.25; margin: 0 0 28px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .art-meta {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; color: rgba(255,255,255,0.8);
+        }
+        .art-meta-item { display: flex; align-items: center; gap: 7px; }
+        .art-meta-item i { color: rgba(255,144,0,0.9); font-size: 0.8rem; }
+
+        /* ─── Layout principal ─── */
+        #articulo-individual { background: #f0f4f8; padding: 0 0 60px; display: block; }
+
+        .art-layout {
+            max-width: 1160px; margin: 0 auto;
+            padding: 48px 24px 0;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 40px; align-items: start;
+        }
+
+        /* ─── Tabla de contenidos (sidebar) ─── */
+        .art-toc {
+            position: sticky; top: 80px;
+            background: #fff; border-radius: 14px;
+            padding: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            order: 2;
+        }
+        .art-toc h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: #94a3b8; margin: 0 0 16px;
+        }
+        .art-toc ul { list-style: none; padding: 0; margin: 0; }
+        .art-toc li { margin-bottom: 4px; }
+        .art-toc a {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem; color: #475569;
+            text-decoration: none; padding: 6px 10px;
+            border-radius: 8px; border-left: 2px solid transparent;
+            transition: all 0.2s; line-height: 1.4;
+        }
+        .art-toc a:hover, .art-toc a.active {
+            background: #fce4ec; color: #c2185b; border-left-color: #c2185b;
+        }
+        .art-toc-divider { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+        .art-toc-back {
+            display: flex; align-items: center; gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem; font-weight: 600;
+            color: #c2185b; text-decoration: none;
+            padding: 8px 10px; border-radius: 8px;
+            background: #fce4ec; transition: background 0.2s;
+        }
+        .art-toc-back:hover { background: #f8bbd0; }
+
+        /* ─── Contenido ─── */
+        .art-content { order: 1; min-width: 0; }
+
+        .art-card {
+            background: #fff; border-radius: 16px;
+            padding: 40px 44px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            margin-bottom: 28px;
+        }
+
+        .art-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem; line-height: 1.85;
+            color: #374151; margin: 0 0 1.4em; text-align: justify;
+        }
+        .art-content h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.55rem; color: #4a0014;
+            margin: 40px 0 18px; padding-top: 8px;
+        }
+        .art-content h2:first-child { margin-top: 0; }
+        .art-content h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.2rem; color: #8b0e3a;
+            margin: 32px 0 14px;
+        }
+        .art-content a {
+            color: #c2185b; text-decoration: underline;
+            text-decoration-color: rgba(194,24,91,0.3);
+            text-underline-offset: 3px;
+        }
+        .art-content a:hover { text-decoration-color: #c2185b; }
+        .art-content ul, .art-content ol {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.02rem; line-height: 1.85;
+            color: #374151; padding-left: 1.6rem; margin: 0 0 1.4em;
+        }
+        .art-content li { margin-bottom: 0.4em; }
+
+        /* ─── Imagen flotante ─── */
+        .art-float-img {
+            float: right; width: 240px; height: auto;
+            margin: 4px 0 16px 28px; border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .art-clearfix::after { content: ''; display: block; clear: both; }
+
+        /* ─── Imagen centrada con pie de foto ─── */
+        .art-figure { margin: 32px 0; }
+        .art-figure img {
+            width: 100%; height: auto; border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12); display: block;
+        }
+        .art-figure figcaption {
+            font-family: 'Inter', sans-serif; font-size: 0.82rem;
+            color: #94a3b8; text-align: center; margin-top: 10px; font-style: italic;
+        }
+
+        /* ─── Cita destacada ─── */
+        .art-pullquote {
+            border: none; margin: 36px 0; padding: 28px 36px;
+            background: linear-gradient(135deg, #4a0014, #c2185b);
+            border-radius: 14px; position: relative; overflow: hidden;
+        }
+        .art-pullquote::before {
+            content: '\201C';
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 8rem; color: rgba(255,255,255,0.12);
+            position: absolute; top: -20px; left: 16px; line-height: 1;
+        }
+        .art-pullquote p {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem; color: #fff;
+            line-height: 1.6; margin: 0; position: relative; text-align: left;
+        }
+
+        /* ─── Tarjetas de datos / estadísticas ─── */
+        .art-stats-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 16px; margin: 32px 0;
+        }
+        .art-stat-card {
+            background: linear-gradient(135deg, #fce4ec, #fff0f3);
+            border: 1px solid #f8bbd0;
+            border-radius: 14px; padding: 20px 22px; text-align: center;
+        }
+        .art-stat-value {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.9rem; font-weight: 700;
+            color: #4a0014; line-height: 1.1; display: block;
+        }
+        .art-stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem; color: #64748b;
+            margin-top: 6px; line-height: 1.4; display: block;
+        }
+
+        /* ─── Tabla ─── */
+        .art-table-wrap { overflow-x: auto; margin: 24px 0; }
+        .art-table {
+            width: 100%; border-collapse: collapse;
+            font-family: 'Inter', sans-serif; font-size: 0.85rem;
+        }
+        .art-table th {
+            background: #4a0014; color: #fff;
+            padding: 12px 16px; text-align: left;
+            font-weight: 600; font-size: 0.8rem;
+        }
+        .art-table th:first-child { border-radius: 8px 0 0 0; }
+        .art-table th:last-child  { border-radius: 0 8px 0 0; }
+        .art-table td {
+            padding: 11px 16px; border-bottom: 1px solid #f1f5f9;
+            color: #374151; vertical-align: top;
+        }
+        .art-table tr:nth-child(even) td { background: #fafafa; }
+        .art-table tr:hover td { background: #fce4ec; }
+
+        /* ─── Caja de puntos clave / conclusión ─── */
+        .art-keybox {
+            background: linear-gradient(135deg, #fce4ec, #fff0f3);
+            border-left: 4px solid #c2185b;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px; margin: 28px 0;
+        }
+        .art-keybox h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #c2185b; margin: 0 0 12px;
+        }
+        .art-keybox ul {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem; color: #374151;
+            padding-left: 1.2rem; margin: 0;
+        }
+        .art-keybox ul li { margin-bottom: 6px; }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .art-layout { grid-template-columns: 1fr; }
+            .art-toc { position: static; order: -1; }
+            .art-content { order: 1; }
+            .art-card { padding: 28px 22px; }
+            .art-float-img { float: none; width: 100%; margin: 0 0 20px; }
+            .art-stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Barra de progreso de lectura -->
+<div id="art-progress-bar"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ENCABEZADO DEL SITIO (no tocar)
+══════════════════════════════════════════════════════════ -->
+<header>
+    <div class="container" style="position:relative;display:flex;align-items:center;gap:0.5rem;margin:0;padding:0;width:100%;">
+        <div id="language-selector">
+            <button id="language-btn"><i class="fas fa-globe"></i><span>Idiomas</span></button>
+            <ul id="language-options" class="hidden">
+                <li data-lang="es">Español</li>
+                <li data-lang="en">English</li>
+                <li data-lang="zh">中文</li>
+            </ul>
+        </div>
+        <img src="../imagenes/feiaal.png" alt="Logo de FEIAAL" class="logo">
+        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1;margin:0;padding:0;">
+            <h1 class="main-header">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</h1>
+            <p class="subheader">Promoviendo el aprendizaje y el uso ético de la Inteligencia Artificial en América Latina.</p>
+        </div>
+    </div>
+    <hr style="border:2px solid #ccc;margin:1.5rem auto;width:80%;">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="../biblioteca.html">Biblioteca de IA</a></li>
+                <li><a href="../proyectos.html">Proyectos</a></li>
+                <li><a href="../socios.html">Socios</a></li>
+                <li><a href="../oportunidades.html">Oportunidades</a></li>
+                <li><a href="../tienda.html">Tienda</a></li>
+                <li><a href="../blog.html" style="color:#c2185b;font-weight:700">Blog</a></li>
+                <li><a href="../eventos.html">Eventos</a></li>
+                <li><a href="../incubadora.html">Incubadora</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+    </div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════
+     ✏️  PASO 2: Hero — cambia categoría, título, autor y fecha
+══════════════════════════════════════════════════════════ -->
+<div class="art-hero">
+    <div class="art-hero-inner">
+        <div class="art-breadcrumb">
+            <a href="../blog.html">Blog</a>
+            <span>›</span>
+            <!-- Cambia la categoría aquí también -->
+            <span>IA General</span>
+        </div>
+
+        <!-- Cambia la etiqueta de categoría -->
+        <span class="art-category-tag">
+            <i class="fas fa-robot"></i>&nbsp; IA General
+        </span>
+
+        <!-- ✏️ TÍTULO PRINCIPAL DEL ARTÍCULO -->
+        <h1>Escribe aquí el título completo de tu artículo</h1>
+
+        <div class="art-meta">
+            <!-- ✏️ Cambia el autor -->
+            <div class="art-meta-item">
+                <i class="fas fa-user-circle"></i>
+                <span>FEIAAL</span>
+            </div>
+            <!-- ✏️ Cambia la fecha -->
+            <div class="art-meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>9 de abril de 2026</span>
+            </div>
+            <!-- ✏️ Tiempo estimado de lectura (aprox. 200 palabras/min) -->
+            <div class="art-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>5 min de lectura</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     CUERPO DEL ARTÍCULO
+══════════════════════════════════════════════════════════ -->
+<section id="articulo-individual">
+<div class="art-layout">
+
+    <!-- ── Sidebar: tabla de contenidos ── -->
+    <aside class="art-toc">
+        <h4><i class="fas fa-list-ul" style="margin-right:6px"></i>Contenido</h4>
+        <ul>
+            <!-- ✏️ PASO 3: Agrega aquí los títulos de tus secciones.
+                 El href debe coincidir con el id del h2 correspondiente -->
+            <li><a href="#seccion-1">1. Primera sección</a></li>
+            <li><a href="#seccion-2">2. Segunda sección</a></li>
+            <li><a href="#seccion-3">3. Tercera sección</a></li>
+            <li><a href="#conclusion">4. Conclusión</a></li>
+        </ul>
+        <hr class="art-toc-divider">
+        <a href="../blog.html" class="art-toc-back">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+        </a>
+    </aside>
+
+    <!-- ── Contenido principal ── -->
+    <div class="art-content">
+
+        <!-- ════════ CARD 1: Introducción ════════ -->
+        <div class="art-card">
+
+            <!-- ✏️ PASO 4: Escribe aquí tu contenido.
+                 Puedes usar los bloques de abajo como referencia y eliminar los que no necesites. -->
+
+            <!-- PÁRRAFO INTRODUCTORIO -->
+            <p>
+                Escribe aquí la introducción de tu artículo. Este primer párrafo debe captar la
+                atención del lector y presentar el tema de forma clara y atractiva.
+            </p>
+
+            <!-- IMAGEN FLOTANTE (opcional — elimina si no la usas) -->
+            <div class="art-clearfix">
+                <img src="imagenes/nombre-imagen.jpg"
+                     alt="Descripción de la imagen"
+                     class="art-float-img"
+                     onerror="this.style.display='none'">
+                <p>
+                    Segundo párrafo. Puedes continuar desarrollando el tema aquí. La imagen
+                    aparece flotando a la derecha del texto en pantallas grandes.
+                </p>
+            </div>
+
+            <!-- CITA DESTACADA (opcional) -->
+            <blockquote class="art-pullquote">
+                <p>La inteligencia artificial no reemplaza la inteligencia humana, la amplifica.</p>
+            </blockquote>
+
+            <!-- PUNTOS CLAVE (opcional) -->
+            <div class="art-keybox">
+                <h4><i class="fas fa-star" style="margin-right:6px"></i>Puntos clave</h4>
+                <ul>
+                    <li>Primer punto importante del artículo.</li>
+                    <li>Segundo punto importante del artículo.</li>
+                    <li>Tercer punto importante del artículo.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- ════════ CARD 2: Primera sección ════════ -->
+        <div class="art-card">
+
+            <!-- ✏️ El id debe coincidir con el href del sidebar -->
+            <h2 id="seccion-1">1. Primera sección</h2>
+
+            <p>
+                Contenido de la primera sección. Puedes agregar tantos párrafos como necesites.
+            </p>
+
+            <!-- ESTADÍSTICAS / DATOS (opcional — elimina si no las usas) -->
+            <div class="art-stats-grid">
+                <div class="art-stat-card">
+                    <span class="art-stat-value">73%</span>
+                    <span class="art-stat-label">Descripción del dato o estadística</span>
+                </div>
+                <div class="art-stat-card">
+                    <span class="art-stat-value">2.4B</span>
+                    <span class="art-stat-label">Descripción del dato o estadística</span>
+                </div>
+            </div>
+
+            <!-- IMAGEN CON PIE DE FOTO (opcional) -->
+            <figure class="art-figure">
+                <img src="imagenes/nombre-imagen2.jpg"
+                     alt="Descripción de la imagen"
+                     onerror="this.style.display='none'">
+                <figcaption>Pie de foto: descripción breve de la imagen.</figcaption>
+            </figure>
+
+        </div>
+
+        <!-- ════════ CARD 3: Segunda sección ════════ -->
+        <div class="art-card">
+            <h2 id="seccion-2">2. Segunda sección</h2>
+
+            <p>Contenido de la segunda sección.</p>
+
+            <h3>2.1 Sub-sección (opcional)</h3>
+            <p>Contenido de la sub-sección.</p>
+
+            <!-- LISTA CON VIÑETAS -->
+            <ul>
+                <li>Elemento de lista uno.</li>
+                <li>Elemento de lista dos.</li>
+                <li>Elemento de lista tres.</li>
+            </ul>
+
+            <!-- TABLA (opcional — elimina si no la usas) -->
+            <div class="art-table-wrap">
+                <table class="art-table">
+                    <thead>
+                        <tr>
+                            <th>Columna 1</th>
+                            <th>Columna 2</th>
+                            <th>Columna 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fila 1 – Dato A</td>
+                            <td>Fila 1 – Dato B</td>
+                            <td>Fila 1 – Dato C</td>
+                        </tr>
+                        <tr>
+                            <td>Fila 2 – Dato A</td>
+                            <td>Fila 2 – Dato B</td>
+                            <td>Fila 2 – Dato C</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- ════════ CARD 4: Tercera sección ════════ -->
+        <div class="art-card">
+            <h2 id="seccion-3">3. Tercera sección</h2>
+            <p>Contenido de la tercera sección.</p>
+        </div>
+
+        <!-- ════════ CARD 5: Conclusión ════════ -->
+        <div class="art-card">
+            <h2 id="conclusion">4. Conclusión</h2>
+
+            <p>
+                Escribe aquí el párrafo de cierre. Resume los puntos más importantes
+                y deja un mensaje de valor para el lector.
+            </p>
+
+            <!-- PUNTOS FINALES -->
+            <div class="art-keybox">
+                <h4><i class="fas fa-check-circle" style="margin-right:6px"></i>En resumen</h4>
+                <ul>
+                    <li>Conclusión uno.</li>
+                    <li>Conclusión dos.</li>
+                    <li>Conclusión tres.</li>
+                </ul>
+            </div>
+
+            <p>
+                ¿Quieres saber más sobre inteligencia artificial?
+                Visita nuestra <a href="../biblioteca.html">Biblioteca de IA</a>
+                o revisa los próximos <a href="../eventos.html">eventos y cursos de FEIAAL</a>.
+            </p>
+        </div>
+
+    </div><!-- /art-content -->
+</div><!-- /art-layout -->
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 FEIAAL. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Redes Sociales -->
+<div class="social-icons hidden">
+    <a href="https://www.facebook.com/profile.php?id=61576129793383" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/fundacion_feial/" class="icon instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.twitter.com/" class="icon twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://youtu.be/5Tc2K1kH9BQ?si=AWYYhtYxUsoIVJI4" class="icon youtube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
+</div>
+<button id="toggle-social-icons" class="toggle-button"><i class="fas fa-share-alt"></i></button>
+<a href="https://wa.me/593987121170?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20servicios"
+   target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS34S9QRVV"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PS34S9QRVV');
+</script>
+
+<!-- Barra de progreso de lectura -->
+<script>
+    window.addEventListener('scroll', () => {
+        const doc  = document.documentElement;
+        const scroll = doc.scrollTop || document.body.scrollTop;
+        const height = doc.scrollHeight - doc.clientHeight;
+        const pct  = height > 0 ? (scroll / height) * 100 : 0;
+        document.getElementById('art-progress-bar').style.width = pct + '%';
+    });
+
+    // Resaltar sección activa en el sidebar
+    const headings = document.querySelectorAll('.art-content h2[id]');
+    const links    = document.querySelectorAll('.art-toc a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        headings.forEach(h => {
+            if (window.scrollY >= h.offsetTop - 120) current = h.id;
+        });
+        links.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
+    });
+</script>
+
+</body>
+</html>
