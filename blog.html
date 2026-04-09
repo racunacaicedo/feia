@@ -106,17 +106,9 @@
 <section id="articulos">
 <div class="articles-container">
 
-  <!-- Botón admin -->
-  <div style="text-align:right; margin-bottom:1.2rem;">
-    <a href="admin/index.php"
-       style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,#c2185b,#ff9100);
-              color:#fff; text-decoration:none; padding:7px 18px; border-radius:999px; font-size:0.82rem; font-weight:700;">
-      <i class="fas fa-plus-circle"></i> Publicar noticia
-    </a>
-  </div>
-
   <!-- Filtros por categoría -->
   <style>
+    /* ── Filtros ── */
     .filtro-btn {
       padding: 5px 15px;
       border-radius: 999px;
@@ -130,7 +122,139 @@
     }
     .filtro-btn:hover { border-color: #c2185b; color: #c2185b; }
     .filtro-btn.active { background: linear-gradient(135deg,#c2185b,#ff9100); border-color:transparent; color:#fff; }
+
+    /* ── Tarjeta mejorada ── */
+    .nc-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f0f0f0;
+    }
+    .nc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px rgba(194,24,91,0.13);
+    }
+    .nc-img-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #1a1a2e, #4a0014);
+      flex-shrink: 0;
+    }
+    .nc-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .nc-card:hover .nc-img-wrap img { transform: scale(1.05); }
+    .nc-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: rgba(255,255,255,0.18);
+    }
+    .nc-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(6px);
+    }
+    .nc-badge-ia    { background:rgba(21,101,192,0.85); color:#fff; }
+    .nc-badge-mod   { background:rgba(106,27,154,0.85); color:#fff; }
+    .nc-badge-edu   { background:rgba(46,125,50,0.85);  color:#fff; }
+    .nc-badge-neg   { background:rgba(230,81,0,0.85);   color:#fff; }
+    .nc-badge-inv   { background:rgba(0,105,92,0.85);   color:#fff; }
+    .nc-badge-lat   { background:rgba(136,14,79,0.85);  color:#fff; }
+    .nc-badge-tec   { background:rgba(191,54,12,0.85);  color:#fff; }
+    .nc-badge-inn   { background:rgba(27,94,32,0.85);   color:#fff; }
+
+    .nc-body {
+      padding: 1.2rem 1.3rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .nc-meta {
+      font-size: 0.73rem;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nc-meta i { color: #c2185b; }
+    .nc-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .nc-text {
+      font-size: 0.84rem;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .nc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .nc-autor {
+      font-size: 0.74rem;
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nc-btn {
+      display: inline-block;
+      background: linear-gradient(135deg,#c2185b,#ff9100);
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 999px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nc-btn:hover { opacity:0.88; transform:scale(1.04); }
+
+    /* Grid de tarjetas */
+    .nc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+    @media (max-width: 900px) { .nc-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 580px) { .nc-grid { grid-template-columns: 1fr; } }
   </style>
+
   <div style="display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:1.8rem;">
     <button class="filtro-btn active" onclick="filtrarNoticias('todas',this)">Todas</button>
     <button class="filtro-btn" onclick="filtrarNoticias('IA General',this)">IA General</button>
@@ -143,10 +267,8 @@
     <button class="filtro-btn" onclick="filtrarNoticias('Innovación',this)">Innovación</button>
   </div>
 
-  <!-- Contenedor dinámico de artículos -->
-  <div id="articles-rows">
-    <!-- Cargado por JS -->
-  </div>
+  <!-- Contenedor dinámico -->
+  <div id="articles-rows"></div>
 
   <!-- Estados -->
   <div id="news-loading" style="text-align:center; padding:3rem; color:#aaa;">
@@ -164,12 +286,34 @@
 <!-- Script de carga dinámica -->
 <script>
 (function() {
+  const badgeMap = {
+    'IA General'   : 'nc-badge-ia',
+    'Modelos de IA': 'nc-badge-mod',
+    'Educación'    : 'nc-badge-edu',
+    'Negocios'     : 'nc-badge-neg',
+    'Investigación': 'nc-badge-inv',
+    'América Latina': 'nc-badge-lat',
+    'Tecnología'   : 'nc-badge-tec',
+    'Innovación'   : 'nc-badge-inn',
+  };
+  const iconMap = {
+    'IA General'   : 'fa-robot',
+    'Modelos de IA': 'fa-brain',
+    'Educación'    : 'fa-graduation-cap',
+    'Negocios'     : 'fa-briefcase',
+    'Investigación': 'fa-flask',
+    'América Latina': 'fa-globe-americas',
+    'Tecnología'   : 'fa-microchip',
+    'Innovación'   : 'fa-lightbulb',
+  };
+
   let todasNoticias = [];
 
-  function chunk(arr, size) {
-    const res = [];
-    for (let i = 0; i < arr.length; i += size) res.push(arr.slice(i, i + size));
-    return res;
+  function formatFecha(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    const meses = ['','ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    return `${parseInt(d)} ${meses[parseInt(m)]} ${y}`;
   }
 
   function renderNoticias(lista) {
@@ -180,39 +324,46 @@
     loading.style.display = 'none';
     rows.innerHTML = '';
 
-    if (lista.length === 0) {
-      empty.style.display = 'block';
-      return;
-    }
+    if (lista.length === 0) { empty.style.display = 'block'; return; }
     empty.style.display = 'none';
 
-    chunk(lista, 3).forEach(grupo => {
-      const row = document.createElement('div');
-      row.className = 'articles-row';
+    // Agrupar en filas de 3
+    for (let i = 0; i < lista.length; i += 3) {
+      const grupo = lista.slice(i, i + 3);
+      const grid  = document.createElement('div');
+      grid.className = 'nc-grid';
 
       grupo.forEach(n => {
-        const imgTag = n.imagen
-          ? `<img src="${n.imagen}" alt="${n.titulo}" class="article-float-image"
-               onerror="this.style.display='none'">`
-          : '';
+        const badge = badgeMap[n.categoria] || 'nc-badge-ia';
+        const icon  = iconMap[n.categoria]  || 'fa-newspaper';
+        const imgBloque = n.imagen
+          ? `<img src="${n.imagen}" alt="${n.titulo}" onerror="this.parentElement.innerHTML='<div class=\\'nc-img-placeholder\\'><i class=\\'fas ${icon}\\'></i></div>'">`
+          : `<div class="nc-img-placeholder"><i class="fas ${icon}"></i></div>`;
+        const btnHtml = (n.url && n.url !== '#')
+          ? `<a href="${n.url}" class="nc-btn">Leer más</a>` : '';
 
-        const linkBtn = (n.url && n.url !== '#')
-          ? `<a href="${n.url}" class="btn">Leer Más</a>`
-          : '';
-
-        row.insertAdjacentHTML('beforeend', `
-          <article class="article-card">
-            <h3 class="article-title">${n.titulo}</h3>
-            <div class="text-image-container">
-              ${imgTag}
-              <p class="article-text">${n.resumen || ''}</p>
+        grid.insertAdjacentHTML('beforeend', `
+          <article class="nc-card">
+            <div class="nc-img-wrap">
+              ${imgBloque}
+              <span class="nc-badge ${badge}">${n.categoria}</span>
             </div>
-            ${linkBtn}
+            <div class="nc-body">
+              <div class="nc-meta">
+                <span><i class="fas fa-calendar-alt"></i> ${formatFecha(n.fecha)}</span>
+              </div>
+              <h3 class="nc-title">${n.titulo}</h3>
+              <p class="nc-text">${n.resumen || ''}</p>
+              <div class="nc-footer">
+                <span class="nc-autor"><i class="fas fa-user-circle"></i> ${n.autor || 'FEIAAL'}</span>
+                ${btnHtml}
+              </div>
+            </div>
           </article>`);
       });
 
-      rows.appendChild(row);
-    });
+      rows.appendChild(grid);
+    }
   }
 
   window.filtrarNoticias = function(cat, btn) {

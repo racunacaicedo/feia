@@ -123,6 +123,34 @@ $noticias = leerNoticias();
 $loggedIn = isset($_SESSION['admin_feiaal']);
 
 $categorias = ['IA General','Modelos de IA','Educación','Negocios','Investigación','América Latina','Tecnología','Innovación'];
+
+// Banco de temas sugeridos para publicar
+$temasSugeridos = [
+  ['cat' => 'IA General',    'icono' => 'fa-robot',         'titulo' => 'Qué es la inteligencia artificial generativa y cómo usarla en tu día a día'],
+  ['cat' => 'IA General',    'icono' => 'fa-robot',         'titulo' => 'Los 10 agentes de IA más útiles en 2025'],
+  ['cat' => 'IA General',    'icono' => 'fa-robot',         'titulo' => 'Diferencias entre IA débil, fuerte y superinteligencia'],
+  ['cat' => 'Modelos de IA', 'icono' => 'fa-brain',         'titulo' => 'GPT-4o vs Claude 3.5 vs Gemini 1.5: comparativa actualizada'],
+  ['cat' => 'Modelos de IA', 'icono' => 'fa-brain',         'titulo' => 'Cómo elegir el modelo de IA adecuado para tu empresa'],
+  ['cat' => 'Modelos de IA', 'icono' => 'fa-brain',         'titulo' => 'DeepSeek R2: lo que debes saber del nuevo modelo chino de IA'],
+  ['cat' => 'Educación',     'icono' => 'fa-graduation-cap','titulo' => 'Cómo integrar la inteligencia artificial en el aula sin perder el pensamiento crítico'],
+  ['cat' => 'Educación',     'icono' => 'fa-graduation-cap','titulo' => 'Las mejores plataformas gratuitas para aprender IA en español'],
+  ['cat' => 'Educación',     'icono' => 'fa-graduation-cap','titulo' => 'IA y educación en América Latina: desafíos y oportunidades'],
+  ['cat' => 'Negocios',      'icono' => 'fa-briefcase',     'titulo' => 'Cómo automatizar procesos de tu negocio con herramientas de IA gratuitas'],
+  ['cat' => 'Negocios',      'icono' => 'fa-briefcase',     'titulo' => '5 casos de éxito de empresas latinoamericanas usando inteligencia artificial'],
+  ['cat' => 'Negocios',      'icono' => 'fa-briefcase',     'titulo' => 'IA para PyMEs: por dónde empezar sin gastar mucho'],
+  ['cat' => 'Investigación', 'icono' => 'fa-flask',         'titulo' => 'Los papers de IA más importantes del año y qué significan'],
+  ['cat' => 'Investigación', 'icono' => 'fa-flask',         'titulo' => 'Avances en IA cuántica: dónde estamos y qué viene'],
+  ['cat' => 'Investigación', 'icono' => 'fa-flask',         'titulo' => 'Neurociencia e inteligencia artificial: una relación cada vez más cercana'],
+  ['cat' => 'América Latina','icono' => 'fa-globe-americas','titulo' => 'El estado de la IA en América Latina: informe 2025'],
+  ['cat' => 'América Latina','icono' => 'fa-globe-americas','titulo' => 'Startups latinoamericanas de IA que están cambiando el mercado'],
+  ['cat' => 'América Latina','icono' => 'fa-globe-americas','titulo' => 'Políticas públicas de inteligencia artificial en la región: ¿qué países van adelante?'],
+  ['cat' => 'Tecnología',    'icono' => 'fa-microchip',     'titulo' => 'Chips de IA: NVIDIA H100 vs la nueva generación de procesadores'],
+  ['cat' => 'Tecnología',    'icono' => 'fa-microchip',     'titulo' => 'Cómo funciona un modelo de lenguaje grande (LLM) por dentro'],
+  ['cat' => 'Tecnología',    'icono' => 'fa-microchip',     'titulo' => 'IA en el borde (Edge AI): procesamiento sin necesidad de la nube'],
+  ['cat' => 'Innovación',    'icono' => 'fa-lightbulb',     'titulo' => 'Robótica e IA: el futuro de la automatización industrial'],
+  ['cat' => 'Innovación',    'icono' => 'fa-lightbulb',     'titulo' => 'IA generativa en el arte, la música y la creatividad'],
+  ['cat' => 'Innovación',    'icono' => 'fa-lightbulb',     'titulo' => 'Vehículos autónomos: el rol de la inteligencia artificial en la movilidad del futuro'],
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -410,6 +438,90 @@ $categorias = ['IA General','Modelos de IA','Educación','Negocios','Investigaci
   </table>
   <?php endif; ?>
 </div>
+
+<!-- ── Banco de temas sugeridos ── -->
+<div class="card">
+  <h2><i class="fas fa-lightbulb"></i> Ideas de temas para publicar
+    <span style="font-size:0.75rem;font-weight:400;color:rgba(255,255,255,0.4);margin-left:8px;">Haz clic en un tema para pre-cargarlo en el formulario</span>
+  </h2>
+
+  <style>
+    .temas-filtros { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.2rem; }
+    .tema-filtro-btn { padding:4px 14px; border-radius:999px; border:1.5px solid #2a2a4a;
+      background:transparent; color:#aaa; font-size:0.75rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+    .tema-filtro-btn:hover, .tema-filtro-btn.active { background:#c2185b; border-color:#c2185b; color:#fff; }
+
+    .temas-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.75rem; }
+    @media(max-width:800px){ .temas-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:520px){ .temas-grid { grid-template-columns:1fr; } }
+
+    .tema-card {
+      background:#0f0f1a;
+      border:1px solid #1e1e3a;
+      border-radius:10px;
+      padding:0.85rem 1rem;
+      cursor:pointer;
+      transition:border-color 0.2s, background 0.2s, transform 0.2s;
+      display:flex;
+      gap:0.7rem;
+      align-items:flex-start;
+    }
+    .tema-card:hover { border-color:#c2185b; background:#160816; transform:translateY(-2px); }
+    .tema-card i { color:#c2185b; font-size:1rem; flex-shrink:0; margin-top:2px; }
+    .tema-card-text { font-size:0.82rem; color:rgba(255,255,255,0.75); line-height:1.4; }
+    .tema-card-cat  { font-size:0.68rem; color:#c2185b; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.05em; margin-bottom:3px; }
+    .temas-hidden { display:none; }
+  </style>
+
+  <!-- Filtros de categoría -->
+  <div class="temas-filtros">
+    <button class="tema-filtro-btn active" onclick="filtrarTemas('todas',this)">Todas</button>
+    <?php
+    $cats = array_unique(array_column($temasSugeridos, 'cat'));
+    foreach($cats as $c): ?>
+      <button class="tema-filtro-btn" onclick="filtrarTemas('<?= h($c) ?>',this)"><?= h($c) ?></button>
+    <?php endforeach; ?>
+  </div>
+
+  <!-- Grid de temas -->
+  <div class="temas-grid" id="temas-grid">
+    <?php foreach($temasSugeridos as $t): ?>
+    <div class="tema-card" data-cat="<?= h($t['cat']) ?>"
+         onclick="precargarTema('<?= addslashes(h($t['titulo'])) ?>', '<?= h($t['cat']) ?>')">
+      <i class="fas <?= h($t['icono']) ?>"></i>
+      <div>
+        <div class="tema-card-cat"><?= h($t['cat']) ?></div>
+        <div class="tema-card-text"><?= h($t['titulo']) ?></div>
+      </div>
+    </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+
+<script>
+function filtrarTemas(cat, btn) {
+  document.querySelectorAll('.tema-filtro-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tema-card').forEach(card => {
+    card.classList.toggle('temas-hidden', cat !== 'todas' && card.dataset.cat !== cat);
+  });
+}
+
+function precargarTema(titulo, cat) {
+  // Llenar el campo título y categoría del formulario de publicación
+  const tituloInput = document.querySelector('input[name="titulo"]');
+  const catSelect   = document.querySelector('select[name="categoria"]');
+  if (tituloInput) { tituloInput.value = titulo; tituloInput.focus(); }
+  if (catSelect) {
+    for (let opt of catSelect.options) {
+      if (opt.value === cat) { opt.selected = true; break; }
+    }
+  }
+  // Hacer scroll al formulario
+  tituloInput && tituloInput.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+</script>
 
 <?php endif; ?>
 </div><!-- /wrap -->
