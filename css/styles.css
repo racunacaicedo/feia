@@ -94,6 +94,11 @@ header nav ul li a:hover {
 }
 /* Estilos para pantallas de hasta 768px */
 @media (max-width: 768px) {
+    /* Header scrollable en móvil — igual que biblioteca.html */
+    header {
+        position: relative !important;
+        top: auto !important;
+    }
     .logo {
         max-width: 80px; /* Reducir tamaño en pantallas pequeñas */
     }
