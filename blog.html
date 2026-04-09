@@ -118,14 +118,15 @@
     .filtro-btn:hover { border-color: #c2185b; color: #c2185b; }
     .filtro-btn.active { background: linear-gradient(135deg,#c2185b,#ff9100); border-color:transparent; color:#fff; }
 
-    /* Grid: 2 columnas de tarjetas */
+    /* Grid: 3 columnas desktop, 2 tablet, 1 móvil */
     .nc-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-bottom: 1rem;
     }
-    @media (max-width: 860px) { .nc-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) { .nc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .nc-grid { grid-template-columns: 1fr; } }
 
     /* Tarjeta horizontal: icono/color izq + texto der */
     article.nc-card {
