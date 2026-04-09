@@ -118,13 +118,14 @@
     .filtro-btn:hover { border-color: #c2185b; color: #c2185b; }
     .filtro-btn.active { background: linear-gradient(135deg,#c2185b,#ff9100); border-color:transparent; color:#fff; }
 
-    /* Grid: 1 columna de tarjetas apiladas */
+    /* Grid: 2 columnas de tarjetas */
     .nc-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       margin-bottom: 1rem;
     }
+    @media (max-width: 860px) { .nc-grid { grid-template-columns: 1fr; } }
 
     /* Tarjeta horizontal: icono/color izq + texto der */
     article.nc-card {
