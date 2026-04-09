@@ -89,15 +89,100 @@
             margin-bottom: 3rem;
         }
 
-        /* ── Ajuste de tarjeta para que la info sea visible en móvil ── */
+        /* ══ REDISEÑO TARJETAS MÓVIL ══════════════════════════════════════ */
+
+        /* Tarjeta vertical en todos los tamaños: imagen arriba, info abajo */
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+        }
+
+        /* Imagen con altura fija */
+        .event-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            transition: opacity 0.3s;
+        }
+        .event-card:hover .event-image { opacity: 0.92; }
+
+        /* Info siempre visible — debajo de la imagen */
+        .event-info {
+            position: static !important;
+            transform: none !important;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 1.1rem 1rem 1rem;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1rem !important;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+        .event-description {
+            font-size: 0.8rem !important;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.45;
+            margin-bottom: 0.5rem;
+            flex: 1;
+        }
+        .event-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #c2185b, #ff9100);
+            color: #fff !important;
+            font-size: 0.78rem !important;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            align-self: center;
+        }
+        .event-link:hover { opacity: 0.88; color: #fff !important; }
+
+        /* Grid: 4 col desktop → 3 tablet → 2 móvil → 1 pequeño */
+        .events-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.6rem !important;
+        }
+        @media (max-width: 1024px) {
+            .events-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+        @media (max-width: 700px) {
+            .events-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+            .event-image  { height: 140px; }
+        }
+        @media (max-width: 420px) {
+            .events-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .event-image  { height: 180px; }
+        }
+
+        /* Banner responsive */
         @media (max-width: 640px) {
-            .event-info {
-                position: relative;
-                transform: none;
-                background: rgba(0,0,0,0.82);
-            }
-            .page-banner h1 { font-size: 1.6rem; }
-            .page-banner p  { font-size: 0.9rem; }
+            .page-banner h1 { font-size: 1.55rem; }
+            .page-banner p  { font-size: 0.88rem; }
+            .page-banner    { padding: 2.5rem 1rem 2rem; }
         }
     </style>
 </head>
