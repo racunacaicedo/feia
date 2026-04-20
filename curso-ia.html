@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Inteligencia Artificial — FEIAAL</title>
+    <meta name="description" content="Accede al contenido del Curso de Inteligencia Artificial de FEIAAL: videos de clases, materiales de práctica y recursos por cada sesión.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ── Reset base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; }
+
+        /* ── Header del curso ── */
+        .curso-header {
+            display: flex; align-items: center; gap: 1rem;
+            background: #fff; padding: 0.8rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+        .curso-header-logo img {
+            height: 56px; width: auto; display: block; flex-shrink: 0;
+        }
+        .curso-header-text {
+            display: flex; flex-direction: column; flex: 1; min-width: 0;
+        }
+        .curso-header-title {
+            font-size: 0.95rem; font-weight: 700; color: #111;
+            line-height: 1.3;
+        }
+        .curso-header-sub {
+            font-size: 0.78rem; color: #666; margin-top: 2px;
+        }
+        .curso-header-back {
+            flex-shrink: 0; background: #f0a500; color: #fff;
+            padding: 6px 16px; border-radius: 6px; text-decoration: none;
+            font-size: 0.82rem; font-weight: 700;
+            display: flex; align-items: center; gap: 6px;
+            transition: background 0.2s;
+        }
+        .curso-header-back:hover { background: #d18e00; }
+
+        @media (max-width: 600px) {
+            .curso-header { padding: 0.7rem 1rem; gap: 0.7rem; }
+            .curso-header-logo img { height: 42px; }
+            .curso-header-title { font-size: 0.8rem; }
+            .curso-header-sub { display: none; }
+        }
+
+        /* ── Banner ── */
+        .page-banner {
+            background: linear-gradient(135deg, #0d1b4b, #1a3a8f, #2563eb, #06b6d4);
+            padding: 3.5rem 1rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(255,255,255,0.07), transparent);
+            top: -120px; left: -100px; border-radius: 50%;
+        }
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05), transparent);
+            bottom: -80px; right: -60px; border-radius: 50%;
+        }
+        .page-banner h1 {
+            font-size: 2.4rem; font-weight: 800; color: #fff;
+            margin-bottom: 0.75rem; position: relative; z-index: 1;
+        }
+        .page-banner p {
+            font-size: 1.05rem; color: rgba(255,255,255,0.88);
+            max-width: 680px; margin: 0 auto; line-height: 1.6;
+            position: relative; z-index: 1;
+        }
+        .page-banner .banner-icon {
+            font-size: 3rem; color: rgba(255,255,255,0.3);
+            margin-bottom: 1rem; display: block; position: relative; z-index: 1;
+        }
+        .banner-badge {
+            display: inline-block; background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3); color: #fff;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+            padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem;
+            position: relative; z-index: 1;
+        }
+
+        /* ── Modal de acceso ── */
+        .auth-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .auth-overlay.active { display: flex; }
+
+        .auth-modal {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .auth-modal h2 {
+            font-size: 1.6rem; font-weight: 800; color: #1a3a8f;
+            margin-bottom: 0.4rem; text-align: center;
+        }
+        .auth-modal .auth-subtitle {
+            text-align: center; color: #666; font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+        }
+        .auth-tabs {
+            display: flex; gap: 0; margin-bottom: 1.8rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .auth-tab {
+            flex: 1; text-align: center; padding: 0.7rem;
+            font-weight: 700; font-size: 0.95rem; cursor: pointer;
+            color: #888; border-bottom: 3px solid transparent;
+            margin-bottom: -2px; transition: all 0.2s;
+        }
+        .auth-tab.active { color: #2563eb; border-bottom-color: #2563eb; }
+
+        .auth-form { display: none; }
+        .auth-form.active { display: block; }
+
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label {
+            display: block; font-size: 0.85rem; font-weight: 600;
+            color: #374151; margin-bottom: 0.4rem;
+        }
+        .form-group input {
+            width: 100%; padding: 0.65rem 0.9rem;
+            border: 1.5px solid #d1d5db; border-radius: 8px;
+            font-size: 0.95rem; transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            outline: none; border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+        .btn-auth {
+            width: 100%; padding: 0.8rem;
+            background: linear-gradient(135deg, #1a3a8f, #2563eb);
+            color: #fff; border: none; border-radius: 8px;
+            font-size: 1rem; font-weight: 700; cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-auth:hover { opacity: 0.9; }
+
+        .auth-error {
+            background: #fef2f2; color: #dc2626;
+            border: 1px solid #fecaca; border-radius: 6px;
+            padding: 0.6rem 0.9rem; font-size: 0.85rem;
+            margin-bottom: 1rem; display: none;
+        }
+        .auth-success {
+            background: #f0fdf4; color: #16a34a;
+            border: 1px solid #bbf7d0; border-radius: 6px;
+            padding: 0.6rem 0.9rem; font-size: 0.85rem;
+            margin-bottom: 1rem; display: none;
+        }
+
+        /* ── Barra de usuario logueado ── */
+        #user-bar {
+            display: none;
+            background: linear-gradient(90deg, #1a3a8f, #2563eb);
+            color: #fff; padding: 0.6rem 1.5rem;
+            text-align: right; font-size: 0.88rem;
+            align-items: center; justify-content: flex-end; gap: 1rem;
+        }
+        #user-bar.active { display: flex; }
+        #user-bar span { opacity: 0.9; }
+        #btn-logout {
+            background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
+            color: #fff; padding: 4px 14px; border-radius: 20px;
+            font-size: 0.8rem; cursor: pointer; transition: background 0.2s;
+        }
+        #btn-logout:hover { background: rgba(255,255,255,0.35); }
+
+        /* ── Gate (pantalla de acceso bloqueado) ── */
+        #access-gate {
+            background: #f0f4ff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .gate-card {
+            background: #fff; border-radius: 16px; padding: 3rem 2rem;
+            max-width: 520px; margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.12);
+        }
+        .gate-card i { font-size: 3.5rem; color: #2563eb; margin-bottom: 1rem; }
+        .gate-card h2 { font-size: 1.7rem; color: #1a3a8f; margin-bottom: 0.75rem; }
+        .gate-card p { color: #555; margin-bottom: 1.8rem; line-height: 1.6; }
+        .btn-access {
+            display: inline-block; padding: 0.85rem 2.5rem;
+            background: linear-gradient(135deg, #1a3a8f, #2563eb);
+            color: #fff; border: none; border-radius: 8px;
+            font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            text-decoration: none; transition: opacity 0.2s;
+        }
+        .btn-access:hover { opacity: 0.9; }
+
+        /* ── Contenido del curso ── */
+        #course-content { display: none; }
+        #course-content.active { display: block; }
+
+        .course-section {
+            padding: 2.5rem 1rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ── Selector de clases ── */
+        .class-nav {
+            display: flex; flex-wrap: wrap; gap: 0.6rem;
+            margin-bottom: 2.5rem; justify-content: center;
+        }
+        .class-nav-btn {
+            padding: 0.55rem 1.2rem; border-radius: 30px;
+            border: 2px solid #2563eb; color: #2563eb;
+            background: #fff; font-weight: 600; font-size: 0.88rem;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .class-nav-btn:hover,
+        .class-nav-btn.active {
+            background: #2563eb; color: #fff;
+        }
+
+        /* ── Tarjeta de clase ── */
+        .class-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .class-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .class-header {
+            display: flex; align-items: center; gap: 1rem;
+            background: linear-gradient(135deg, #0d1b4b, #1a3a8f);
+            border-radius: 14px 14px 0 0; padding: 1.4rem 1.8rem; color: #fff;
+        }
+        .class-number {
+            background: rgba(255,255,255,0.2); border-radius: 50%;
+            width: 52px; height: 52px; display: flex;
+            align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 800; flex-shrink: 0;
+        }
+        .class-header h2 { font-size: 1.35rem; font-weight: 700; margin: 0; }
+        .class-header p  { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin: 0.2rem 0 0; }
+
+        .class-body {
+            background: #fff; border: 1px solid #e5e7eb;
+            border-top: none; border-radius: 0 0 14px 14px;
+            overflow: hidden;
+        }
+
+        /* Tabs internas de cada clase */
+        .tab-bar {
+            display: flex; border-bottom: 2px solid #e5e7eb;
+            background: #f9fafb;
+        }
+        .tab-btn {
+            flex: 1; padding: 0.9rem 0.5rem; text-align: center;
+            font-weight: 600; font-size: 0.88rem; cursor: pointer;
+            color: #6b7280; border-bottom: 3px solid transparent;
+            margin-bottom: -2px; transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+        }
+        .tab-btn:hover { color: #2563eb; }
+        .tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; background: #fff; }
+
+        .tab-content { display: none; padding: 1.8rem; }
+        .tab-content.active { display: block; }
+
+        /* Contenido del tema */
+        .topic-content h3 {
+            color: #1a3a8f; font-size: 1.1rem; margin: 1.2rem 0 0.5rem;
+        }
+        .topic-content h3:first-child { margin-top: 0; }
+        .topic-content p { color: #444; line-height: 1.7; margin-bottom: 0.8rem; }
+        .topic-content ul {
+            padding-left: 1.4rem; color: #444; line-height: 1.8;
+        }
+        .topic-content ul li { margin-bottom: 0.3rem; }
+
+        .objective-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+            border-radius: 6px; padding: 5px 12px; font-size: 0.82rem;
+            font-weight: 600; margin-bottom: 1rem;
+        }
+
+        /* Video */
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0;
+            border-radius: 10px; overflow: hidden; background: #000;
+            margin-bottom: 1rem;
+        }
+        .video-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+        .video-placeholder {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #0d1b4b, #1a3a8f);
+            color: #fff; gap: 0.8rem;
+        }
+        .video-placeholder i { font-size: 3rem; opacity: 0.5; }
+        .video-placeholder p { opacity: 0.7; font-size: 0.95rem; }
+        .video-note { color: #6b7280; font-size: 0.85rem; text-align: center; }
+
+        /* Materiales */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .material-card {
+            border: 1.5px solid #e5e7eb; border-radius: 10px;
+            padding: 1.1rem 1rem; display: flex; flex-direction: column;
+            gap: 0.5rem; transition: all 0.2s;
+        }
+        .material-card:hover {
+            border-color: #2563eb; box-shadow: 0 4px 12px rgba(37,99,235,0.12);
+            transform: translateY(-2px);
+        }
+        .material-icon {
+            width: 40px; height: 40px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .material-icon.pdf  { background: #fef2f2; color: #dc2626; }
+        .material-icon.doc  { background: #eff6ff; color: #2563eb; }
+        .material-icon.ppt  { background: #fff7ed; color: #ea580c; }
+        .material-icon.link { background: #f0fdf4; color: #16a34a; }
+        .material-icon.zip  { background: #faf5ff; color: #7c3aed; }
+        .material-icon.video{ background: #eff6ff; color: #0284c7; }
+
+        .material-name {
+            font-size: 0.88rem; font-weight: 600; color: #111827;
+            line-height: 1.3;
+        }
+        .material-desc { font-size: 0.78rem; color: #6b7280; }
+        .material-link {
+            display: inline-flex; align-items: center; gap: 5px;
+            color: #2563eb; font-size: 0.8rem; font-weight: 600;
+            text-decoration: none; margin-top: auto;
+        }
+        .material-link:hover { text-decoration: underline; }
+
+        .materials-placeholder {
+            text-align: center; padding: 2.5rem 1rem;
+            color: #9ca3af;
+        }
+        .materials-placeholder i { font-size: 2.5rem; display: block; margin-bottom: 0.6rem; }
+
+        /* ── Progreso del curso ── */
+        .progress-bar-wrap {
+            background: #f0f4ff; border-radius: 12px; padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .progress-bar-wrap p { font-size: 0.88rem; color: #4b5563; margin-bottom: 0.5rem; font-weight: 600; }
+        .progress-bar {
+            background: #dbeafe; border-radius: 10px; height: 10px; overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #1a3a8f, #2563eb);
+            height: 100%; border-radius: 10px;
+            transition: width 0.6s ease;
+        }
+
+        /* ── Resumen de clase (siempre visible) ── */
+        .clase-summary {
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .clase-summary-header {
+            display: flex; align-items: center; gap: 0.7rem;
+            background: #f0f4ff; padding: 0.9rem 1.8rem;
+            font-weight: 700; font-size: 0.95rem; color: #1a3a8f;
+        }
+        .clase-summary-header i { font-size: 1.1rem; }
+        .clase-date {
+            margin-left: auto; font-size: 0.8rem; font-weight: 500;
+            color: #6b7280; white-space: nowrap;
+        }
+        .clase-summary-body { padding: 1.4rem 1.8rem 1.2rem; }
+        .clase-intro { color: #dc2626; font-weight: 700; margin-bottom: 0.8rem; }
+        .clase-topics {
+            padding-left: 1.3rem; margin-bottom: 1.4rem;
+        }
+        .clase-topics li {
+            color: #111827; font-size: 0.95rem; line-height: 1.8;
+            display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+        }
+        .clase-topics a {
+            font-size: 0.78rem; color: #2563eb; text-decoration: none;
+            background: #eff6ff; border: 1px solid #bfdbfe;
+            padding: 2px 8px; border-radius: 10px;
+        }
+        .clase-topics a:hover { text-decoration: underline; }
+
+        .herramientas-row {
+            display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.5rem;
+        }
+        .herramienta-chip {
+            display: flex; align-items: center; gap: 0.5rem;
+            background: #f9fafb; border: 1.5px solid #e5e7eb;
+            border-radius: 30px; padding: 5px 14px 5px 6px;
+            font-size: 0.82rem; font-weight: 600; color: #374151;
+        }
+        .herramienta-chip img {
+            width: 26px; height: 26px; border-radius: 50%; object-fit: cover;
+        }
+
+        /* ── Reproductor de video ── */
+        .video-section-label {
+            font-weight: 700; color: #1a3a8f; font-size: 0.95rem;
+            margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .video-player {
+            width: 100%; border-radius: 10px; background: #000;
+            display: block; max-height: 500px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .class-nav-btn { font-size: 0.78rem; padding: 0.45rem 0.9rem; }
+            .class-header { padding: 1.1rem 1.2rem; }
+            .class-header h2 { font-size: 1.1rem; }
+            .tab-btn { font-size: 0.78rem; padding: 0.75rem 0.4rem; }
+            .tab-content { padding: 1.2rem 1rem; }
+            .materials-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .page-banner h1 { font-size: 1.6rem; }
+            .materials-grid { grid-template-columns: 1fr; }
+            .auth-modal { padding: 2rem 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══ HEADER ══ -->
+    <header class="curso-header">
+        <a href="index.html" class="curso-header-logo">
+            <img src="imagenes/feiaal.png" alt="Logo FEIAAL">
+        </a>
+        <div class="curso-header-text">
+            <span class="curso-header-title">Fundación para la Enseñanza de la Inteligencia Artificial en América Latina</span>
+            <span class="curso-header-sub">Promoviendo el aprendizaje y el uso ético de la IA</span>
+        </div>
+        <a href="index.html" class="curso-header-back">
+            <i class="fas fa-home"></i> Inicio
+        </a>
+    </header>
+
+    <!-- ══ MODAL DE REGISTRO / LOGIN ══ -->
+    <div class="auth-overlay" id="auth-overlay">
+        <div class="auth-modal">
+            <h2><i class="fas fa-robot" style="color:#2563eb;margin-right:8px;"></i>Acceso al Curso</h2>
+            <p class="auth-subtitle">Regístrate o inicia sesión para acceder al contenido del curso.</p>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Iniciar Sesión</div>
+                <div class="auth-tab" data-tab="register">Registrarse</div>
+            </div>
+
+            <!-- Mensajes -->
+            <div class="auth-error" id="auth-error"></div>
+            <div class="auth-success" id="auth-success"></div>
+
+            <!-- Login -->
+            <form class="auth-form active" id="form-login" autocomplete="on">
+                <div class="form-group">
+                    <label for="login-email">Correo electrónico</label>
+                    <input type="email" id="login-email" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" placeholder="Tu contraseña" required>
+                </div>
+                <button type="submit" class="btn-auth">
+                    <i class="fas fa-sign-in-alt"></i> Ingresar
+                </button>
+            </form>
+
+            <!-- Registro -->
+            <form class="auth-form" id="form-register" autocomplete="on">
+                <div class="form-group">
+                    <label for="reg-name">Nombre completo</label>
+                    <input type="text" id="reg-name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Correo electrónico</label>
+                    <input type="email" id="reg-email" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Contraseña</label>
+                    <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password2">Confirmar contraseña</label>
+                    <input type="password" id="reg-password2" placeholder="Repite tu contraseña" required>
+                </div>
+                <button type="submit" class="btn-auth">
+                    <i class="fas fa-user-plus"></i> Crear cuenta
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <main>
+
+        <!-- Barra de usuario -->
+        <div id="user-bar">
+            <span><i class="fas fa-user-circle" style="margin-right:6px;"></i><span id="user-name-display"></span></span>
+            <button id="btn-logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+        </div>
+
+        <!-- Banner -->
+        <div class="page-banner">
+            <span class="banner-badge"><i class="fas fa-graduation-cap"></i> &nbsp;FEIAAL — Curso Oficial</span>
+            <h1>Inteligencia Artificial Aplicada</h1>
+            <p>Accede a las 6 clases del curso: contenidos teóricos, grabaciones de sesiones y materiales de práctica organizados por clase.</p>
+        </div>
+
+        <!-- ── GATE: pantalla cuando NO hay sesión ── -->
+        <div id="access-gate">
+            <div class="gate-card">
+                <i class="fas fa-lock"></i>
+                <h2>Contenido exclusivo para estudiantes</h2>
+                <p>Este espacio contiene los materiales, videos y recursos de cada clase del curso. Para acceder debes registrarte o iniciar sesión con tu cuenta de estudiante.</p>
+                <button class="btn-access" id="btn-open-auth">
+                    <i class="fas fa-sign-in-alt"></i> &nbsp;Acceder al curso
+                </button>
+            </div>
+        </div>
+
+        <!-- ── CONTENIDO: visible solo con sesión activa ── -->
+        <div id="course-content">
+            <div class="course-section">
+
+                <!-- Bienvenida personalizada -->
+                <div class="progress-bar-wrap">
+                    <p><i class="fas fa-book-open" style="color:#2563eb;margin-right:6px;"></i>Progreso del curso — 6 clases disponibles</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- Navegación de clases -->
+                <div class="class-nav" id="class-nav">
+                    <button class="class-nav-btn active" data-class="1">Clase 1</button>
+                    <button class="class-nav-btn" data-class="2">Clase 2</button>
+                    <button class="class-nav-btn" data-class="3">Clase 3</button>
+                    <button class="class-nav-btn" data-class="4">Clase 4</button>
+                    <button class="class-nav-btn" data-class="5">Clase 5</button>
+                    <button class="class-nav-btn" data-class="6">Clase 6</button>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 1
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel active" id="panel-1">
+                    <div class="class-header">
+                        <div class="class-number">1</div>
+                        <div>
+                            <h2>Miércoles 15 de abril del 2026</h2>
+                            <p>Prompts · Gemini · NotebookLM · Selección de temas</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+
+                        <!-- ── Contenido de la clase (siempre visible arriba) ── -->
+                        <div class="clase-summary">
+                            <div class="clase-summary-header">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Contenido de la primera clase</span>
+                                <span class="clase-date">Miércoles 15 de abril del 2026</span>
+                            </div>
+                            <div class="clase-summary-body">
+                                <p class="clase-intro">El día de hoy veremos los siguientes temas:</p>
+                                <ol class="clase-topics">
+                                    <li>
+                                        <strong>Análisis del Sitio web de FEIAAL</strong>
+                                        <a href="https://feiaal.org/" target="_blank"><i class="fas fa-external-link-alt"></i> feiaal.org</a>
+                                    </li>
+                                    <li><strong>Definición de prompts</strong></li>
+                                    <li><strong>Selección de temas de investigación</strong></li>
+                                    <li><strong>Cuentas de Gemini de prueba</strong></li>
+                                    <li><strong>NotebookLM</strong></li>
+                                </ol>
+                                <div class="herramientas-row">
+                                    <div class="herramienta-chip">
+                                        <img src="cursos/ia/clase1/gemini.jpeg" alt="Gemini">
+                                        <span>Gemini</span>
+                                    </div>
+                                    <div class="herramienta-chip">
+                                        <img src="cursos/ia/clase1/notebooklm.jpg" alt="NotebookLM">
+                                        <span>NotebookLM</span>
+                                    </div>
+                                    <div class="herramienta-chip">
+                                        <img src="cursos/ia/clase1/chatgpt.jpg" alt="ChatGPT">
+                                        <span>ChatGPT</span>
+                                    </div>
+                                    <div class="herramienta-chip">
+                                        <img src="cursos/ia/clase1/claude.jpg" alt="Claude">
+                                        <span>Claude</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ── Tabs ── -->
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="video">
+                                <i class="fas fa-video"></i> Videos
+                            </button>
+                            <button class="tab-btn" data-tab="materiales">
+                                <i class="fas fa-folder-open"></i> Materiales
+                            </button>
+                        </div>
+
+                        <!-- ── TAB: Videos ── -->
+                        <div class="tab-content active" data-panel="video">
+
+                            <p class="video-section-label"><i class="fas fa-play-circle"></i> Video de bienvenida</p>
+                            <div class="video-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1QX8vWJXlit3jk3KAhlVIMltGQM6gHGjH/preview" allowfullscreen allow="autoplay"></iframe>
+                            </div>
+
+                            <p class="video-section-label" style="margin-top:2rem;"><i class="fas fa-film"></i> Grabación completa de la clase</p>
+                            <div class="video-wrapper">
+                                <iframe src="https://drive.google.com/file/d/1j2mGfFlHLxdN-xXU-R7x_cB60QxizKKF/preview" allowfullscreen allow="autoplay"></iframe>
+                            </div>
+
+                        </div>
+
+                        <!-- ── TAB: Materiales ── -->
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+
+                                <div class="material-card">
+                                    <div class="material-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="material-name">Sílabo del Curso</div>
+                                    <div class="material-desc">Programa completo del curso de IA</div>
+                                    <a href="https://drive.google.com/file/d/1-9J9hztZaTmsVdAsC6-CZ-zPZ5tdqH4t/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon ppt"><i class="fas fa-file-powerpoint"></i></div>
+                                    <div class="material-name">Contexto Teórico</div>
+                                    <div class="material-desc">Presentación de la Clase 1</div>
+                                    <a href="https://docs.google.com/presentation/d/1Ju-lU8lyOKT9hmjsPT9Ix61S4c99l1SN/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-word"></i></div>
+                                    <div class="material-name">Contenido de la Clase 1</div>
+                                    <div class="material-desc">Resumen de temas tratados</div>
+                                    <a href="https://docs.google.com/document/d/1YHE923sKdpm-9XdD7LcafDSJikIGVdSQ/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-word"></i></div>
+                                    <div class="material-name">Guía de Prompts</div>
+                                    <div class="material-desc">Conceptos y ejemplos de prompts</div>
+                                    <a href="https://docs.google.com/document/d/1ZMUD9DBJdkfRPKQckzBdat-hT4VsSAQg/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-word"></i></div>
+                                    <div class="material-name">Selección de Tema</div>
+                                    <div class="material-desc">Temas de investigación con IA</div>
+                                    <a href="https://docs.google.com/document/d/17AyWKmzvlBKgeHj2abjelHEmy9U71AHL/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-word"></i></div>
+                                    <div class="material-name">Prompts de Práctica</div>
+                                    <div class="material-desc">Ejercicios para practicar prompts</div>
+                                    <a href="https://docs.google.com/document/d/1ZMAd41NF-ivAY7yIRBukNIgDL7iprkZU/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-word"></i></div>
+                                    <div class="material-name">Cuenta Gemini Gratuita</div>
+                                    <div class="material-desc">Guía para crear tu cuenta Gemini</div>
+                                    <a href="https://docs.google.com/document/d/1PaW8jSq1kbgnZPY9KYI3x9qJUAM1XIPZ/view" target="_blank" class="material-link"><i class="fas fa-eye"></i> Ver</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 2
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel" id="panel-2">
+                    <div class="class-header">
+                        <div class="class-number">2</div>
+                        <div>
+                            <h2>Herramientas de IA para el Trabajo</h2>
+                            <p>ChatGPT, Copilot, Gemini y más — cómo usarlas desde el primer día</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="tema"><i class="fas fa-book"></i> Tema</button>
+                            <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video de clase</button>
+                            <button class="tab-btn" data-tab="materiales"><i class="fas fa-folder-open"></i> Materiales</button>
+                        </div>
+
+                        <div class="tab-content active" data-panel="tema">
+                            <div class="topic-content">
+                                <div class="objective-tag"><i class="fas fa-bullseye"></i> Objetivo de la clase</div>
+                                <p>Conocer y practicar las principales herramientas de IA generativa disponibles hoy, aplicadas a tareas reales de productividad laboral.</p>
+                                <h3>Asistentes de IA más usados</h3>
+                                <ul>
+                                    <li><strong>ChatGPT (OpenAI):</strong> generación de texto, resúmenes, código, borradores.</li>
+                                    <li><strong>Microsoft Copilot:</strong> integrado en Word, Excel, Outlook y Teams.</li>
+                                    <li><strong>Google Gemini:</strong> integrado en Gmail, Docs y Google Workspace.</li>
+                                    <li><strong>Claude (Anthropic):</strong> análisis de documentos, redacción avanzada.</li>
+                                </ul>
+                                <h3>Técnicas de prompting efectivo</h3>
+                                <p>Un buen prompt incluye: contexto, rol, tarea específica y formato deseado. La calidad de la respuesta depende directamente de cómo formulamos la instrucción.</p>
+                                <h3>Casos de uso prácticos</h3>
+                                <ul>
+                                    <li>Redactar correos profesionales y reportes</li>
+                                    <li>Crear presentaciones y resúmenes</li>
+                                    <li>Automatizar análisis de datos con IA</li>
+                                    <li>Generar ideas y superar el bloqueo creativo</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-panel="video">
+                            <div class="video-wrapper">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-film"></i>
+                                    <p>Video de la Clase 2 — próximamente disponible</p>
+                                </div>
+                            </div>
+                            <p class="video-note"><i class="fas fa-info-circle"></i> Si el video no carga, <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" style="color:#2563eb;">accede directamente al Drive</a>.</p>
+                        </div>
+
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-folder"></i></div>
+                                    <div class="material-name">Carpeta de la Clase 2</div>
+                                    <div class="material-desc">Todos los recursos en Google Drive</div>
+                                    <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" class="material-link"><i class="fas fa-external-link-alt"></i> Abrir en Drive</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="material-name">Guía de Herramientas IA</div>
+                                    <div class="material-desc">Comparativa y guía de uso rápido</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-alt"></i></div>
+                                    <div class="material-name">Plantillas de Prompts</div>
+                                    <div class="material-desc">20 prompts listos para usar en el trabajo</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 3
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel" id="panel-3">
+                    <div class="class-header">
+                        <div class="class-number">3</div>
+                        <div>
+                            <h2>IA en Negocios y Emprendimiento</h2>
+                            <p>Automatización, marketing, atención al cliente y decisiones estratégicas</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="tema"><i class="fas fa-book"></i> Tema</button>
+                            <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video de clase</button>
+                            <button class="tab-btn" data-tab="materiales"><i class="fas fa-folder-open"></i> Materiales</button>
+                        </div>
+
+                        <div class="tab-content active" data-panel="tema">
+                            <div class="topic-content">
+                                <div class="objective-tag"><i class="fas fa-bullseye"></i> Objetivo de la clase</div>
+                                <p>Identificar cómo aplicar la IA para mejorar procesos de negocio, aumentar ventas y tomar mejores decisiones con datos.</p>
+                                <h3>IA en marketing digital</h3>
+                                <ul>
+                                    <li>Generación de contenido para redes sociales (Canva AI, Jasper, Copy.ai)</li>
+                                    <li>Segmentación de audiencias y personalización</li>
+                                    <li>Análisis de sentimientos y reputación de marca</li>
+                                </ul>
+                                <h3>Automatización de procesos</h3>
+                                <p>Herramientas como Make (ex-Integromat), Zapier y n8n permiten conectar aplicaciones y automatizar flujos de trabajo repetitivos sin escribir código.</p>
+                                <h3>Atención al cliente con IA</h3>
+                                <ul>
+                                    <li>Chatbots inteligentes (Tidio, ManyChat, ChatGPT API)</li>
+                                    <li>Análisis de llamadas y tickets de soporte</li>
+                                    <li>Personalización de la experiencia del cliente</li>
+                                </ul>
+                                <h3>Decisiones basadas en datos</h3>
+                                <p>La IA puede analizar grandes volúmenes de datos de ventas, clientes y mercado para generar insights accionables que guíen la estrategia empresarial.</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-panel="video">
+                            <div class="video-wrapper">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-film"></i>
+                                    <p>Video de la Clase 3 — próximamente disponible</p>
+                                </div>
+                            </div>
+                            <p class="video-note"><i class="fas fa-info-circle"></i> Si el video no carga, <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" style="color:#2563eb;">accede directamente al Drive</a>.</p>
+                        </div>
+
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-folder"></i></div>
+                                    <div class="material-name">Carpeta de la Clase 3</div>
+                                    <div class="material-desc">Todos los recursos en Google Drive</div>
+                                    <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" class="material-link"><i class="fas fa-external-link-alt"></i> Abrir en Drive</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon ppt"><i class="fas fa-file-powerpoint"></i></div>
+                                    <div class="material-name">Casos de Éxito — IA en Negocios</div>
+                                    <div class="material-desc">Ejemplos reales de empresas en LATAM</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 4
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel" id="panel-4">
+                    <div class="class-header">
+                        <div class="class-number">4</div>
+                        <div>
+                            <h2>IA en Educación</h2>
+                            <p>Herramientas para enseñar, aprender y diseñar experiencias educativas</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="tema"><i class="fas fa-book"></i> Tema</button>
+                            <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video de clase</button>
+                            <button class="tab-btn" data-tab="materiales"><i class="fas fa-folder-open"></i> Materiales</button>
+                        </div>
+
+                        <div class="tab-content active" data-panel="tema">
+                            <div class="topic-content">
+                                <div class="objective-tag"><i class="fas fa-bullseye"></i> Objetivo de la clase</div>
+                                <p>Explorar cómo la IA está transformando la educación y aprender a usar herramientas específicas para docentes y estudiantes.</p>
+                                <h3>IA para docentes</h3>
+                                <ul>
+                                    <li>Generación de planes de clase y rúbricas (ChatGPT, MagicSchool AI)</li>
+                                    <li>Creación de evaluaciones y actividades personalizadas</li>
+                                    <li>Retroalimentación automatizada de trabajos escritos</li>
+                                </ul>
+                                <h3>IA para estudiantes</h3>
+                                <ul>
+                                    <li>Tutores inteligentes adaptativos (Khan Academy Khanmigo, Duolingo AI)</li>
+                                    <li>Síntesis de textos y extracción de conceptos clave</li>
+                                    <li>Generación de mapas mentales y resúmenes</li>
+                                </ul>
+                                <h3>Herramientas destacadas</h3>
+                                <ul>
+                                    <li><strong>NotebookLM (Google):</strong> análisis de documentos y estudio profundo</li>
+                                    <li><strong>Gamma.app:</strong> presentaciones con IA</li>
+                                    <li><strong>Curipod:</strong> clases interactivas generadas con IA</li>
+                                    <li><strong>Diffit:</strong> adaptación de textos por nivel educativo</li>
+                                </ul>
+                                <h3>Consideraciones éticas en la educación</h3>
+                                <p>Es fundamental enseñar el uso responsable de la IA: evitar el plagio, desarrollar pensamiento crítico y verificar siempre la información generada.</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-panel="video">
+                            <div class="video-wrapper">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-film"></i>
+                                    <p>Video de la Clase 4 — próximamente disponible</p>
+                                </div>
+                            </div>
+                            <p class="video-note"><i class="fas fa-info-circle"></i> Si el video no carga, <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" style="color:#2563eb;">accede directamente al Drive</a>.</p>
+                        </div>
+
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-folder"></i></div>
+                                    <div class="material-name">Carpeta de la Clase 4</div>
+                                    <div class="material-desc">Todos los recursos en Google Drive</div>
+                                    <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" class="material-link"><i class="fas fa-external-link-alt"></i> Abrir en Drive</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-alt"></i></div>
+                                    <div class="material-name">Guía de Herramientas Educativas</div>
+                                    <div class="material-desc">Top 15 herramientas de IA para educación</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 5
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel" id="panel-5">
+                    <div class="class-header">
+                        <div class="class-number">5</div>
+                        <div>
+                            <h2>Ética y Uso Responsable de la IA</h2>
+                            <p>Sesgos, privacidad, derechos de autor y gobernanza de la IA</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="tema"><i class="fas fa-book"></i> Tema</button>
+                            <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video de clase</button>
+                            <button class="tab-btn" data-tab="materiales"><i class="fas fa-folder-open"></i> Materiales</button>
+                        </div>
+
+                        <div class="tab-content active" data-panel="tema">
+                            <div class="topic-content">
+                                <div class="objective-tag"><i class="fas fa-bullseye"></i> Objetivo de la clase</div>
+                                <p>Comprender los principales desafíos éticos de la IA y desarrollar criterios para su uso responsable en contextos profesionales y educativos.</p>
+                                <h3>Sesgos algorítmicos</h3>
+                                <p>Los modelos de IA aprenden de datos históricos que pueden contener sesgos de género, raza, socioeconómicos, etc. Es crucial conocer cómo identificarlos y mitigarlos.</p>
+                                <h3>Privacidad y protección de datos</h3>
+                                <ul>
+                                    <li>No compartir información personal o confidencial con IA</li>
+                                    <li>Regulaciones: GDPR, Ley de Protección de Datos en LATAM</li>
+                                    <li>Anonimización de datos antes de procesarlos con IA</li>
+                                </ul>
+                                <h3>Propiedad intelectual y derechos de autor</h3>
+                                <p>El contenido generado por IA plantea preguntas sobre autoría, plagio y uso comercial. Conocer las políticas de las herramientas es fundamental.</p>
+                                <h3>Principios de IA responsable</h3>
+                                <ul>
+                                    <li>Transparencia y explicabilidad</li>
+                                    <li>Equidad y no discriminación</li>
+                                    <li>Seguridad y confiabilidad</li>
+                                    <li>Responsabilidad humana en las decisiones finales</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-panel="video">
+                            <div class="video-wrapper">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-film"></i>
+                                    <p>Video de la Clase 5 — próximamente disponible</p>
+                                </div>
+                            </div>
+                            <p class="video-note"><i class="fas fa-info-circle"></i> Si el video no carga, <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" style="color:#2563eb;">accede directamente al Drive</a>.</p>
+                        </div>
+
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-folder"></i></div>
+                                    <div class="material-name">Carpeta de la Clase 5</div>
+                                    <div class="material-desc">Todos los recursos en Google Drive</div>
+                                    <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" class="material-link"><i class="fas fa-external-link-alt"></i> Abrir en Drive</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="material-name">Marco Ético de la IA — FEIAAL</div>
+                                    <div class="material-desc">Guía de principios para uso responsable</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-alt"></i></div>
+                                    <div class="material-name">Casos de Análisis Ético</div>
+                                    <div class="material-desc">Ejercicios para reflexión grupal</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     CLASE 6
+                ═══════════════════════════════════════════ -->
+                <div class="class-panel" id="panel-6">
+                    <div class="class-header">
+                        <div class="class-number">6</div>
+                        <div>
+                            <h2>Proyecto Final — Plan de Implementación</h2>
+                            <p>Integra todo lo aprendido y diseña tu propio proyecto con IA</p>
+                        </div>
+                    </div>
+                    <div class="class-body">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" data-tab="tema"><i class="fas fa-book"></i> Tema</button>
+                            <button class="tab-btn" data-tab="video"><i class="fas fa-video"></i> Video de clase</button>
+                            <button class="tab-btn" data-tab="materiales"><i class="fas fa-folder-open"></i> Materiales</button>
+                        </div>
+
+                        <div class="tab-content active" data-panel="tema">
+                            <div class="topic-content">
+                                <div class="objective-tag"><i class="fas fa-bullseye"></i> Objetivo de la clase</div>
+                                <p>Integrar los conocimientos del curso en un proyecto práctico real que demuestre cómo la IA puede transformar un área específica de tu vida profesional o educativa.</p>
+                                <h3>¿En qué consiste el proyecto final?</h3>
+                                <p>Cada estudiante o grupo diseñará un plan de implementación de IA en un contexto real (empresa, aula, emprendimiento) que incluya herramientas seleccionadas, justificación, flujo de trabajo y métricas de éxito.</p>
+                                <h3>Estructura del proyecto</h3>
+                                <ul>
+                                    <li><strong>1. Diagnóstico:</strong> ¿Qué problema o proceso quieres mejorar con IA?</li>
+                                    <li><strong>2. Solución:</strong> ¿Qué herramienta(s) de IA utilizarás y por qué?</li>
+                                    <li><strong>3. Implementación:</strong> Paso a paso de cómo lo llevarás a cabo</li>
+                                    <li><strong>4. Evaluación:</strong> ¿Cómo medirás el impacto y los resultados?</li>
+                                    <li><strong>5. Consideraciones éticas:</strong> Riesgos y cómo mitigarlos</li>
+                                </ul>
+                                <h3>Presentación final</h3>
+                                <p>Los proyectos serán presentados al grupo para recibir retroalimentación. Se valorará la creatividad, viabilidad y aplicación práctica de los conceptos aprendidos.</p>
+                                <h3>¡Felicitaciones por llegar hasta aquí!</h3>
+                                <p>Has recorrido un camino completo: desde los fundamentos de la IA hasta su aplicación ética y práctica en el mundo real. ¡Ahora es el momento de aplicarlo!</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" data-panel="video">
+                            <div class="video-wrapper">
+                                <div class="video-placeholder">
+                                    <i class="fas fa-film"></i>
+                                    <p>Video de la Clase 6 — próximamente disponible</p>
+                                </div>
+                            </div>
+                            <p class="video-note"><i class="fas fa-info-circle"></i> Si el video no carga, <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" style="color:#2563eb;">accede directamente al Drive</a>.</p>
+                        </div>
+
+                        <div class="tab-content" data-panel="materiales">
+                            <div class="materials-grid">
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-folder"></i></div>
+                                    <div class="material-name">Carpeta de la Clase 6</div>
+                                    <div class="material-desc">Todos los recursos en Google Drive</div>
+                                    <a href="https://drive.google.com/drive/folders/1yRbRqPzO1rPRfxSOZMbWJY-DzZYkrJpa" target="_blank" class="material-link"><i class="fas fa-external-link-alt"></i> Abrir en Drive</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon doc"><i class="fas fa-file-alt"></i></div>
+                                    <div class="material-name">Plantilla del Proyecto Final</div>
+                                    <div class="material-desc">Guía estructurada para tu proyecto</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon ppt"><i class="fas fa-file-powerpoint"></i></div>
+                                    <div class="material-name">Rúbrica de Evaluación</div>
+                                    <div class="material-desc">Criterios de calificación del proyecto</div>
+                                    <a href="#" class="material-link"><i class="fas fa-download"></i> Descargar</a>
+                                </div>
+                                <div class="material-card">
+                                    <div class="material-icon link"><i class="fas fa-certificate"></i></div>
+                                    <div class="material-name">Certificado de Finalización</div>
+                                    <div class="material-desc">Se entrega al completar el curso</div>
+                                    <a href="#" class="material-link"><i class="fas fa-info-circle"></i> Más info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer style="background:#1a3a8f;color:#fff;text-align:center;padding:1rem;font-size:0.85rem;margin-top:3rem;">
+        &copy; 2025 FEIAAL — <a href="https://feiaal.org" style="color:#93c5fd;">feiaal.org</a>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS34S9QRVV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PS34S9QRVV');
+    </script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        const SESSION_KEY = 'feiaal_curso_session';
+        const API         = 'php/curso_auth.php';
+
+        // ── Referencias DOM ──
+        const overlay      = document.getElementById('auth-overlay');
+        const gate         = document.getElementById('access-gate');
+        const courseDiv    = document.getElementById('course-content');
+        const userBar      = document.getElementById('user-bar');
+        const userNameEl   = document.getElementById('user-name-display');
+        const errorEl      = document.getElementById('auth-error');
+        const successEl    = document.getElementById('auth-success');
+        const btnOpenAuth  = document.getElementById('btn-open-auth');
+        const btnLogout    = document.getElementById('btn-logout');
+        const tabs         = document.querySelectorAll('.auth-tabs .auth-tab');
+        const formLogin    = document.getElementById('form-login');
+        const formRegister = document.getElementById('form-register');
+
+        // ── Mensajes ──
+        function showError(msg)   { errorEl.textContent = msg;   errorEl.style.display = 'block';  successEl.style.display = 'none'; }
+        function showSuccess(msg) { successEl.textContent = msg; successEl.style.display = 'block'; errorEl.style.display = 'none'; }
+        function clearMessages()  { errorEl.style.display = 'none'; successEl.style.display = 'none'; }
+
+        // ── Activar sesión ──
+        function activateSession(nombre, id, email) {
+            localStorage.setItem(SESSION_KEY, JSON.stringify({ nombre, id, email }));
+            userNameEl.textContent = nombre;
+            userBar.classList.add('active');
+            gate.style.display = 'none';
+            courseDiv.classList.add('active');
+            overlay.classList.remove('active');
+            registrarActividad('vista_clase', 'Clase 1', id, email);
+        }
+
+        // ── Registrar actividad ──
+        function registrarActividad(accion, detalle, id, email) {
+            fetch(API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ accion: 'actividad', accion: accion, detalle, id, email })
+            }).catch(() => {});
+        }
+
+        // ── Verificar sesión guardada ──
+        const saved = localStorage.getItem(SESSION_KEY);
+        if (saved) {
+            try {
+                const s = JSON.parse(saved);
+                if (s.nombre) activateSession(s.nombre, s.id, s.email);
+            } catch(e) { localStorage.removeItem(SESSION_KEY); }
+        }
+
+        // ── Abrir modal ──
+        btnOpenAuth.addEventListener('click', () => { clearMessages(); overlay.classList.add('active'); });
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('active'); });
+
+        // ── Tabs del modal ──
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                clearMessages();
+                document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                document.getElementById('form-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // ── Registro ──
+        formRegister.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            const nombre = document.getElementById('reg-name').value.trim();
+            const email  = document.getElementById('reg-email').value.trim().toLowerCase();
+            const pass   = document.getElementById('reg-password').value;
+            const pass2  = document.getElementById('reg-password2').value;
+
+            if (!nombre || !email || !pass) { showError('Completa todos los campos.'); return; }
+            if (pass !== pass2)             { showError('Las contraseñas no coinciden.'); return; }
+            if (pass.length < 6)            { showError('La contraseña debe tener al menos 6 caracteres.'); return; }
+
+            const btn = formRegister.querySelector('button');
+            btn.disabled = true; btn.textContent = 'Creando cuenta...';
+            try {
+                const res  = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify({ accion:'registro', nombre, email, password: pass }) });
+                const data = await res.json();
+                if (data.ok) {
+                    showSuccess('¡Cuenta creada! Bienvenido/a, ' + data.nombre + '.');
+                    setTimeout(() => activateSession(data.nombre, data.id, email), 1000);
+                } else {
+                    showError(data.msg);
+                }
+            } catch { showError('Error de conexión. Intenta de nuevo.'); }
+            btn.disabled = false; btn.innerHTML = '<i class="fas fa-user-plus"></i> Crear cuenta';
+        });
+
+        // ── Login ──
+        formLogin.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearMessages();
+            const email = document.getElementById('login-email').value.trim().toLowerCase();
+            const pass  = document.getElementById('login-password').value;
+
+            const btn = formLogin.querySelector('button');
+            btn.disabled = true; btn.textContent = 'Ingresando...';
+            try {
+                const res  = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify({ accion:'login', email, password: pass }) });
+                const data = await res.json();
+                if (data.ok) {
+                    activateSession(data.nombre, data.id, email);
+                } else {
+                    showError(data.msg);
+                }
+            } catch { showError('Error de conexión. Intenta de nuevo.'); }
+            btn.disabled = false; btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Ingresar';
+        });
+
+        // ── Cerrar sesión ──
+        btnLogout.addEventListener('click', () => {
+            localStorage.removeItem(SESSION_KEY);
+            userBar.classList.remove('active');
+            courseDiv.classList.remove('active');
+            gate.style.display = '';
+        });
+
+        // ── Navegación entre clases ──
+        document.getElementById('class-nav').addEventListener('click', (e) => {
+            const btn = e.target.closest('.class-nav-btn');
+            if (!btn) return;
+            document.querySelectorAll('.class-nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.class-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('panel-' + btn.dataset.class).classList.add('active');
+            window.scrollTo({ top: document.querySelector('.class-nav').offsetTop - 80, behavior: 'smooth' });
+            const s = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
+            if (s.id) registrarActividad('vista_clase', 'Clase ' + btn.dataset.class, s.id, s.email);
+        });
+
+        // ── Tabs internas de cada clase ──
+        document.addEventListener('click', (e) => {
+            const tabBtn = e.target.closest('.tab-btn');
+            if (!tabBtn) return;
+            const bar  = tabBtn.closest('.tab-bar');
+            const body = bar.closest('.class-body');
+            bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            tabBtn.classList.add('active');
+            body.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            body.querySelector('[data-panel="' + tabBtn.dataset.tab + '"]').classList.add('active');
+        });
+
+    })();
+    </script>
+
+</body>
+</html>

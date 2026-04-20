@@ -1,0 +1,14 @@
+# IDE
+.idea/
+.claude/
+
+# Archivos temporales de Office
+~$*
+
+# Videos y archivos grandes de clases (se sirven desde Drive)
+cursos/ia/clase1/*.mp4
+cursos/ia/clase2/*.mp4
+cursos/ia/clase3/*.mp4
+cursos/ia/clase4/*.mp4
+cursos/ia/clase5/*.mp4
+cursos/ia/clase6/*.mp4
